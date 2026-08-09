@@ -151,10 +151,21 @@ h3 {
 }
 
 .hero-text,
+.launch-note,
 .section-heading p,
 .access-copy p {
   color: var(--ink-soft);
   font-size: clamp(1.02rem, 2.5vw, 1.2rem);
+}
+
+.launch-note {
+  max-width: 650px;
+  margin: 20px 0 0;
+  border-left: 4px solid var(--teal);
+  padding: 14px 18px;
+  border-radius: 8px;
+  background: white;
+  font-weight: 750;
 }
 
 .hero-actions {
@@ -219,7 +230,8 @@ h3 {
 .feature-grid article,
 .screenshot-grid article,
 .access-form,
-.trust-box {
+.trust-box,
+.trust-grid article {
   border: 1px solid var(--line);
   background: var(--card);
   box-shadow: var(--shadow);
@@ -384,11 +396,38 @@ h3 {
   gap: 12px;
 }
 
+.benefit-list.compact {
+  grid-template-columns: 1fr;
+}
+
 .benefit-list div {
   border-left: 4px solid var(--teal);
   border-radius: 8px;
   padding: 16px 18px;
   background: white;
+  color: var(--ink-soft);
+  font-weight: 650;
+}
+
+.founders {
+  display: grid;
+  gap: 20px;
+}
+
+.trust-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.trust-grid article {
+  border-radius: 14px;
+  padding: 22px;
+  color: var(--blue);
+  font-weight: 850;
+}
+
+.privacy-note {
+  margin: 18px 0 0;
   color: var(--ink-soft);
   font-weight: 650;
 }
@@ -440,6 +479,21 @@ label {
   font-weight: 800;
 }
 
+.consent {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: start;
+  color: var(--ink-soft);
+  font-weight: 650;
+}
+
+.consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  accent-color: var(--teal-dark);
+}
+
 input,
 textarea {
   width: 100%;
@@ -461,6 +515,21 @@ textarea:focus {
   margin: 0;
   color: var(--ink-soft);
   font-size: 0.86rem;
+}
+
+.form-note[data-state="success"] {
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+.form-note[data-state="error"] {
+  color: #9f2f2f;
+  font-weight: 800;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.72;
 }
 
 .site-footer {
@@ -502,6 +571,11 @@ textarea:focus {
 
   .steps,
   .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .benefit-list.compact,
+  .trust-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
