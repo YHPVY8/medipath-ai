@@ -1,6 +1,6 @@
 window.MEDIPATH_WAITLIST_CONFIG = {
   supabaseUrl: "https://wqfonavkarylyfjuzvmi.supabase.co",
-  publishableKey: "",
+  publishableKey: "sb_publishable_aeVLsJmQNVkicGOmmFOuNQ_s2QRAtO7",
   contact: {
     whatsappNumber: "5581986990144",
     whatsappUrl: "https://wa.me/5581986990144",

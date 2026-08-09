@@ -17,13 +17,15 @@ The launch form is designed to submit to Supabase table `public.waitlist_signups
 The table stores:
 
 - `id`
-- `name`
+- `full_name`
 - `email`
+- `city`
+- `state`
 - `specialty`
-- `city_state`
-- `clinic_hospital`
 - `whatsapp`
-- `consent`
+- `profile_type`
+- `communication_preference`
+- `launch_consent`
 - `created_at`
 - `status`
 
@@ -42,9 +44,9 @@ To activate direct database submissions from the public page, set the Supabase
 publishable key in `config.js`. The publishable/anon key is safe to expose only
 with the RLS policy above; never use a service-role key in this static site.
 
-If the publishable key is blank, the form opens WhatsApp with a prepared
-early-access message. WhatsApp is the only public contact method currently shown
-on the site.
+If the publishable key is blank, the form shows a configuration message instead
+of opening WhatsApp. WhatsApp is the only public contact method currently shown
+on the site, but waitlist submissions are intended to go only to Supabase.
 
 ## View and export submissions
 

@@ -250,31 +250,48 @@
         <form class="access-form" id="waitlist-form">
           <label>
             <span data-i18n="form.name">Nome completo</span>
-            <input name="name" type="text" autocomplete="name" required />
+            <input name="full_name" type="text" autocomplete="name" required />
           </label>
           <label>
             <span data-i18n="form.email">Email</span>
             <input name="email" type="email" autocomplete="email" required />
           </label>
           <label>
+            <span data-i18n="form.city">Cidade</span>
+            <input name="city" type="text" autocomplete="address-level2" required />
+          </label>
+          <label>
+            <span data-i18n="form.state">Estado</span>
+            <input name="state" type="text" autocomplete="address-level1" required />
+          </label>
+          <label>
             <span data-i18n="form.specialty">Especialidade</span>
-            <input name="specialty" type="text" required />
-          </label>
-          <label>
-            <span data-i18n="form.cityState">Cidade/Estado</span>
-            <input name="city_state" type="text" required />
-          </label>
-          <label>
-            <span data-i18n="form.clinic">Clínica/Hospital</span>
-            <input name="clinic_hospital" type="text" />
+            <input name="specialty" type="text" />
           </label>
           <label>
             <span data-i18n="form.whatsapp">WhatsApp</span>
             <input name="whatsapp" type="tel" autocomplete="tel" />
           </label>
+          <label>
+            <span data-i18n="form.profileType">Tipo de perfil</span>
+            <select name="profile_type">
+              <option value="" data-i18n="form.selectPlaceholder">Selecione</option>
+              <option value="Médico individual" data-i18n="form.profileDoctor">Médico individual</option>
+              <option value="Clínica" data-i18n="form.profileClinic">Clínica</option>
+              <option value="Hospital" data-i18n="form.profileHospital">Hospital</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="form.communicationPreference">Preferência de comunicação</span>
+            <select name="communication_preference">
+              <option value="" data-i18n="form.selectPlaceholder">Selecione</option>
+              <option value="Email" data-i18n="form.preferenceEmail">Email</option>
+              <option value="WhatsApp" data-i18n="form.preferenceWhatsApp">WhatsApp</option>
+            </select>
+          </label>
           <label class="consent full">
-            <input name="consent" type="checkbox" required />
-            <span data-i18n="form.consent">Aceito receber informações sobre o lançamento do Medipath.AI e estou de acordo com a Política de Privacidade.</span>
+            <input name="launch_consent" type="checkbox" required />
+            <span data-i18n="form.consent">Aceito receber comunicações sobre o lançamento do Medipath.AI. Usaremos seus dados apenas para informações sobre o produto e acesso antecipado. Não vendemos seus dados e não enviaremos spam.</span>
           </label>
           <button class="button primary full" type="submit" data-i18n="form.submit">Entrar na lista</button>
           <p class="form-note full" id="form-note" data-i18n="form.note">
@@ -284,6 +301,15 @@
             Para dúvidas sobre acesso antecipado, fale conosco pelo WhatsApp.
           </p>
         </form>
+        <div class="access-confirmation" id="waitlist-confirmation" tabindex="-1" hidden>
+          <p class="eyebrow" data-i18n="confirmation.eyebrow">Cadastro recebido</p>
+          <h2 data-i18n="confirmation.title">Obrigado pelo interesse no Medipath.AI.</h2>
+          <p data-i18n="confirmation.message">
+            Recebemos seu cadastro para a lista de acesso antecipado. Entraremos em contato durante as próximas ondas de lançamento.
+          </p>
+          <p data-i18n="confirmation.extra">Enquanto isso, acompanhe as novidades pelo nosso site.</p>
+          <a class="button primary" href="#top" data-confirmation-home data-i18n="confirmation.button">Voltar ao início</a>
+        </div>
       </section>
     </main>
 

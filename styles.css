@@ -489,7 +489,8 @@ h3 {
   color: var(--ink-soft);
 }
 
-.access-form {
+.access-form,
+.access-confirmation {
   display: grid;
   gap: 14px;
   border-radius: 16px;
@@ -520,6 +521,7 @@ label {
 }
 
 input,
+select,
 textarea {
   width: 100%;
   border: 1px solid var(--line);
@@ -531,9 +533,14 @@ textarea {
 }
 
 input:focus,
+select:focus,
 textarea:focus {
   outline: 3px solid rgba(10, 156, 163, 0.18);
   border-color: var(--teal);
+}
+
+select {
+  appearance: none;
 }
 
 .form-note {
@@ -561,6 +568,26 @@ textarea:focus {
 button:disabled {
   cursor: wait;
   opacity: 0.72;
+}
+
+.access-confirmation {
+  align-content: center;
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+.access-confirmation[hidden],
+.access-form[hidden] {
+  display: none;
+}
+
+.access-confirmation p {
+  color: var(--ink-soft);
+}
+
+.access-confirmation > * {
+  grid-column: 1 / -1;
 }
 
 .site-footer {
@@ -623,7 +650,8 @@ button:disabled {
     align-items: start;
   }
 
-  .access-form {
+  .access-form,
+  .access-confirmation {
     grid-template-columns: repeat(2, 1fr);
     padding: 28px;
   }

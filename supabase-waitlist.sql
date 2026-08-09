@@ -1,30 +1,137 @@
 -- Medipath.AI Phase 1 waitlist table.
 -- Public website users may insert lead requests, but cannot read submissions.
+-- This migration updates the existing launch waitlist table from the original
+-- draft fields to the current public landing-page fields.
 
 create table if not exists public.waitlist_signups (
   id uuid primary key default gen_random_uuid(),
-  name text not null,
+  full_name text,
   email text not null,
-  specialty text not null,
-  city_state text not null,
-  clinic_hospital text,
+  city text,
+  state text,
+  specialty text,
   whatsapp text,
-  consent boolean not null default false,
+  profile_type text,
+  communication_preference text,
+  launch_consent boolean not null default false,
   status text not null default 'New',
-  created_at timestamptz not null default now(),
-  constraint waitlist_signups_email_format_check
-    check (position('@' in email) > 1),
-  constraint waitlist_signups_name_not_blank_check
-    check (length(btrim(name)) > 1),
-  constraint waitlist_signups_specialty_not_blank_check
-    check (length(btrim(specialty)) > 1),
-  constraint waitlist_signups_city_state_not_blank_check
-    check (length(btrim(city_state)) > 1),
-  constraint waitlist_signups_consent_required_check
-    check (consent is true),
-  constraint waitlist_signups_status_check
-    check (status in ('New', 'Contacted', 'Invited', 'Pilot User', 'Converted'))
+  created_at timestamptz not null default now()
 );
+
+alter table public.waitlist_signups
+  add column if not exists full_name text,
+  add column if not exists city text,
+  add column if not exists state text,
+  add column if not exists specialty text,
+  add column if not exists whatsapp text,
+  add column if not exists profile_type text,
+  add column if not exists communication_preference text,
+  add column if not exists launch_consent boolean not null default false,
+  add column if not exists status text not null default 'New',
+  add column if not exists created_at timestamptz not null default now();
+
+do $$
+begin
+  if exists (
+    select 1
+    from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'waitlist_signups'
+      and column_name = 'name'
+  ) then
+    execute $sql$
+      update public.waitlist_signups
+      set full_name = coalesce(full_name, nullif(btrim(name), ''))
+    $sql$;
+  end if;
+
+  if exists (
+    select 1
+    from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'waitlist_signups'
+      and column_name = 'consent'
+  ) then
+    execute $sql$
+      update public.waitlist_signups
+      set launch_consent = coalesce(launch_consent, consent)
+    $sql$;
+  end if;
+
+  if exists (
+    select 1
+    from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'waitlist_signups'
+      and column_name = 'city_state'
+  ) then
+    execute $sql$
+      update public.waitlist_signups
+      set
+        city = coalesce(city, nullif(btrim(split_part(city_state, '/', 1)), '')),
+        state = coalesce(state, nullif(btrim(split_part(city_state, '/', 2)), ''))
+    $sql$;
+  end if;
+
+  if exists (
+    select 1
+    from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'waitlist_signups'
+      and column_name = 'clinic_hospital'
+  ) then
+    execute $sql$
+      update public.waitlist_signups
+      set profile_type = coalesce(profile_type, clinic_hospital)
+    $sql$;
+  end if;
+end $$;
+
+alter table public.waitlist_signups
+  drop constraint if exists waitlist_signups_email_format_check,
+  drop constraint if exists waitlist_signups_name_not_blank_check,
+  drop constraint if exists waitlist_signups_specialty_not_blank_check,
+  drop constraint if exists waitlist_signups_city_state_not_blank_check,
+  drop constraint if exists waitlist_signups_consent_required_check,
+  drop constraint if exists waitlist_signups_status_check,
+  drop constraint if exists waitlist_signups_full_name_not_blank_check,
+  drop constraint if exists waitlist_signups_city_not_blank_check,
+  drop constraint if exists waitlist_signups_state_not_blank_check,
+  drop constraint if exists waitlist_signups_launch_consent_required_check,
+  drop constraint if exists waitlist_signups_profile_type_check,
+  drop constraint if exists waitlist_signups_communication_preference_check,
+  add constraint waitlist_signups_email_format_check
+    check (position('@' in email) > 1),
+  add constraint waitlist_signups_full_name_not_blank_check
+    check (length(btrim(full_name)) > 1),
+  add constraint waitlist_signups_city_not_blank_check
+    check (length(btrim(city)) > 1),
+  add constraint waitlist_signups_state_not_blank_check
+    check (length(btrim(state)) > 1),
+  add constraint waitlist_signups_launch_consent_required_check
+    check (launch_consent is true),
+  add constraint waitlist_signups_profile_type_check
+    check (profile_type is null or profile_type in ('Médico individual', 'Clínica', 'Hospital')),
+  add constraint waitlist_signups_communication_preference_check
+    check (communication_preference is null or communication_preference in ('Email', 'WhatsApp')),
+  add constraint waitlist_signups_status_check
+    check (status in ('New', 'Contacted', 'Invited', 'Pilot User', 'Converted'));
+
+alter table public.waitlist_signups
+  alter column full_name set not null,
+  alter column email set not null,
+  alter column city set not null,
+  alter column state set not null,
+  alter column launch_consent set not null,
+  alter column specialty drop not null;
+
+drop policy if exists "Public can join waitlist" on public.waitlist_signups;
+
+alter table public.waitlist_signups
+  drop column if exists name,
+  drop column if exists city_state,
+  drop column if exists clinic_hospital,
+  drop column if exists consent;
 
 create unique index if not exists waitlist_signups_email_lower_uidx
   on public.waitlist_signups (lower(email));
@@ -37,16 +144,17 @@ alter table public.waitlist_signups enable row level security;
 revoke all on table public.waitlist_signups from public, anon, authenticated;
 grant insert on table public.waitlist_signups to anon, authenticated;
 
-drop policy if exists "Public can join waitlist" on public.waitlist_signups;
 create policy "Public can join waitlist"
   on public.waitlist_signups
   for insert
   to anon, authenticated
   with check (
-    consent is true
+    launch_consent is true
     and status = 'New'
-    and length(btrim(name)) > 1
+    and length(btrim(full_name)) > 1
     and length(btrim(email)) > 3
-    and length(btrim(specialty)) > 1
-    and length(btrim(city_state)) > 1
+    and length(btrim(city)) > 1
+    and length(btrim(state)) > 1
+    and (profile_type is null or profile_type in ('Médico individual', 'Clínica', 'Hospital'))
+    and (communication_preference is null or communication_preference in ('Email', 'WhatsApp'))
   );

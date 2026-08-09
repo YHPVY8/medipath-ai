@@ -82,22 +82,33 @@ const translations = {
     "access.trust": "Não solicitamos CPF, dados de pacientes, prontuários ou informações de saúde neste formulário.",
     "form.name": "Nome completo",
     "form.email": "Email",
+    "form.city": "Cidade",
+    "form.state": "Estado",
     "form.specialty": "Especialidade",
-    "form.cityState": "Cidade/Estado",
-    "form.clinic": "Clínica/Hospital",
     "form.whatsapp": "WhatsApp",
+    "form.profileType": "Tipo de perfil",
+    "form.communicationPreference": "Preferência de comunicação",
+    "form.selectPlaceholder": "Selecione",
+    "form.profileDoctor": "Médico individual",
+    "form.profileClinic": "Clínica",
+    "form.profileHospital": "Hospital",
+    "form.preferenceEmail": "Email",
+    "form.preferenceWhatsApp": "WhatsApp",
     "form.consent":
-      "Aceito receber informações sobre o lançamento do Medipath.AI e estou de acordo com a Política de Privacidade.",
+      "Aceito receber comunicações sobre o lançamento do Medipath.AI. Usaremos seus dados apenas para informações sobre o produto e acesso antecipado. Não vendemos seus dados e não enviaremos spam.",
     "form.submit": "Entrar na lista",
     "form.note": "Seus dados serão usados apenas para contato sobre o acesso antecipado.",
-    "form.success": "Solicitação recebida. Obrigado por entrar na lista de acesso antecipado.",
-    "form.whatsappFallback": "Abrindo WhatsApp com sua solicitação preenchida.",
-    "form.error": "Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.",
+    "form.error": "Não foi possível enviar agora. Tente novamente em alguns minutos.",
+    "form.configError": "A lista de acesso ainda está sendo conectada ao Supabase. Tente novamente em breve.",
+    "confirmation.eyebrow": "Cadastro recebido",
+    "confirmation.title": "Obrigado pelo interesse no Medipath.AI.",
+    "confirmation.message":
+      "Recebemos seu cadastro para a lista de acesso antecipado. Entraremos em contato durante as próximas ondas de lançamento.",
+    "confirmation.extra": "Enquanto isso, acompanhe as novidades pelo nosso site.",
+    "confirmation.button": "Voltar ao início",
     "footer.privacy": "Política de Privacidade",
     "footer.terms": "Termos de Uso",
     "footer.contact": "Falar pelo WhatsApp",
-    "whatsapp.greeting": "Olá, gostaria de entrar na lista de acesso antecipado do Medipath.AI.",
-    "whatsapp.notProvided": "Não informado",
   },
   en: {
     "nav.demo": "Demo",
@@ -182,22 +193,33 @@ const translations = {
     "access.trust": "We do not ask for CPF, patient data, medical records, or health information in this form.",
     "form.name": "Full name",
     "form.email": "Email",
+    "form.city": "City",
+    "form.state": "State",
     "form.specialty": "Specialty",
-    "form.cityState": "City/State",
-    "form.clinic": "Clinic/Hospital",
     "form.whatsapp": "WhatsApp",
+    "form.profileType": "Profile type",
+    "form.communicationPreference": "Communication preference",
+    "form.selectPlaceholder": "Select",
+    "form.profileDoctor": "Individual doctor",
+    "form.profileClinic": "Clinic",
+    "form.profileHospital": "Hospital",
+    "form.preferenceEmail": "Email",
+    "form.preferenceWhatsApp": "WhatsApp",
     "form.consent":
-      "I agree to receive information about the Medipath.AI launch and accept the Privacy Policy.",
+      "I agree to receive communications about the Medipath.AI launch. My data will be used only for product information and early access. We do not sell data or send spam.",
     "form.submit": "Join waitlist",
     "form.note": "Your data will be used only for early-access contact.",
-    "form.success": "Request received. Thank you for joining the early access waitlist.",
-    "form.whatsappFallback": "Opening WhatsApp with your request filled in.",
-    "form.error": "We could not submit right now. Please try again or talk to us on WhatsApp.",
+    "form.error": "We could not submit right now. Please try again in a few minutes.",
+    "form.configError": "The waitlist is still being connected to Supabase. Please try again soon.",
+    "confirmation.eyebrow": "Signup received",
+    "confirmation.title": "Thank you for your interest in Medipath.AI.",
+    "confirmation.message":
+      "We received your signup for the early access waitlist. We will contact you during the next launch waves.",
+    "confirmation.extra": "In the meantime, follow updates on our website.",
+    "confirmation.button": "Back to top",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Use",
     "footer.contact": "Talk on WhatsApp",
-    "whatsapp.greeting": "Hello, I would like to join the Medipath.AI early access waitlist.",
-    "whatsapp.notProvided": "Not provided",
   },
 };
 
@@ -205,10 +227,12 @@ const config = window.MEDIPATH_WAITLIST_CONFIG || {};
 const contact = config.contact || {};
 const form = document.querySelector("#waitlist-form");
 const note = document.querySelector("#form-note");
+const confirmation = document.querySelector("#waitlist-confirmation");
 const languageButtons = document.querySelectorAll("[data-lang]");
 const whatsappLinks = document.querySelectorAll("[data-contact-whatsapp]");
 const contactButtons = document.querySelectorAll("[data-contact-button]");
 const contactHelpers = document.querySelectorAll("[data-contact-helper]");
+const confirmationHome = document.querySelector("[data-confirmation-home]");
 let currentLanguage = localStorage.getItem("medipath-language") || "pt";
 
 function t(key) {
@@ -268,42 +292,22 @@ function setNote(message, type = "neutral") {
 function getFormFields() {
   const data = new FormData(form);
   return {
-    name: data.get("name")?.toString().trim() || "",
+    full_name: data.get("full_name")?.toString().trim() || "",
     email: data.get("email")?.toString().trim() || "",
-    specialty: data.get("specialty")?.toString().trim() || "",
-    city_state: data.get("city_state")?.toString().trim() || "",
-    clinic_hospital: data.get("clinic_hospital")?.toString().trim() || "",
-    whatsapp: data.get("whatsapp")?.toString().trim() || "",
-    consent: data.get("consent") === "on",
+    city: data.get("city")?.toString().trim() || "",
+    state: data.get("state")?.toString().trim() || "",
+    specialty: data.get("specialty")?.toString().trim() || null,
+    whatsapp: data.get("whatsapp")?.toString().trim() || null,
+    profile_type: data.get("profile_type")?.toString().trim() || null,
+    communication_preference: data.get("communication_preference")?.toString().trim() || null,
+    launch_consent: data.get("launch_consent") === "on",
     status: "New",
   };
 }
 
-function openWhatsAppFallback(fields) {
-  const message = [
-    t("whatsapp.greeting"),
-    "",
-    `${t("form.name")}: ${fields.name}`,
-    `${t("form.email")}: ${fields.email}`,
-    `${t("form.specialty")}: ${fields.specialty}`,
-    `${t("form.cityState")}: ${fields.city_state}`,
-    `${t("form.clinic")}: ${fields.clinic_hospital || t("whatsapp.notProvided")}`,
-    `${t("form.whatsapp")}: ${fields.whatsapp || t("whatsapp.notProvided")}`,
-  ].join("\n");
-
-  const whatsappUrl = buildWhatsAppUrl(message);
-  if (whatsappUrl === "#") {
-    setNote(t("form.error"), "error");
-    return;
-  }
-
-  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-  setNote(t("form.whatsappFallback"), "neutral");
-}
-
 async function submitToSupabase(fields) {
   if (!config.supabaseUrl || !config.publishableKey) {
-    return false;
+    throw new Error("Missing Supabase public configuration");
   }
 
   const response = await fetch(`${config.supabaseUrl}/rest/v1/waitlist_signups`, {
@@ -324,6 +328,12 @@ async function submitToSupabase(fields) {
   return true;
 }
 
+function showConfirmation() {
+  form.hidden = true;
+  confirmation.hidden = false;
+  confirmation.focus?.();
+}
+
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
@@ -332,7 +342,7 @@ form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const fields = getFormFields();
-  if (!fields.consent) {
+  if (!fields.launch_consent) {
     setNote(t("form.error"), "error");
     return;
   }
@@ -341,18 +351,21 @@ form?.addEventListener("submit", async (event) => {
   submitButton.disabled = true;
 
   try {
-    const submitted = await submitToSupabase(fields);
-    if (submitted) {
-      form.reset();
-      setNote(t("form.success"), "success");
-    } else {
-      openWhatsAppFallback(fields);
-    }
-  } catch (_error) {
-    setNote(t("form.error"), "error");
+    await submitToSupabase(fields);
+    form.reset();
+    showConfirmation();
+  } catch (error) {
+    const message = error.message === "Missing Supabase public configuration" ? t("form.configError") : t("form.error");
+    setNote(message, "error");
   } finally {
     submitButton.disabled = false;
   }
+});
+
+confirmationHome?.addEventListener("click", () => {
+  confirmation.hidden = true;
+  form.hidden = false;
+  setNote(t("form.note"), "neutral");
 });
 
 setLanguage(currentLanguage);
