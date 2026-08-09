@@ -91,14 +91,13 @@ const translations = {
     "form.submit": "Entrar na lista",
     "form.note": "Seus dados serão usados apenas para contato sobre o acesso antecipado.",
     "form.success": "Solicitação recebida. Obrigado por entrar na lista de acesso antecipado.",
-    "form.emailFallback": "Abrindo seu aplicativo de email com a solicitação preenchida.",
-    "form.error": "Não foi possível enviar agora. Tente novamente ou envie por email.",
+    "form.whatsappFallback": "Abrindo WhatsApp com sua solicitação preenchida.",
+    "form.error": "Não foi possível enviar agora. Tente novamente ou fale conosco pelo WhatsApp.",
     "footer.privacy": "Política de Privacidade",
     "footer.terms": "Termos de Uso",
-    "footer.contact": "Contato",
-    "email.greeting": "Olá, gostaria de entrar na lista de acesso antecipado do Medipath.AI.",
-    "email.subject": "Lista de acesso antecipado - Medipath.AI",
-    "email.notProvided": "Não informado",
+    "footer.contact": "Falar pelo WhatsApp",
+    "whatsapp.greeting": "Olá, gostaria de entrar na lista de acesso antecipado do Medipath.AI.",
+    "whatsapp.notProvided": "Não informado",
   },
   en: {
     "nav.demo": "Demo",
@@ -192,21 +191,24 @@ const translations = {
     "form.submit": "Join waitlist",
     "form.note": "Your data will be used only for early-access contact.",
     "form.success": "Request received. Thank you for joining the early access waitlist.",
-    "form.emailFallback": "Opening your email app with the request filled in.",
-    "form.error": "We could not submit right now. Please try again or send by email.",
+    "form.whatsappFallback": "Opening WhatsApp with your request filled in.",
+    "form.error": "We could not submit right now. Please try again or talk to us on WhatsApp.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Use",
-    "footer.contact": "Contact",
-    "email.greeting": "Hello, I would like to join the Medipath.AI early access waitlist.",
-    "email.subject": "Early access waitlist - Medipath.AI",
-    "email.notProvided": "Not provided",
+    "footer.contact": "Talk on WhatsApp",
+    "whatsapp.greeting": "Hello, I would like to join the Medipath.AI early access waitlist.",
+    "whatsapp.notProvided": "Not provided",
   },
 };
 
 const config = window.MEDIPATH_WAITLIST_CONFIG || {};
+const contact = config.contact || {};
 const form = document.querySelector("#waitlist-form");
 const note = document.querySelector("#form-note");
 const languageButtons = document.querySelectorAll("[data-lang]");
+const whatsappLinks = document.querySelectorAll("[data-contact-whatsapp]");
+const contactButtons = document.querySelectorAll("[data-contact-button]");
+const contactHelpers = document.querySelectorAll("[data-contact-helper]");
 let currentLanguage = localStorage.getItem("medipath-language") || "pt";
 
 function t(key) {
@@ -227,7 +229,34 @@ function setLanguage(language) {
     button.setAttribute("aria-pressed", active ? "true" : "false");
   });
 
+  applyContactConfig();
   localStorage.setItem("medipath-language", currentLanguage);
+}
+
+function getContactText(group, fallbackKey) {
+  return group?.[currentLanguage] || group?.pt || t(fallbackKey);
+}
+
+function buildWhatsAppUrl(message = "") {
+  const baseUrl = contact.whatsappUrl || "#";
+  if (!message) return baseUrl;
+  return `${baseUrl}?text=${encodeURIComponent(message)}`;
+}
+
+function applyContactConfig() {
+  whatsappLinks.forEach((link) => {
+    link.href = buildWhatsAppUrl();
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+  });
+
+  contactButtons.forEach((element) => {
+    element.textContent = getContactText(contact.buttonText, "footer.contact");
+  });
+
+  contactHelpers.forEach((element) => {
+    element.textContent = getContactText(contact.helperText, "form.note");
+  });
 }
 
 function setNote(message, type = "neutral") {
@@ -250,23 +279,26 @@ function getFormFields() {
   };
 }
 
-function openEmailFallback(fields) {
-  const body = [
-    t("email.greeting"),
+function openWhatsAppFallback(fields) {
+  const message = [
+    t("whatsapp.greeting"),
     "",
     `${t("form.name")}: ${fields.name}`,
     `${t("form.email")}: ${fields.email}`,
     `${t("form.specialty")}: ${fields.specialty}`,
     `${t("form.cityState")}: ${fields.city_state}`,
-    `${t("form.clinic")}: ${fields.clinic_hospital || t("email.notProvided")}`,
-    `${t("form.whatsapp")}: ${fields.whatsapp || t("email.notProvided")}`,
+    `${t("form.clinic")}: ${fields.clinic_hospital || t("whatsapp.notProvided")}`,
+    `${t("form.whatsapp")}: ${fields.whatsapp || t("whatsapp.notProvided")}`,
   ].join("\n");
 
-  const subject = encodeURIComponent(t("email.subject"));
-  const encodedBody = encodeURIComponent(body);
-  const email = config.contactEmail || "contato@medipath.ai";
-  window.location.href = `mailto:${email}?subject=${subject}&body=${encodedBody}`;
-  setNote(t("form.emailFallback"), "neutral");
+  const whatsappUrl = buildWhatsAppUrl(message);
+  if (whatsappUrl === "#") {
+    setNote(t("form.error"), "error");
+    return;
+  }
+
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  setNote(t("form.whatsappFallback"), "neutral");
 }
 
 async function submitToSupabase(fields) {
@@ -314,7 +346,7 @@ form?.addEventListener("submit", async (event) => {
       form.reset();
       setNote(t("form.success"), "success");
     } else {
-      openEmailFallback(fields);
+      openWhatsAppFallback(fields);
     }
   } catch (_error) {
     setNote(t("form.error"), "error");

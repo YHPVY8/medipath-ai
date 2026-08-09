@@ -7,7 +7,7 @@ Static, GitHub Pages-ready marketing and early-access launch page for Medipath.A
 - `index.html` - page content and layout
 - `styles.css` - responsive visual design
 - `script.js` - bilingual page copy and waitlist form handling
-- `config.js` - public waitlist configuration
+- `config.js` - public waitlist and WhatsApp contact configuration
 - `supabase-waitlist.sql` - waitlist table and RLS policy reference
 - `assets/` - Medipath logo and icon assets
 
@@ -42,7 +42,9 @@ To activate direct database submissions from the public page, set the Supabase
 publishable key in `config.js`. The publishable/anon key is safe to expose only
 with the RLS policy above; never use a service-role key in this static site.
 
-If the publishable key is blank, the form opens a prepared email fallback.
+If the publishable key is blank, the form opens WhatsApp with a prepared
+early-access message. WhatsApp is the only public contact method currently shown
+on the site.
 
 ## View and export submissions
 
