@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Medipath.AI | Plataforma médica para procedimentos e documentos</title>
+    <meta
+      name="description"
+      content="Medipath.AI ajuda médicos e secretárias a acompanhar procedimentos, documentos, autorizações e agendamentos com mais clareza."
+    />
+    <meta name="theme-color" content="#0b7f8c" />
+    <link rel="icon" href="assets/medipath-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Medipath.AI">
+        <img src="assets/medipath-logo-horizontal.png" alt="Medipath.AI" />
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#como-funciona" data-i18n="nav.how">Como funciona</a>
+        <a href="#recursos" data-i18n="nav.features">Recursos</a>
+        <a href="#acesso" data-i18n="nav.access">Solicitar acesso</a>
+      </nav>
+      <div class="language-toggle" aria-label="Selecionar idioma">
+        <button type="button" class="active" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Plataforma médica doctor-first</p>
+          <h1 data-i18n="hero.title">Organize procedimentos, documentos e equipe médica em um só lugar.</h1>
+          <p class="hero-text" data-i18n="hero.text">
+            Medipath.AI ajuda médicos e secretárias a acompanhar exames,
+            autorizações, agendamentos e documentos com mais clareza e menos
+            retrabalho.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#acesso" data-i18n="cta.access">Solicitar acesso</a>
+            <a class="button secondary" href="#demo" data-i18n="cta.demo">Ver demonstração</a>
+          </div>
+          <div class="hero-notes" aria-label="Destaques">
+            <span data-i18n="hero.note1">Procedimentos</span>
+            <span data-i18n="hero.note2">Documentos</span>
+            <span data-i18n="hero.note3">Secretárias</span>
+            <span data-i18n="hero.note4">Agenda</span>
+          </div>
+        </div>
+
+        <div class="hero-panel" aria-label="Prévia demonstrativa do painel">
+          <div class="panel-top">
+            <div>
+              <span class="panel-label" data-i18n="panel.today">Hoje</span>
+              <strong data-i18n="panel.title">Procedimentos em andamento</strong>
+            </div>
+            <span class="status-pill">Demo</span>
+          </div>
+          <div class="metric-grid">
+            <article>
+              <span data-i18n="panel.metric1">Autorização</span>
+              <strong>12</strong>
+            </article>
+            <article>
+              <span data-i18n="panel.metric2">Agendados</span>
+              <strong>8</strong>
+            </article>
+            <article>
+              <span data-i18n="panel.metric3">Pendentes</span>
+              <strong>5</strong>
+            </article>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item active">
+              <span></span>
+              <div>
+                <strong data-i18n="panel.timeline1Title">Paciente demo cadastrado</strong>
+                <p data-i18n="panel.timeline1Text">Secretária registrou dados e hospital.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span></span>
+              <div>
+                <strong data-i18n="panel.timeline2Title">Documentos anexados</strong>
+                <p data-i18n="panel.timeline2Text">Pedido, autorização e exames em PDF.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span></span>
+              <div>
+                <strong data-i18n="panel.timeline3Title">Médico acompanha no painel</strong>
+                <p data-i18n="panel.timeline3Text">Visão clara do que está pendente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section video-section" id="demo">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="demo.eyebrow">Demonstração</p>
+          <h2 data-i18n="demo.title">Veja o fluxo completo em breve.</h2>
+          <p data-i18n="demo.text">
+            Um walkthrough de 60 a 90 segundos mostrará o cadastro,
+            organização de documentos e acompanhamento pelo médico.
+          </p>
+        </div>
+        <div class="video-placeholder" role="img" aria-label="Vídeo de demonstração em breve">
+          <div class="play-button" aria-hidden="true"></div>
+          <strong data-i18n="demo.placeholder">Vídeo de demonstração em breve</strong>
+          <span data-i18n="demo.caption">Cadastro, documentos, agenda e painel médico</span>
+        </div>
+      </section>
+
+      <section class="section" id="como-funciona">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="how.eyebrow">Como funciona</p>
+          <h2 data-i18n="how.title">Um fluxo simples para reduzir retrabalho.</h2>
+        </div>
+        <div class="steps">
+          <article>
+            <span>1</span>
+            <h3 data-i18n="how.step1Title">Secretária cadastra o procedimento</h3>
+            <p data-i18n="how.step1Text">Dados do paciente, tipo de procedimento, convênio, hospital e datas ficam reunidos em um fluxo único.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3 data-i18n="how.step2Title">Documentos são anexados ou escaneados em PDF</h3>
+            <p data-i18n="how.step2Text">Pedidos, autorizações e exames ficam organizados junto ao procedimento, prontos para consulta.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3 data-i18n="how.step3Title">Médico acompanha tudo pelo painel</h3>
+            <p data-i18n="how.step3Text">O médico visualiza pendências, agenda e documentos importantes sem depender de mensagens soltas.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section muted" id="recursos">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="features.eyebrow">Recursos</p>
+          <h2 data-i18n="features.title">Ferramentas para a rotina real de clínicas e médicos.</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3 data-i18n="features.card1Title">Gestão de pacientes e procedimentos</h3>
+            <p data-i18n="features.card1Text">Organize o histórico do paciente e acompanhe cada etapa do procedimento.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card2Title">Fluxo médico + secretária</h3>
+            <p data-i18n="features.card2Text">Separe responsabilidades sem perder a visão geral do consultório.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card3Title">Escaneamento de documentos em PDF</h3>
+            <p data-i18n="features.card3Text">Centralize documentos importantes e reduza procura em conversas e pastas.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card4Title">Agendamento por data, horário e hospital</h3>
+            <p data-i18n="features.card4Text">Veja rapidamente o que está marcado e onde cada procedimento acontece.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card5Title">Atalho GPS/Waze para hospitais</h3>
+            <p data-i18n="features.card5Text">Facilite o deslocamento para locais de atendimento e cirurgia.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card6Title">Permissões por função</h3>
+            <p data-i18n="features.card6Text">Controle o acesso por perfil de trabalho, com evolução planejada por papéis.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section benefits">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="benefits.eyebrow">Benefícios para médicos</p>
+          <h2 data-i18n="benefits.title">Mais clareza para decidir, acompanhar e delegar.</h2>
+        </div>
+        <div class="benefit-list">
+          <div data-i18n="benefits.item1">Menos perda de informações importantes entre mensagens, papéis e agendas.</div>
+          <div data-i18n="benefits.item2">Menos dependência de lembretes soltos para autorizações e pendências.</div>
+          <div data-i18n="benefits.item3">Mais clareza sobre procedimentos pendentes, agendados e concluídos.</div>
+          <div data-i18n="benefits.item4">Melhor organização com secretárias e equipe de apoio.</div>
+          <div data-i18n="benefits.item5">Acesso rápido pelo celular para acompanhar a rotina fora do consultório.</div>
+        </div>
+      </section>
+
+      <section class="section" id="screenshots">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="screens.eyebrow">Prévia do produto</p>
+          <h2 data-i18n="screens.title">Telas demonstrativas em preparação.</h2>
+          <p data-i18n="screens.text">Os cartões abaixo são placeholders com conteúdo fictício até a captura das telas oficiais.</p>
+        </div>
+        <div class="screenshot-grid">
+          <article><span data-i18n="screens.card1">Dashboard</span></article>
+          <article><span data-i18n="screens.card2">Agendados</span></article>
+          <article><span data-i18n="screens.card3">Cadastro de procedimento</span></article>
+          <article><span data-i18n="screens.card4">Scanner de documentos</span></article>
+          <article><span data-i18n="screens.card5">Equipe/secretária</span></article>
+        </div>
+      </section>
+
+      <section class="section access" id="acesso">
+        <div class="access-copy">
+          <p class="eyebrow" data-i18n="access.eyebrow">Acesso antecipado</p>
+          <h2 data-i18n="access.title">Solicite acesso ao Medipath.AI.</h2>
+          <p data-i18n="access.text">
+            Estamos abrindo conversas com médicos e clínicas que desejam testar
+            uma rotina mais organizada para procedimentos, documentos e agenda.
+          </p>
+          <div class="trust-box" data-i18n="access.trust">
+            Desenvolvido com foco em privacidade, organização e controle de
+            acesso por função. LGPD em revisão.
+          </div>
+        </div>
+
+        <form class="access-form" id="access-form">
+          <label>
+            <span data-i18n="form.name">Nome</span>
+            <input name="nome" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            <span data-i18n="form.email">Email</span>
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            <span data-i18n="form.specialty">Especialidade</span>
+            <input name="especialidade" type="text" />
+          </label>
+          <label>
+            <span data-i18n="form.clinic">Clínica/Hospital</span>
+            <input name="clinica" type="text" />
+          </label>
+          <label>
+            <span data-i18n="form.whatsapp">WhatsApp</span>
+            <input name="whatsapp" type="tel" autocomplete="tel" />
+          </label>
+          <label class="full">
+            <span data-i18n="form.message">Mensagem opcional</span>
+            <textarea name="mensagem" rows="4"></textarea>
+          </label>
+          <button class="button primary full" type="submit" data-i18n="form.submit">Enviar solicitação</button>
+          <p class="form-note" id="form-note">
+            O formulário abre um email pronto para envio. Nenhum dado é salvo nesta página.
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/medipath-logo-horizontal.png" alt="Medipath.AI" />
+      <div class="footer-links">
+        <a href="#" aria-label="Política de Privacidade em breve" data-i18n="footer.privacy">Política de Privacidade</a>
+        <a href="#" aria-label="Termos de Uso em breve" data-i18n="footer.terms">Termos de Uso</a>
+        <a href="mailto:contato@medipath.ai" data-i18n="footer.contact">Contato</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
