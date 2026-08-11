@@ -41,209 +41,149 @@
     </header>
 
     <main id="top">
-      <section class="hero section">
+      <section class="hero section" id="produto">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="hero.eyebrow">Plataforma médica doctor-first</p>
-          <h1 data-i18n="hero.title">Da solicitação do paciente ao procedimento concluído — gerencie tudo em um só lugar.</h1>
+          <h1 data-i18n="hero.title">Organize toda a jornada do procedimento em um só lugar.</h1>
           <p class="hero-text" data-i18n="hero.text">
-            Medipath.AI ajuda médicos e secretárias a organizar solicitações,
-            pacientes, documentos, autorizações, agendamentos e resultados em um
-            fluxo claro: pendente, agendado e concluído.
+            Do cadastro do paciente ao procedimento concluído, acompanhe
+            solicitações, agenda, documentos e comunicação em um único fluxo.
           </p>
-          <p class="launch-note" data-i18n="hero.launch">
-            Criado para a rotina real de consultórios, clínicas e equipes médicas.
-          </p>
-          <div class="hero-actions">
+          <div class="hero-actions hero-actions-desktop">
             <a class="button primary" href="#waitlist" data-i18n="cta.waitlist">Entrar na lista de espera</a>
-            <a class="button secondary" href="#produto" data-i18n="cta.product">Ver o produto</a>
-          </div>
-          <div class="hero-notes" aria-label="Destaques">
-            <span data-i18n="hero.note1">Procedimentos</span>
-            <span data-i18n="hero.note2">Documentos</span>
-            <span data-i18n="hero.note3">Secretárias</span>
-            <span data-i18n="hero.note4">Agenda</span>
+            <a class="button secondary" href="#fluxo" data-i18n="cta.product">Ver o fluxo</a>
           </div>
         </div>
 
         <div class="product-hero-visual" aria-label="Prévia do dashboard Medipath.AI">
           <figure class="browser-frame">
             <img src="assets/product-screenshots/desktop-dashboard.png" alt="Dashboard desktop do Medipath.AI" />
-            <figcaption data-i18n="hero.desktopCaption">Organize cada procedimento da solicitação à conclusão</figcaption>
           </figure>
           <figure class="phone-frame hero-phone">
             <img src="assets/product-screenshots/mobile-dashboard.jpg" alt="Dashboard mobile do Medipath.AI" />
-            <figcaption data-i18n="hero.mobileCaption">O fluxo da clínica, acessível em qualquer lugar</figcaption>
           </figure>
         </div>
-      </section>
-
-      <section class="section product-section" id="produto">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="product.eyebrow">Produto</p>
-          <h2 data-i18n="product.title">A visão central da rotina médica.</h2>
-          <p data-i18n="product.text">
-            Visualize procedimentos pendentes, agendados e concluídos, encontre
-            pacientes rapidamente e acompanhe o que precisa de atenção antes de
-            cada procedimento.
-          </p>
-        </div>
-        <div class="product-showcase">
-          <figure class="browser-frame large">
-            <img src="assets/product-screenshots/desktop-dashboard.png" alt="Visão geral desktop com estatísticas e procedimentos agendados" />
-            <figcaption data-i18n="product.desktopCaption">Construído para médicos e suas equipes</figcaption>
-          </figure>
-          <div class="showcase-points">
-            <article>
-              <h3 data-i18n="product.point1Title">Painel médico claro</h3>
-              <p data-i18n="product.point1Text">Resumo de pendentes, agendados e concluídos com busca por paciente, CPF ou tags.</p>
-            </article>
-            <article>
-              <h3 data-i18n="product.point2Title">Acesso pelo celular</h3>
-              <p data-i18n="product.point2Text">Acompanhe a agenda e os detalhes principais mesmo fora do consultório.</p>
-            </article>
-            <article>
-              <h3 data-i18n="product.point3Title">Informação no contexto certo</h3>
-              <p data-i18n="product.point3Text">Dados clínicos, hospital, convênio, contatos e status juntos em uma visão organizada.</p>
-            </article>
+        <div class="hero-after">
+          <div class="device-compatibility" aria-label="Compatível com iPhone, Android e computador">
+            <span>
+              <span class="device-icon apple" aria-hidden="true"></span>
+              <span data-i18n="hero.deviceApple">iPhone</span>
+            </span>
+            <span>
+              <span class="device-icon android" aria-hidden="true"></span>
+              <span data-i18n="hero.deviceAndroid">Android</span>
+            </span>
+            <span>
+              <span class="device-icon desktop" aria-hidden="true"></span>
+              <span data-i18n="hero.deviceWeb">Computador</span>
+            </span>
+          </div>
+          <div class="hero-actions hero-actions-mobile">
+            <a class="button primary" href="#waitlist" data-i18n="cta.waitlist">Entrar na lista de espera</a>
+            <a class="button secondary" href="#fluxo" data-i18n="cta.product">Ver o fluxo</a>
           </div>
         </div>
       </section>
 
       <section class="section" id="fluxo">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="how.eyebrow">Fluxo de trabalho</p>
-          <h2 data-i18n="how.title">Pendente → Agendado → Concluído.</h2>
-          <p data-i18n="how.text">Medipath.AI mantém o caminho do procedimento simples para o médico e para a equipe.</p>
+        <div class="section-heading centered">
+          <h2 data-i18n="how.title">Do pedido ao procedimento concluído.</h2>
+          <div class="workflow-path" data-i18n="how.path">Pendente → Agendado → Concluído</div>
         </div>
         <div class="workflow-showcase">
           <article class="workflow-card">
             <figure class="phone-frame">
               <img src="assets/product-screenshots/mobile-pending.jpg" alt="Tela mobile de procedimentos pendentes" />
             </figure>
-            <h3 data-i18n="how.step1Title">Procedimentos pendentes ficam visíveis</h3>
-            <p data-i18n="how.step1Text">Registre solicitações, dados clínicos, convênio, hospital e tags assim que o procedimento entra no fluxo.</p>
+            <h3 data-i18n="how.step1Title">Pendente</h3>
           </article>
-          <article class="workflow-card featured">
+          <article class="workflow-card">
             <figure class="phone-frame">
               <img src="assets/product-screenshots/mobile-scheduled.jpg" alt="Tela mobile de procedimentos agendados" />
             </figure>
-            <h3 data-i18n="how.step2Title">O agendamento vira ação</h3>
-            <p data-i18n="how.step2Text">Veja data, horário e hospital, com atalhos para contato e GPS antes do procedimento.</p>
+            <h3 data-i18n="how.step2Title">Agendamento</h3>
           </article>
           <article class="workflow-card">
             <figure class="phone-frame">
               <img src="assets/product-screenshots/mobile-completed.jpg" alt="Tela mobile de procedimentos concluídos" />
             </figure>
-            <h3 data-i18n="how.step3Title">O histórico permanece organizado</h3>
-            <p data-i18n="how.step3Text">Acesse histórico, anexos e informações compartilháveis sem depender de lembretes soltos.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section muted" id="recursos">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="features.eyebrow">Recursos</p>
-          <h2 data-i18n="features.title">Tudo que um procedimento precisa em um registro organizado.</h2>
-        </div>
-        <div class="feature-grid">
-          <article>
-            <h3 data-i18n="features.card1Title">Gestão de pacientes e procedimentos</h3>
-            <p data-i18n="features.card1Text">Crie e atualize procedimentos com dados do paciente, contatos, convênio, informações clínicas e observações internas.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card2Title">Fluxo flexível com equipe</h3>
-            <p data-i18n="features.card2Text">Médicos podem trabalhar sozinhos ou com secretárias que cadastram e organizam procedimentos em seu nome.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card3Title">Anexos e documentação</h3>
-            <p data-i18n="features.card3Text">Guarde documentos, fotos, autorizações, links de vídeo e arquivos de apoio junto ao procedimento.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card4Title">Tags e organização</h3>
-            <p data-i18n="features.card4Text">Use hashtags personalizadas para filtrar rapidamente prioridades, grupos clínicos ou rotinas internas.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card5Title">Comunicação e logística</h3>
-            <p data-i18n="features.card5Text">Use atalhos de telefone, WhatsApp e GPS/Waze para comunicação e deslocamento antes dos procedimentos.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card6Title">Compartilhamento e colaboração</h3>
-            <p data-i18n="features.card6Text">Compartilhe informações, resultados e anexos com outros médicos quando necessário.</p>
+            <h3 data-i18n="how.step3Title">Resultado concluído</h3>
           </article>
         </div>
       </section>
 
       <section class="section procedure-section" id="cadastro">
         <div class="section-heading">
-          <p class="eyebrow" data-i18n="procedure.eyebrow">Cadastro de procedimento</p>
-          <h2 data-i18n="procedure.title">Crie e gerencie procedimentos em segundos.</h2>
-          <p data-i18n="procedure.text">Cada procedimento reúne dados do paciente, informações clínicas, contatos, convênio, médico assistente, notas internas, tags e anexos em um único registro.</p>
+          <h2 data-i18n="procedure.title">Todas as informações importantes em um só registro.</h2>
+          <p data-i18n="procedure.text">Médicos podem gerenciar sua própria rotina ou contar com secretárias para inserir dados administrativos e reduzir a carga operacional.</p>
         </div>
         <div class="procedure-showcase">
-          <figure class="phone-frame">
+          <figure class="phone-frame procedure-phone">
             <img src="assets/product-screenshots/mobile-form-top.jpg" alt="Parte superior do formulário de novo procedimento" />
-            <figcaption data-i18n="procedure.caption1">Dados completos do paciente e do procedimento</figcaption>
           </figure>
           <div class="procedure-copy">
-            <h3 data-i18n="procedure.cardTitle">Todo o contexto, sem notas espalhadas.</h3>
+            <h3 data-i18n="procedure.cardTitle">Menos tarefas administrativas.</h3>
             <ul>
-              <li data-i18n="procedure.item1">Contato principal e contato secundário</li>
-              <li data-i18n="procedure.item2">Convênio, hospital, médico assistente e informações clínicas</li>
-              <li data-i18n="procedure.item3">Observações internas e tags personalizadas</li>
-              <li data-i18n="procedure.item4">Fotos, PDFs, autorizações, vídeos e arquivos de apoio</li>
+              <li data-i18n="procedure.item1">Paciente, telefone e contato secundário</li>
+              <li data-i18n="procedure.item2">Convênio, hospital e médico assistente</li>
+              <li data-i18n="procedure.item3">Dados clínicos, notas internas e tags</li>
+              <li data-i18n="procedure.item4">Atualização rápida conforme a informação muda</li>
             </ul>
           </div>
-          <figure class="phone-frame">
-            <img src="assets/product-screenshots/mobile-form-bottom.jpg" alt="Parte inferior do formulário com dados clínicos, tags e anexos" />
-            <figcaption data-i18n="procedure.caption2">Documentos, fotos e links de vídeo ficam anexados</figcaption>
-          </figure>
         </div>
       </section>
 
-      <section class="section founders" id="fundadores">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="founders.eyebrow">Programa Médicos Fundadores</p>
-          <h2 data-i18n="founders.title">Faça parte da evolução do Medipath.AI.</h2>
-          <p data-i18n="founders.text">
-            Um grupo inicial de médicos será convidado para testar o Medipath.AI,
-            enviar feedback e participar da evolução do produto.
-          </p>
+      <section class="section muted" id="recursos">
+        <div class="section-heading centered">
+          <h2 data-i18n="features.title">Tudo o que você precisa para acompanhar seus procedimentos.</h2>
         </div>
-        <div class="benefit-list compact">
-          <div data-i18n="founders.benefit1">Acesso antecipado</div>
-          <div data-i18n="founders.benefit2">Participação no desenvolvimento</div>
-          <div data-i18n="founders.benefit3">Condições especiais de lançamento</div>
+        <div class="feature-grid compact">
+          <article>
+            <h3 data-i18n="features.card1Title">Laudos personalizados</h3>
+            <p data-i18n="features.card1Text">Crie laudos personalizados e envie documentos em PDF diretamente pelo sistema.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card2Title">Hashtags</h3>
+            <p data-i18n="features.card2Text">Marque procedimentos com hashtags para encontrar e consultar informações rapidamente pela busca.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card3Title">Documentos e imagens</h3>
+            <p data-i18n="features.card3Text">Anexe documentos, fotos e arquivos diretamente ao procedimento.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card4Title">Scanner de documentos</h3>
+            <p data-i18n="features.card4Text">Capture documentos pela câmera e transforme em PDFs organizados.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card5Title">Links de vídeos</h3>
+            <p data-i18n="features.card5Text">Adicione links de vídeos importantes para manter todo o contexto do procedimento.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card6Title">Equipe médica</h3>
+            <p data-i18n="features.card6Text">Médicos podem trabalhar individualmente ou contar com secretárias para cadastrar pacientes e procedimentos administrativos.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card7Title">Contato simplificado</h3>
+            <p data-i18n="features.card7Text">Telefone e WhatsApp do paciente disponíveis diretamente pelo procedimento.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card8Title">GPS para hospitais</h3>
+            <p data-i18n="features.card8Text">Consulte localização e rota até o hospital com integração GPS.</p>
+          </article>
+          <article>
+            <h3 data-i18n="features.card9Title">Compartilhamento</h3>
+            <p data-i18n="features.card9Text">Compartilhe procedimentos, laudos e arquivos com outros médicos quando necessário.</p>
+          </article>
         </div>
-      </section>
-
-      <section class="section trust-section">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="trust.eyebrow">Privacidade e confiança</p>
-          <h2 data-i18n="trust.title">Privacidade e organização para a rotina médica.</h2>
-        </div>
-        <div class="trust-grid">
-          <article data-i18n="trust.item1">Controle de acesso por função</article>
-          <article data-i18n="trust.item2">Organização de informações</article>
-          <article data-i18n="trust.item3">Desenvolvimento com foco em privacidade e segurança</article>
-        </div>
-        <p class="privacy-note" data-i18n="trust.note">
-          Desenvolvido com atenção à privacidade e segurança de dados. LGPD em revisão.
-        </p>
       </section>
 
       <section class="section access" id="waitlist">
         <div class="access-copy">
           <p class="eyebrow" data-i18n="access.eyebrow">Lista de acesso antecipado</p>
-          <h2 data-i18n="access.title">Faça parte dos primeiros médicos a usar o Medipath.AI.</h2>
+          <h2 data-i18n="access.title">Entre na lista de espera.</h2>
           <p data-i18n="access.text">
-            Estamos selecionando médicos e clínicas para participar da primeira
-            fase de lançamento e ajudar a evoluir uma ferramenta criada para a
-            rotina real do consultório.
+            Faça parte da primeira fase de lançamento e acompanhe a evolução do Medipath.AI.
           </p>
-          <div class="trust-box" data-i18n="access.trust">
-            Não solicitamos CPF, dados de pacientes, prontuários ou informações
-            de saúde neste formulário.
-          </div>
         </div>
 
         <form class="access-form" id="waitlist-form">
@@ -270,23 +210,6 @@
           <label>
             <span data-i18n="form.whatsapp">WhatsApp</span>
             <input name="whatsapp" type="tel" autocomplete="tel" />
-          </label>
-          <label>
-            <span data-i18n="form.profileType">Tipo de perfil</span>
-            <select name="profile_type">
-              <option value="" data-i18n="form.selectPlaceholder">Selecione</option>
-              <option value="Médico individual" data-i18n="form.profileDoctor">Médico individual</option>
-              <option value="Clínica" data-i18n="form.profileClinic">Clínica</option>
-              <option value="Hospital" data-i18n="form.profileHospital">Hospital</option>
-            </select>
-          </label>
-          <label>
-            <span data-i18n="form.communicationPreference">Preferência de comunicação</span>
-            <select name="communication_preference">
-              <option value="" data-i18n="form.selectPlaceholder">Selecione</option>
-              <option value="Email" data-i18n="form.preferenceEmail">Email</option>
-              <option value="WhatsApp" data-i18n="form.preferenceWhatsApp">WhatsApp</option>
-            </select>
           </label>
           <label class="consent full">
             <input name="launch_consent" type="checkbox" required />
