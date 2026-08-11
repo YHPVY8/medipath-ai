@@ -250,6 +250,11 @@ h3 {
 }
 
 .hero-panel,
+.browser-frame,
+.phone-frame,
+.showcase-points article,
+.workflow-card,
+.procedure-copy,
 .video-placeholder,
 .steps article,
 .feature-grid article,
@@ -265,6 +270,136 @@ h3 {
 .hero-panel {
   border-radius: 16px;
   padding: 18px;
+}
+
+.product-hero-visual {
+  position: relative;
+  min-height: 520px;
+}
+
+.browser-frame,
+.phone-frame {
+  overflow: hidden;
+  margin: 0;
+  background: white;
+}
+
+.browser-frame {
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.browser-frame.large {
+  border-radius: 24px;
+}
+
+.browser-frame img,
+.phone-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.browser-frame img {
+  border-radius: 14px;
+}
+
+.phone-frame {
+  border-radius: 30px;
+  padding: 8px;
+}
+
+.phone-frame img {
+  border-radius: 22px;
+}
+
+.browser-frame figcaption,
+.phone-frame figcaption {
+  margin: 10px 4px 2px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.hero-phone {
+  position: absolute;
+  right: 22px;
+  bottom: -26px;
+  width: min(220px, 42vw);
+  box-shadow: 0 24px 60px rgba(8, 49, 73, 0.22);
+}
+
+.product-section {
+  padding-top: 92px;
+}
+
+.product-showcase {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+
+.showcase-points {
+  display: grid;
+  gap: 14px;
+}
+
+.showcase-points article,
+.procedure-copy {
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.showcase-points p,
+.procedure-copy li {
+  color: var(--ink-soft);
+}
+
+.workflow-showcase {
+  display: grid;
+  gap: 18px;
+}
+
+.workflow-card {
+  display: grid;
+  gap: 18px;
+  border-radius: 22px;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 84% 8%, rgba(10, 156, 163, 0.1), transparent 28%),
+    white;
+}
+
+.workflow-card.featured {
+  border-color: rgba(10, 156, 163, 0.42);
+}
+
+.workflow-card .phone-frame {
+  max-width: 320px;
+  justify-self: center;
+}
+
+.workflow-card p {
+  margin-bottom: 0;
+  color: var(--ink-soft);
+}
+
+.procedure-showcase {
+  display: grid;
+  gap: 18px;
+  align-items: center;
+}
+
+.procedure-showcase .phone-frame {
+  max-width: 330px;
+  justify-self: center;
+}
+
+.procedure-copy ul {
+  display: grid;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding-left: 20px;
 }
 
 .panel-top {
@@ -407,6 +542,21 @@ h3 {
 .feature-grid p {
   margin-bottom: 0;
   color: var(--ink-soft);
+}
+
+.feature-grid article {
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-grid article::before {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 4px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
 }
 
 .muted {
@@ -628,7 +778,7 @@ button:disabled {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
+    grid-template-columns: minmax(0, 0.88fr) minmax(420px, 1.12fr);
   }
 
   .steps,
@@ -643,6 +793,22 @@ button:disabled {
 
   .screenshot-grid {
     grid-template-columns: repeat(5, minmax(150px, 1fr));
+  }
+
+  .product-showcase {
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  }
+
+  .workflow-showcase {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .workflow-card.featured {
+    transform: translateY(-18px);
+  }
+
+  .procedure-showcase {
+    grid-template-columns: minmax(230px, 0.8fr) minmax(260px, 0.9fr) minmax(230px, 0.8fr);
   }
 
   .access {
