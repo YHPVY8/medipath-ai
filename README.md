@@ -23,19 +23,8 @@ The table stores:
 - `state`
 - `specialty`
 - `whatsapp`
-- `profile_type`
-- `communication_preference`
 - `launch_consent`
 - `created_at`
-- `status`
-
-Allowed status values:
-
-- `New`
-- `Contacted`
-- `Invited`
-- `Pilot User`
-- `Converted`
 
 RLS is enabled. Anonymous visitors may insert new waitlist requests but cannot
 read or export existing submissions.

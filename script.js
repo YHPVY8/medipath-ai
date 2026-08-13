@@ -370,10 +370,7 @@ function getFormFields() {
     state: data.get("state")?.toString().trim() || "",
     specialty: data.get("specialty")?.toString().trim() || null,
     whatsapp: data.get("whatsapp")?.toString().trim() || null,
-    profile_type: data.get("profile_type")?.toString().trim() || null,
-    communication_preference: data.get("communication_preference")?.toString().trim() || null,
     launch_consent: data.get("launch_consent") === "on",
-    status: "New",
   };
 }
 
