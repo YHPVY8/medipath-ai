@@ -1253,3 +1253,103 @@ h2 {
     height: 460px;
   }
 }
+
+/* Privacy policy page */
+.policy-header .brand {
+  margin-right: auto;
+}
+
+.policy-header .button {
+  min-height: 42px;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+}
+
+.policy-main {
+  width: min(860px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: clamp(54px, 8vw, 88px) 0 clamp(72px, 10vw, 112px);
+}
+
+.policy-intro {
+  margin-bottom: clamp(42px, 6vw, 64px);
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.policy-intro h1 {
+  max-width: 800px;
+  margin-bottom: 18px;
+}
+
+.policy-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.policy-content {
+  display: grid;
+  gap: 38px;
+}
+
+.policy-content section {
+  scroll-margin-top: 100px;
+}
+
+.policy-content h2 {
+  margin-bottom: 14px;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  letter-spacing: -0.015em;
+}
+
+.policy-content p {
+  margin-bottom: 14px;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.policy-content p:last-child {
+  margin-bottom: 0;
+}
+
+.policy-content a,
+.policy-footer a[aria-current="page"] {
+  color: var(--teal-dark);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.policy-contact {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  background: white;
+  box-shadow: 0 12px 34px rgba(8, 49, 73, 0.07);
+}
+
+@media (max-width: 719px) {
+  .policy-header .brand img {
+    width: min(178px, 48vw);
+  }
+
+  .policy-header .button {
+    min-height: 38px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+
+  .policy-main {
+    padding-top: 42px;
+  }
+
+  .policy-content {
+    gap: 32px;
+  }
+}
