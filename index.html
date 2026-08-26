@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Medipath.AI | Acesso antecipado para médicos e clínicas</title>
+    <title>Medipath.AI | Fluxos médicos e jornada do paciente</title>
     <meta
       name="description"
-      content="Entre na lista de acesso antecipado do Medipath.AI, uma plataforma médica doctor-first para procedimentos, documentos, agenda e equipe."
+      content="Medipath.AI ajuda médicos e clínicas a organizar exames e procedimentos, receber solicitações de pacientes e simplificar a operação com infraestrutura segura."
     />
     <meta name="theme-color" content="#0b7f8c" />
     <link rel="icon" href="assets/medipath-icon.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260826-header-refinement" />
   </head>
   <body>
     <header class="site-header">
@@ -20,19 +20,11 @@
       <nav class="nav" aria-label="Navegação principal">
         <a href="#produto" data-i18n="nav.product">Produto</a>
         <a href="#fluxo" data-i18n="nav.workflow">Fluxo</a>
-        <a href="#recursos" data-i18n="nav.features">Recursos</a>
-        <a href="#waitlist" data-i18n="nav.waitlist">Lista de acesso</a>
+        <a href="#presenca-online" data-i18n="nav.presence">Presença Online</a>
+        <a href="#seguranca" data-i18n="nav.security">Segurança</a>
+        <a href="#waitlist" data-i18n="nav.waitlist">Solicitar acesso</a>
       </nav>
       <div class="header-actions">
-        <a
-          class="header-contact"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-contact-whatsapp
-          data-contact-button
-          >Falar pelo WhatsApp</a
-        >
         <div class="language-toggle" aria-label="Selecionar idioma">
           <button type="button" class="active" data-lang="pt" aria-pressed="true">PT</button>
           <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -43,16 +35,11 @@
     <main id="top">
       <section class="hero section" id="produto">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="hero.eyebrow">Plataforma médica doctor-first</p>
-          <h1 data-i18n="hero.title">Organize toda a jornada do procedimento em um só lugar.</h1>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Plataforma para médicos e equipes</p>
+          <h1 data-i18n="hero.title">Organize exames, melhore o fluxo de pacientes e simplifique a operação.</h1>
           <p class="hero-text" data-i18n="hero.text">
-            Do cadastro do paciente ao procedimento concluído, acompanhe
-            solicitações, agenda, documentos e comunicação em um único fluxo.
+            Centralize exames e procedimentos, receba informações antes do atendimento com o Presença Online e reduza tarefas administrativas em um ambiente desenvolvido para dados sensíveis de saúde.
           </p>
-          <div class="hero-actions hero-actions-desktop">
-            <a class="button primary" href="#waitlist" data-i18n="cta.waitlist">Entrar na lista de espera</a>
-            <a class="button secondary" href="#fluxo" data-i18n="cta.product">Ver o fluxo</a>
-          </div>
         </div>
 
         <div class="product-hero-visual" aria-label="Prévia do dashboard Medipath.AI">
@@ -77,10 +64,6 @@
               <span class="device-icon desktop" aria-hidden="true"></span>
               <span data-i18n="hero.deviceWeb">Computador</span>
             </span>
-          </div>
-          <div class="hero-actions hero-actions-mobile">
-            <a class="button primary" href="#waitlist" data-i18n="cta.waitlist">Entrar na lista de espera</a>
-            <a class="button secondary" href="#fluxo" data-i18n="cta.product">Ver o fluxo</a>
           </div>
         </div>
       </section>
@@ -109,6 +92,70 @@
             </figure>
             <h3 data-i18n="how.step3Title">Resultado concluído</h3>
           </article>
+        </div>
+      </section>
+
+      <section class="section presence-section" id="presenca-online">
+        <div class="presence-layout">
+          <div class="section-heading presence-copy">
+            <p class="eyebrow" data-i18n="presence.eyebrow">Presença Online</p>
+            <h2 data-i18n="presence.title">Receba informações dos pacientes antes do atendimento.</h2>
+            <p data-i18n="presence.text">Crie uma página personalizada para seu consultório ou clínica. Nela, pacientes podem enviar informações e documentos e responder a questionários personalizados criados por você. Tudo chega organizado no Medipath.AI para facilitar a revisão pela equipe e o agendamento dos procedimentos.</p>
+          </div>
+
+          <div class="presence-flow-simple" aria-label="Como as informações chegam do paciente à equipe médica" data-i18n-aria="presence.flowLabel">
+            <article class="presence-flow-step">
+              <div>
+                <h3 data-i18n="presence.flow1Title">Paciente</h3>
+                <ul>
+                  <li data-i18n="presence.flow1Item1">Acessa a página online</li>
+                  <li data-i18n="presence.flow1Item2">Envia informações pessoais, documentos e responde aos questionários</li>
+                </ul>
+              </div>
+            </article>
+            <span class="presence-flow-arrow" aria-hidden="true">→</span>
+            <article class="presence-flow-step presence-flow-step-highlight">
+              <div>
+                <h3 data-i18n="presence.flow2Title">Medipath.AI</h3>
+                <ul>
+                  <li data-i18n="presence.flow2Item1">Recebe a solicitação organizada em Pendentes</li>
+                </ul>
+              </div>
+            </article>
+            <span class="presence-flow-arrow" aria-hidden="true">→</span>
+            <article class="presence-flow-step">
+              <div>
+                <h3 data-i18n="presence.flow3Title">Médico e equipe</h3>
+                <ul>
+                  <li data-i18n="presence.flow3Item1">Revisam as informações e agendam o procedimento</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="presence-feature-grid">
+            <article>
+              <h3 data-i18n="presence.card1Title">Página personalizada</h3>
+              <ul>
+                <li data-i18n="presence.card1Item1">Para médico individual ou clínica</li>
+                <li data-i18n="presence.card1Item2">Adicione foto, informações profissionais e identidade visual</li>
+              </ul>
+            </article>
+            <article>
+              <h3 data-i18n="presence.card2Title">Questionários personalizados</h3>
+              <ul>
+                <li data-i18n="presence.card2Item1">Crie perguntas específicas para seus pacientes</li>
+                <li data-i18n="presence.card2Item2">Colete informações antes do procedimento</li>
+              </ul>
+            </article>
+            <article>
+              <h3 data-i18n="presence.card3Title">Documentos organizados</h3>
+              <ul>
+                <li data-i18n="presence.card3Item1">Pacientes podem enviar arquivos e informações</li>
+                <li data-i18n="presence.card3Item2">Tudo chega conectado ao fluxo Medipath</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -177,18 +224,47 @@
         </div>
       </section>
 
+      <section class="section security-section" id="seguranca">
+        <div class="security-panel">
+          <div class="section-heading security-copy">
+            <p class="eyebrow" data-i18n="security.eyebrow">Segurança e continuidade</p>
+            <h2 data-i18n="security.title">Proteção para informações sensíveis de saúde.</h2>
+            <p data-i18n="security.text">A Medipath.AI utiliza medidas técnicas e organizacionais para proteger dados pessoais, controlar acessos e apoiar a continuidade da operação, seguindo princípios da LGPD.</p>
+            <a class="text-link" href="politica-de-privacidade/" data-i18n="security.link">Conheça nossa Política de Privacidade</a>
+          </div>
+          <div class="security-grid">
+            <article>
+              <h3 data-i18n="security.card1Title">Controle de acesso</h3>
+              <p data-i18n="security.card1Text">Cada usuário acessa apenas os recursos permitidos no seu ambiente de trabalho.</p>
+            </article>
+            <article>
+              <h3 data-i18n="security.card2Title">Backups automatizados</h3>
+              <p data-i18n="security.card2Text">Cópias de segurança do banco de dados e arquivos da plataforma.</p>
+            </article>
+            <article>
+              <h3 data-i18n="security.card3Title">Continuidade operacional</h3>
+              <p data-i18n="security.card3Text">Processos preparados para apoiar recuperação e continuidade do serviço.</p>
+            </article>
+            <article>
+              <h3 data-i18n="security.card4Title">Proteção de dados</h3>
+              <p data-i18n="security.card4Text">Medidas técnicas para reduzir riscos de acesso não autorizado.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section access" id="waitlist">
         <div class="access-copy">
-          <p class="eyebrow" data-i18n="access.eyebrow">Lista de acesso antecipado</p>
-          <h2 data-i18n="access.title">Entre na lista de espera.</h2>
+          <p class="eyebrow" data-i18n="access.eyebrow">Acesso antecipado</p>
+          <h2 data-i18n="access.title">Medipath está entrando na próxima fase.</h2>
           <p data-i18n="access.text">
-            Faça parte da primeira fase de lançamento e acompanhe a evolução do Medipath.AI.
+            Estamos finalizando os últimos ajustes antes de ampliar o acesso à plataforma. Médicos e clínicas que desejam conhecer o Medipath.AI antes do lançamento completo podem solicitar acesso antecipado.
           </p>
         </div>
 
         <form class="access-form" id="waitlist-form">
           <label>
-            <span data-i18n="form.name">Nome completo</span>
+            <span data-i18n="form.name">Nome Completo</span>
             <input name="full_name" type="text" autocomplete="name" required />
           </label>
           <label>
@@ -209,49 +285,46 @@
           </label>
           <label>
             <span data-i18n="form.whatsapp">WhatsApp</span>
-            <input name="whatsapp" type="tel" autocomplete="tel" />
+            <input name="whatsapp" type="tel" autocomplete="tel-national" inputmode="numeric" maxlength="15" placeholder="(00) 00000-0000" required />
           </label>
           <label class="consent full">
             <input name="launch_consent" type="checkbox" required />
             <span data-i18n="form.consent">Aceito receber comunicações sobre o lançamento do Medipath.AI. Usaremos seus dados apenas para informações sobre o produto e acesso antecipado. Não vendemos seus dados e não enviaremos spam.</span>
           </label>
-          <button class="button primary full" type="submit" data-i18n="form.submit">Entrar na lista</button>
+          <button class="button primary full" type="submit" data-i18n="form.submit">Solicitar acesso</button>
           <p class="form-note full" id="form-note" data-i18n="form.note">
-            Seus dados serão usados apenas para contato sobre o acesso antecipado.
-          </p>
-          <p class="contact-helper full" data-contact-helper>
-            Para dúvidas sobre acesso antecipado, fale conosco pelo WhatsApp.
+            Entraremos em contato para apresentar a plataforma e orientar os próximos passos.
           </p>
         </form>
         <div class="access-confirmation" id="waitlist-confirmation" tabindex="-1" hidden>
           <p class="eyebrow" data-i18n="confirmation.eyebrow">Cadastro recebido</p>
           <h2 data-i18n="confirmation.title">Obrigado pelo interesse no Medipath.AI.</h2>
-          <p data-i18n="confirmation.message">
-            Recebemos seu cadastro para a lista de acesso antecipado. Entraremos em contato durante as próximas ondas de lançamento.
-          </p>
-          <p data-i18n="confirmation.extra">Enquanto isso, acompanhe as novidades pelo nosso site.</p>
+          <p data-i18n="confirmation.message">Em breve você receberá um e-mail nosso. Verifique também sua caixa de spam ou lixo eletrônico. Caso não receba, entre em contato conosco pelo WhatsApp.</p>
           <a class="button primary" href="#top" data-confirmation-home data-i18n="confirmation.button">Voltar ao início</a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <img src="assets/medipath-logo-horizontal.png" alt="Medipath.AI" />
-      <div class="footer-links">
-        <a href="politica-de-privacidade/" data-i18n="footer.privacy">Política de Privacidade</a>
-        <a href="#" aria-label="Termos de Uso em breve" data-i18n="footer.terms">Termos de Uso</a>
-        <a
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          data-contact-whatsapp
-          data-contact-button
-          >Falar pelo WhatsApp</a
-        >
+      <div class="footer-primary">
+        <img src="assets/medipath-logo-horizontal.png" alt="Medipath.AI" />
+        <div class="footer-links">
+          <a href="politica-de-privacidade/" data-i18n="footer.privacy">Política de Privacidade</a>
+          <a href="#" aria-label="Termos de Uso em breve" data-i18n="footer.terms">Termos de Uso</a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-contact-whatsapp
+            data-contact-button
+            >Falar pelo WhatsApp</a
+          >
+        </div>
       </div>
+      <p class="footer-legal">Medipath Tecnologia Ltda. · CNPJ 68.777.766/0001-10</p>
     </footer>
 
     <script src="config.js"></script>
-    <script src="script.js?v=20260813-waitlist-payload"></script>
+    <script src="script.js?v=20260826-early-access"></script>
   </body>
 </html>

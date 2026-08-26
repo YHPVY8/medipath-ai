@@ -26,6 +26,10 @@ The table stores:
 - `launch_consent`
 - `created_at`
 
+The WhatsApp field is displayed with Brazilian formatting while the visitor
+types (for example, `(81) 98888-1111`) and is stored as digits in international
+format (for example, `5581988881111`) for future contact workflows.
+
 RLS is enabled. Anonymous visitors may insert new waitlist requests but cannot
 read or export existing submissions.
 

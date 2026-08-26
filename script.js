@@ -3,18 +3,21 @@ const translations = {
     "nav.product": "Produto",
     "nav.workflow": "Fluxo",
     "nav.features": "Recursos",
+    "nav.presence": "Presença Online",
+    "nav.security": "Segurança",
     "nav.founders": "Médicos Fundadores",
-    "nav.waitlist": "Lista de acesso",
-    "hero.eyebrow": "Plataforma médica doctor-first",
-    "hero.title": "Organize toda a jornada do procedimento em um só lugar.",
+    "nav.waitlist": "Solicitar acesso",
+    "hero.eyebrow": "Plataforma para médicos e equipes",
+    "hero.title": "Organize exames, melhore o fluxo de pacientes e simplifique a operação.",
     "hero.text":
-      "Do cadastro do paciente ao procedimento concluído, acompanhe solicitações, agenda, documentos e comunicação em um único fluxo.",
+      "Centralize exames e procedimentos, receba informações antes do atendimento com o Presença Online e reduza tarefas administrativas em um ambiente desenvolvido para dados sensíveis de saúde.",
     "hero.deviceApple": "iPhone",
     "hero.deviceAndroid": "Android",
     "hero.deviceWeb": "Computador",
     "hero.launch": "Criado para a rotina real de consultórios, clínicas e equipes médicas.",
     "cta.waitlist": "Entrar na lista de espera",
-    "cta.product": "Ver o fluxo",
+    "cta.product": "Conhecer a plataforma",
+    "cta.presence": "Ver Presença Online",
     "hero.note1": "Procedimentos",
     "hero.note2": "Documentos",
     "hero.note3": "Secretárias",
@@ -91,6 +94,26 @@ const translations = {
     "procedure.item2": "Convênio, hospital e médico assistente",
     "procedure.item3": "Dados clínicos, notas internas e tags",
     "procedure.item4": "Atualização rápida conforme a informação muda",
+    "presence.eyebrow": "Presença Online",
+    "presence.title": "Receba informações dos pacientes antes do atendimento.",
+    "presence.text": "Crie uma página personalizada para seu consultório ou clínica. Nela, pacientes podem enviar informações e documentos e responder a questionários personalizados criados por você. Tudo chega organizado no Medipath.AI para facilitar a revisão pela equipe e o agendamento dos procedimentos.",
+    "presence.flowLabel": "Como as informações chegam do paciente à equipe médica",
+    "presence.flow1Title": "Paciente",
+    "presence.flow1Item1": "Acessa a página online",
+    "presence.flow1Item2": "Envia informações pessoais, documentos e responde aos questionários",
+    "presence.flow2Title": "Medipath.AI",
+    "presence.flow2Item1": "Recebe a solicitação organizada em Pendentes",
+    "presence.flow3Title": "Médico e equipe",
+    "presence.flow3Item1": "Revisam as informações e agendam o procedimento",
+    "presence.card1Title": "Página personalizada",
+    "presence.card1Item1": "Para médico individual ou clínica",
+    "presence.card1Item2": "Adicione foto, informações profissionais e identidade visual",
+    "presence.card2Title": "Questionários personalizados",
+    "presence.card2Item1": "Crie perguntas específicas para seus pacientes",
+    "presence.card2Item2": "Colete informações antes do procedimento",
+    "presence.card3Title": "Documentos organizados",
+    "presence.card3Item1": "Pacientes podem enviar arquivos e informações",
+    "presence.card3Item2": "Tudo chega conectado ao fluxo Medipath",
     "founders.eyebrow": "Programa Médicos Fundadores",
     "founders.title": "Faça parte da evolução do Medipath.AI.",
     "founders.text":
@@ -112,16 +135,29 @@ const translations = {
     "trust.item2": "Organização de informações",
     "trust.item3": "Desenvolvimento com foco em privacidade e segurança",
     "trust.note": "Desenvolvido com atenção à privacidade e segurança de dados. LGPD em revisão.",
-    "access.eyebrow": "Lista de acesso antecipado",
-    "access.title": "Entre na lista de espera.",
-    "access.text": "Faça parte da primeira fase de lançamento e acompanhe a evolução do Medipath.AI.",
+    "security.eyebrow": "Segurança e continuidade",
+    "security.title": "Proteção para informações sensíveis de saúde.",
+    "security.text": "A Medipath.AI utiliza medidas técnicas e organizacionais para proteger dados pessoais, controlar acessos e apoiar a continuidade da operação, seguindo princípios da LGPD.",
+    "security.link": "Conheça nossa Política de Privacidade",
+    "security.card1Title": "Controle de acesso",
+    "security.card1Text": "Cada usuário acessa apenas os recursos permitidos no seu ambiente de trabalho.",
+    "security.card2Title": "Backups automatizados",
+    "security.card2Text": "Cópias de segurança do banco de dados e arquivos da plataforma.",
+    "security.card3Title": "Continuidade operacional",
+    "security.card3Text": "Processos preparados para apoiar recuperação e continuidade do serviço.",
+    "security.card4Title": "Proteção de dados",
+    "security.card4Text": "Medidas técnicas para reduzir riscos de acesso não autorizado.",
+    "access.eyebrow": "Acesso antecipado",
+    "access.title": "Medipath está entrando na próxima fase.",
+    "access.text": "Estamos finalizando os últimos ajustes antes de ampliar o acesso à plataforma. Médicos e clínicas que desejam conhecer o Medipath.AI antes do lançamento completo podem solicitar acesso antecipado.",
     "access.trust": "",
-    "form.name": "Nome completo",
+    "form.name": "Nome Completo",
     "form.email": "Email",
     "form.city": "Cidade",
     "form.state": "Estado",
     "form.specialty": "Especialidade",
     "form.whatsapp": "WhatsApp",
+    "form.whatsappError": "Informe um WhatsApp válido no formato (DDD) 9XXXX-XXXX.",
     "form.profileType": "Tipo de perfil",
     "form.communicationPreference": "Preferência de comunicação",
     "form.selectPlaceholder": "Selecione",
@@ -132,15 +168,14 @@ const translations = {
     "form.preferenceWhatsApp": "WhatsApp",
     "form.consent":
       "Aceito receber comunicações sobre o lançamento do Medipath.AI. Usaremos seus dados apenas para informações sobre o produto e acesso antecipado. Não vendemos seus dados e não enviaremos spam.",
-    "form.submit": "Entrar na lista",
-    "form.note": "Seus dados serão usados apenas para contato sobre o acesso antecipado.",
+    "form.submit": "Solicitar acesso",
+    "form.note": "Entraremos em contato para apresentar a plataforma e orientar os próximos passos.",
     "form.error": "Não foi possível enviar agora. Tente novamente em alguns minutos.",
     "form.configError": "A lista de acesso ainda está sendo conectada ao Supabase. Tente novamente em breve.",
     "confirmation.eyebrow": "Cadastro recebido",
     "confirmation.title": "Obrigado pelo interesse no Medipath.AI.",
     "confirmation.message":
-      "Recebemos seu cadastro para a lista de acesso antecipado. Entraremos em contato durante as próximas ondas de lançamento.",
-    "confirmation.extra": "Enquanto isso, acompanhe as novidades pelo nosso site.",
+      "Em breve você receberá um e-mail nosso. Verifique também sua caixa de spam ou lixo eletrônico. Caso não receba, entre em contato conosco pelo WhatsApp.",
     "confirmation.button": "Voltar ao início",
     "footer.privacy": "Política de Privacidade",
     "footer.terms": "Termos de Uso",
@@ -150,18 +185,21 @@ const translations = {
     "nav.product": "Product",
     "nav.workflow": "Workflow",
     "nav.features": "Features",
+    "nav.presence": "Online Presence",
+    "nav.security": "Security",
     "nav.founders": "Founding Doctors",
-    "nav.waitlist": "Waitlist",
-    "hero.eyebrow": "Doctor-first medical platform",
-    "hero.title": "Organize the entire procedure journey in one place.",
+    "nav.waitlist": "Request access",
+    "hero.eyebrow": "Platform for doctors and teams",
+    "hero.title": "Organize exams, improve patient flow, and simplify operations.",
     "hero.text":
-      "From patient registration to completed procedure, track requests, scheduling, documents, and communication in one workflow.",
+      "Centralize exams and procedures, collect information before care with Online Presence, and reduce administrative work in an environment designed for sensitive health data.",
     "hero.deviceApple": "iPhone",
     "hero.deviceAndroid": "Android",
     "hero.deviceWeb": "Computer",
     "hero.launch": "Built for the real routine of clinics, practices, and medical teams.",
     "cta.waitlist": "Join the waitlist",
-    "cta.product": "View workflow",
+    "cta.product": "Explore the platform",
+    "cta.presence": "View Online Presence",
     "hero.note1": "Procedures",
     "hero.note2": "Documents",
     "hero.note3": "Secretaries",
@@ -238,6 +276,26 @@ const translations = {
     "procedure.item2": "Insurance, hospital, and assisting physician",
     "procedure.item3": "Clinical details, internal notes, and tags",
     "procedure.item4": "Quick updates as information changes",
+    "presence.eyebrow": "Online Presence",
+    "presence.title": "Collect patient information before care.",
+    "presence.text": "Create a personalized page for your practice or clinic. Patients can submit information and documents and answer custom questionnaires you create. Everything arrives organized in Medipath.AI, making it easier for the team to review requests and schedule procedures.",
+    "presence.flowLabel": "How information moves from the patient to the medical team",
+    "presence.flow1Title": "Patient",
+    "presence.flow1Item1": "Visits the online page",
+    "presence.flow1Item2": "Submits personal information and documents and answers questionnaires",
+    "presence.flow2Title": "Medipath.AI",
+    "presence.flow2Item1": "Receives the request organized under Pending",
+    "presence.flow3Title": "Doctor and team",
+    "presence.flow3Item1": "Review the information and schedule the procedure",
+    "presence.card1Title": "Personalized page",
+    "presence.card1Item1": "For an individual doctor or clinic",
+    "presence.card1Item2": "Add a photo, professional information, and visual identity",
+    "presence.card2Title": "Custom questionnaires",
+    "presence.card2Item1": "Create specific questions for your patients",
+    "presence.card2Item2": "Collect information before the procedure",
+    "presence.card3Title": "Organized documents",
+    "presence.card3Item1": "Patients can submit files and information",
+    "presence.card3Item2": "Everything arrives connected to the Medipath workflow",
     "founders.eyebrow": "Founding Doctors Program",
     "founders.title": "Help shape Medipath.AI.",
     "founders.text":
@@ -259,9 +317,21 @@ const translations = {
     "trust.item2": "Information organization",
     "trust.item3": "Development focused on privacy and security",
     "trust.note": "Built with attention to data privacy and security. LGPD review in progress.",
-    "access.eyebrow": "Early access waitlist",
-    "access.title": "Join the waitlist.",
-    "access.text": "Join the first launch phase and follow Medipath.AI as it evolves.",
+    "security.eyebrow": "Security and continuity",
+    "security.title": "Protection for sensitive health information.",
+    "security.text": "Medipath.AI uses technical and organizational measures to protect personal data, control access, and support operational continuity, following LGPD principles.",
+    "security.link": "Read our Privacy Policy",
+    "security.card1Title": "Access control",
+    "security.card1Text": "Each user can access only the resources permitted in their workspace.",
+    "security.card2Title": "Automated backups",
+    "security.card2Text": "Backup copies of the platform database and files.",
+    "security.card3Title": "Operational continuity",
+    "security.card3Text": "Processes prepared to support recovery and service continuity.",
+    "security.card4Title": "Data protection",
+    "security.card4Text": "Technical measures designed to reduce the risk of unauthorized access.",
+    "access.eyebrow": "Early access",
+    "access.title": "Medipath is entering its next phase.",
+    "access.text": "We are completing the final refinements before expanding access to the platform. Doctors and clinics interested in exploring Medipath.AI before the full launch can request early access.",
     "access.trust": "",
     "form.name": "Full name",
     "form.email": "Email",
@@ -269,6 +339,7 @@ const translations = {
     "form.state": "State",
     "form.specialty": "Specialty",
     "form.whatsapp": "WhatsApp",
+    "form.whatsappError": "Enter a valid WhatsApp number in the format (area code) 9XXXX-XXXX.",
     "form.profileType": "Profile type",
     "form.communicationPreference": "Communication preference",
     "form.selectPlaceholder": "Select",
@@ -279,15 +350,14 @@ const translations = {
     "form.preferenceWhatsApp": "WhatsApp",
     "form.consent":
       "I agree to receive communications about the Medipath.AI launch. My data will be used only for product information and early access. We do not sell data or send spam.",
-    "form.submit": "Join waitlist",
-    "form.note": "Your data will be used only for early-access contact.",
+    "form.submit": "Request access",
+    "form.note": "We will contact you to introduce the platform and guide you through the next steps.",
     "form.error": "We could not submit right now. Please try again in a few minutes.",
     "form.configError": "The waitlist is still being connected to Supabase. Please try again soon.",
     "confirmation.eyebrow": "Signup received",
     "confirmation.title": "Thank you for your interest in Medipath.AI.",
     "confirmation.message":
-      "We received your signup for the early access waitlist. We will contact you during the next launch waves.",
-    "confirmation.extra": "In the meantime, follow updates on our website.",
+      "You will receive an email from us soon. Please also check your spam or junk folder. If it does not arrive, contact us on WhatsApp.",
     "confirmation.button": "Back to top",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Use",
@@ -305,6 +375,7 @@ const whatsappLinks = document.querySelectorAll("[data-contact-whatsapp]");
 const contactButtons = document.querySelectorAll("[data-contact-button]");
 const contactHelpers = document.querySelectorAll("[data-contact-helper]");
 const confirmationHome = document.querySelector("[data-confirmation-home]");
+const whatsappInput = form?.querySelector("input[name='whatsapp']");
 let currentLanguage = localStorage.getItem("medipath-language") || "pt";
 
 function t(key) {
@@ -319,6 +390,10 @@ function setLanguage(language) {
     element.textContent = t(element.dataset.i18n);
   });
 
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    element.setAttribute("aria-label", t(element.dataset.i18nAria));
+  });
+
   languageButtons.forEach((button) => {
     const active = button.dataset.lang === currentLanguage;
     button.classList.toggle("active", active);
@@ -326,6 +401,7 @@ function setLanguage(language) {
   });
 
   applyContactConfig();
+  validateWhatsAppInput();
   localStorage.setItem("medipath-language", currentLanguage);
 }
 
@@ -361,6 +437,31 @@ function setNote(message, type = "neutral") {
   note.dataset.state = type;
 }
 
+function getBrazilianMobileDigits(value = "") {
+  let digits = value.replace(/\D/g, "");
+  if (digits.startsWith("55") && digits.length > 11) digits = digits.slice(2);
+  return digits.slice(0, 11);
+}
+
+function formatBrazilianMobile(value = "") {
+  const digits = getBrazilianMobileDigits(value);
+  if (!digits) return "";
+  if (digits.length <= 2) return `(${digits}`;
+  if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+}
+
+function isValidBrazilianMobile(value = "") {
+  return /^[1-9]\d9\d{8}$/.test(getBrazilianMobileDigits(value));
+}
+
+function validateWhatsAppInput() {
+  if (!whatsappInput) return true;
+  const valid = !whatsappInput.value || isValidBrazilianMobile(whatsappInput.value);
+  whatsappInput.setCustomValidity(valid ? "" : t("form.whatsappError"));
+  return valid;
+}
+
 function getFormFields() {
   const data = new FormData(form);
   return {
@@ -369,7 +470,9 @@ function getFormFields() {
     city: data.get("city")?.toString().trim() || "",
     state: data.get("state")?.toString().trim() || "",
     specialty: data.get("specialty")?.toString().trim() || null,
-    whatsapp: data.get("whatsapp")?.toString().trim() || null,
+    whatsapp: data.get("whatsapp")
+      ? `55${getBrazilianMobileDigits(data.get("whatsapp").toString())}`
+      : null,
     launch_consent: data.get("launch_consent") === "on",
   };
 }
@@ -407,12 +510,20 @@ languageButtons.forEach((button) => {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
 });
 
+whatsappInput?.addEventListener("input", () => {
+  whatsappInput.value = formatBrazilianMobile(whatsappInput.value);
+  validateWhatsAppInput();
+});
+
+whatsappInput?.addEventListener("blur", validateWhatsAppInput);
+
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const fields = getFormFields();
-  if (!fields.launch_consent) {
+  if (!fields.launch_consent || !validateWhatsAppInput()) {
     setNote(t("form.error"), "error");
+    whatsappInput?.reportValidity();
     return;
   }
 
@@ -436,5 +547,14 @@ confirmationHome?.addEventListener("click", () => {
   form.hidden = false;
   setNote(t("form.note"), "neutral");
 });
+
+function clearRestoredWhatsAppValue() {
+  if (!whatsappInput) return;
+  whatsappInput.value = "";
+  whatsappInput.setCustomValidity("");
+}
+
+clearRestoredWhatsAppValue();
+window.addEventListener("pageshow", clearRestoredWhatsAppValue);
 
 setLanguage(currentLanguage);
