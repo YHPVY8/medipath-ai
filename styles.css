@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/Inter-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   --ink: #06263a;
   --ink-soft: #4f6673;
@@ -17,6 +25,13 @@
 
 * {
   box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 html {
@@ -54,7 +69,12 @@ a {
 .brand img {
   display: block;
   width: min(210px, 48vw);
-  height: auto;
+  height: min(63px, 14.4vw);
+  padding:
+    min(10.77px, 2.4624vw) min(26.31px, 6.0144vw)
+    min(6.47px, 1.4784vw) min(10.77px, 2.4624vw);
+  object-fit: contain;
+  object-position: left center;
 }
 
 .nav {
@@ -198,6 +218,7 @@ h3 {
   padding: 13px 20px;
   border: 1px solid transparent;
   font-weight: 800;
+  line-height: 1.25;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -668,7 +689,6 @@ textarea {
   padding: 13px 12px;
   background: #fbfeff;
   color: var(--ink);
-  font: inherit;
 }
 
 .access-form > label:not(.consent) {
@@ -769,7 +789,10 @@ button:disabled {
 
 .site-footer img {
   width: 170px;
-  height: auto;
+  height: 51px;
+  padding: 8.72px 21.3px 5.24px 8.72px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .footer-links {
@@ -889,7 +912,7 @@ h1 {
 h2 {
   font-size: clamp(1.75rem, 3.4vw, 3rem);
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
 }
 
 .hero-text,
@@ -1867,6 +1890,10 @@ input[name="whatsapp"]:invalid:not(:focus):not(:placeholder-shown) {
 @media (max-width: 719px) {
   .policy-header .brand img {
     width: min(178px, 48vw);
+    height: min(53.4px, 14.4vw);
+    padding:
+      min(9.13px, 2.4624vw) min(22.3px, 6.0144vw)
+      min(5.49px, 1.4784vw) min(9.13px, 2.4624vw);
   }
 
   .policy-header .button {
