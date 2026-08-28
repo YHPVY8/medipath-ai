@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 425 425" role="img" aria-labelledby="title desc">
+  <title id="title">Medipath.AI Favicon</title>
+  <desc id="desc">Square favicon source derived from the exact approved Medipath.AI Candidate B mark.</desc>
+  <metadata>Canonical Candidate B geometry fingerprint: c92896bb3172088bb151ef6a2824c1d1a97856253055ea0ceb0b338997328316. Original mark centered vertically by viewBox placement only; geometry unchanged.</metadata>
+  <defs>
+    <linearGradient id="medipathPathGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#00969E"/>
+      <stop offset="1" stop-color="#005A62"/>
+    </linearGradient>
+    <clipPath id="iconClip"><path d="M160 1 H269 C285 1 297 13 297 29 V116 C297 126 303 132 313 132 H397 C414 132 424 144 424 160 V257 C424 274 413 285 397 285 H313 C303 285 297 291 297 301 V389 C297 406 285 417 269 417 H160 C143 417 132 406 132 389 V301 C132 291 126 285 116 285 H28 C11 285 1 274 1 257 V160 C1 143 12 132 28 132 H116 C126 132 132 126 132 116 V29 C132 12 143 1 160 1 Z"/></clipPath>
+  </defs>
+  <g transform="translate(0 3.5)">
+    <path d="M160 1 H269 C285 1 297 13 297 29 V116 C297 126 303 132 313 132 H397 C414 132 424 144 424 160 V257 C424 274 413 285 397 285 H313 C303 285 297 291 297 301 V389 C297 406 285 417 269 417 H160 C143 417 132 406 132 389 V301 C132 291 126 285 116 285 H28 C11 285 1 274 1 257 V160 C1 143 12 132 28 132 H116 C126 132 132 126 132 116 V29 C132 12 143 1 160 1 Z" fill="url(#medipathPathGradient)"/>
+    <path d="M216 127 C228 138 247 147 255 153 C263 159 248 166 231 173 C205 184 173 190 153 199 C139 205 138 211 149 218 C168 232 195 244 216 258 C239 272 251 289 255 307 C260 333 247 357 227 380 C207 399 185 415 159 431 L297 431 L297 320 C295 304 290 289 279 280 C262 265 238 253 218 241 C197 229 174 219 150 212 C139 208 142 202 154 196 C168 189 184 184 202 178 C224 171 246 164 260 158 C247 148 228 137 216 127 Z" fill="#FFFFFF" clip-path="url(#iconClip)"/>
+  </g>
+</svg>
