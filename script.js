@@ -481,19 +481,17 @@ function getFormFields() {
   };
 }
 
-async function submitToSupabase(fields) {
-  if (!config.supabaseUrl || !config.publishableKey) {
-    throw new Error("Missing Supabase public configuration");
+async function submitWaitlist(fields) {
+  if (!config.apiUrl) {
+    throw new Error("Missing public API configuration");
   }
 
-  const response = await fetch(`${config.supabaseUrl}/rest/v1/waitlist_signups`, {
+  const response = await fetch(`${config.apiUrl}/api/public/waitlist`, {
     method: "POST",
     headers: {
-      apikey: config.publishableKey,
-      authorization: `Bearer ${config.publishableKey}`,
       "content-type": "application/json",
-      prefer: "return=minimal",
     },
+    credentials: "include",
     body: JSON.stringify(fields),
   });
 
@@ -502,6 +500,21 @@ async function submitToSupabase(fields) {
   }
 
   return true;
+}
+
+async function trackWebsiteVisit() {
+  if (!config.apiUrl || document.cookie.includes("medipath_internal=1")) return;
+  try {
+    await fetch(`${config.apiUrl}/api/public/website/visit`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      credentials: "include",
+      keepalive: true,
+      body: JSON.stringify({ path: `${window.location.pathname}${window.location.search}` }),
+    });
+  } catch {
+    // Analytics must never affect the website experience.
+  }
 }
 
 function showConfirmation() {
@@ -535,11 +548,11 @@ form?.addEventListener("submit", async (event) => {
   submitButton.disabled = true;
 
   try {
-    await submitToSupabase(fields);
+    await submitWaitlist(fields);
     form.reset();
     showConfirmation();
   } catch (error) {
-    const message = error.message === "Missing Supabase public configuration" ? t("form.configError") : t("form.error");
+    const message = error.message === "Missing public API configuration" ? t("form.configError") : t("form.error");
     setNote(message, "error");
   } finally {
     submitButton.disabled = false;
@@ -562,3 +575,4 @@ clearRestoredWhatsAppValue();
 window.addEventListener("pageshow", clearRestoredWhatsAppValue);
 
 setLanguage(currentLanguage);
+void trackWebsiteVisit();

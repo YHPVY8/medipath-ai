@@ -1,4 +1,5 @@
 window.MEDIPATH_WAITLIST_CONFIG = {
+  apiUrl: "https://app.medipath-ai.com",
   supabaseUrl: "https://wqfonavkarylyfjuzvmi.supabase.co",
   publishableKey: "sb_publishable_aeVLsJmQNVkicGOmmFOuNQ_s2QRAtO7",
   contact: {
