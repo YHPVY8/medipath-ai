@@ -70,6 +70,9 @@ a {
   display: block;
   width: min(210px, 48vw);
   height: min(63px, 14.4vw);
+  padding:
+    min(10.77px, 2.4624vw) min(26.31px, 6.0144vw)
+    min(6.47px, 1.4784vw) min(10.77px, 2.4624vw);
   object-fit: contain;
   object-position: left center;
 }
@@ -787,6 +790,7 @@ button:disabled {
 .site-footer img {
   width: 170px;
   height: 51px;
+  padding: 8.72px 21.3px 5.24px 8.72px;
   object-fit: contain;
   object-position: left center;
 }
@@ -1887,6 +1891,9 @@ input[name="whatsapp"]:invalid:not(:focus):not(:placeholder-shown) {
   .policy-header .brand img {
     width: min(178px, 48vw);
     height: min(53.4px, 14.4vw);
+    padding:
+      min(9.13px, 2.4624vw) min(22.3px, 6.0144vw)
+      min(5.49px, 1.4784vw) min(9.13px, 2.4624vw);
   }
 
   .policy-header .button {
