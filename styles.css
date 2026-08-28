@@ -908,7 +908,7 @@ h1 {
 h2 {
   font-size: clamp(1.75rem, 3.4vw, 3rem);
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
 }
 
 .hero-text,
