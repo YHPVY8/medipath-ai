@@ -215,6 +215,7 @@ h3 {
   padding: 13px 20px;
   border: 1px solid transparent;
   font-weight: 800;
+  line-height: 1.25;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
