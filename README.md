@@ -1,6 +1,21 @@
 # Medipath.AI Landing Page
 
-Static, GitHub Pages-ready marketing and early-access launch page for Medipath.AI.
+Static, GitHub Pages-ready marketing and public doctor onboarding page for Medipath.AI.
+
+## Public doctor onboarding
+
+The redesigned release submits the signup form to
+`https://app.medipath-ai.com/api/public/doctors/onboard`. It sends only the
+approved doctor profile fields and a short-lived Cloudflare Turnstile token.
+
+- The public Turnstile site key and action live in `onboarding-config.js`.
+- The Turnstile secret must exist only in the API runtime.
+- HTTP `202` produces the same generic accepted state for every request.
+- Turnstile tokens are kept only in memory and reset after expiry, errors, and
+  every submission attempt.
+
+Do not publish this branch or enable public onboarding until the API runtime is
+configured and the trusted client-IP path is verified.
 
 ## Files
 

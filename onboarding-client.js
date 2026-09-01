@@ -5,6 +5,10 @@
   const ALLOWED_PAYLOAD_KEYS = new Set([
     "doctorName",
     "email",
+    "city",
+    "state",
+    "specialty",
+    "whatsapp",
     "workspaceName",
     "turnstileToken",
   ]);
@@ -18,8 +22,16 @@
       doctorName: normalizedText(values.doctorName),
       email: normalizedText(values.email).toLowerCase(),
     };
+    const city = normalizedText(values.city);
+    const state = normalizedText(values.state).toUpperCase();
+    const specialty = normalizedText(values.specialty);
+    const whatsapp = normalizedText(values.whatsapp);
     const workspaceName = normalizedText(values.workspaceName);
     const token = normalizedText(turnstileToken);
+    if (city) payload.city = city;
+    if (state) payload.state = state;
+    if (specialty) payload.specialty = specialty;
+    if (whatsapp) payload.whatsapp = whatsapp;
     if (workspaceName) payload.workspaceName = workspaceName;
     if (token) payload.turnstileToken = token;
     return payload;

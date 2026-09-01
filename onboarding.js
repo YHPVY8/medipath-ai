@@ -29,6 +29,7 @@
       "value.team.title": "Rotina mais simples",
       "value.team.text": "Mantenha médico e equipe trabalhando com o mesmo contexto.",
       "form.name": "Nome Completo",
+      "form.workspaceName": "Consultório ou clínica (opcional)",
       "form.email": "Email",
       "form.city": "Cidade",
       "form.state": "Estado",
@@ -41,6 +42,7 @@
       "form.whatsappError": "Informe um celular brasileiro válido com DDD.",
       "form.error": "Não foi possível concluir o cadastro agora. Tente novamente em alguns minutos.",
       "form.turnstileRequired": "Conclua a verificação de segurança para continuar.",
+      "form.turnstileError": "A verificação de segurança expirou. Tente novamente.",
       "legal.terms": "Termos de Uso",
       "legal.privacy": "Política de Privacidade",
       "success.label": "Cadastro recebido",
@@ -75,6 +77,7 @@
       "value.team.title": "A simpler routine",
       "value.team.text": "Keep doctors and staff working with the same context.",
       "form.name": "Full Name",
+      "form.workspaceName": "Practice or clinic (optional)",
       "form.email": "Email",
       "form.city": "City",
       "form.state": "State",
@@ -87,6 +90,7 @@
       "form.whatsappError": "Enter a valid Brazilian mobile number with area code.",
       "form.error": "We could not complete your signup right now. Please try again in a few minutes.",
       "form.turnstileRequired": "Complete the security check to continue.",
+      "form.turnstileError": "The security check expired. Please try again.",
       "legal.terms": "Terms of Use",
       "legal.privacy": "Privacy Policy",
       "success.label": "Signup received",
@@ -160,11 +164,12 @@
     const data = new FormData(form);
     return {
       full_name: data.get("full_name")?.toString().trim() || "",
+      workspace_name: data.get("workspace_name")?.toString().trim() || "",
       email: data.get("email")?.toString().trim() || "",
       city: data.get("city")?.toString().trim() || "",
-      state: data.get("state")?.toString().trim() || "",
-      specialty: data.get("specialty")?.toString().trim() || null,
-      whatsapp: data.get("whatsapp") ? `55${getBrazilianMobileDigits(data.get("whatsapp"))}` : null,
+      state: data.get("state")?.toString().trim().toUpperCase() || "",
+      specialty: data.get("specialty")?.toString().trim() || "",
+      whatsapp: data.get("whatsapp") ? getBrazilianMobileDigits(data.get("whatsapp")) : "",
     };
   }
 
@@ -193,8 +198,18 @@
         turnstileToken = token;
         setFormStatus();
       },
-      "expired-callback"() { turnstileToken = ""; },
-      "error-callback"() { turnstileToken = ""; },
+      "expired-callback"() {
+        setFormStatus(translate("form.turnstileError"));
+        resetTurnstileToken();
+      },
+      "timeout-callback"() {
+        setFormStatus(translate("form.turnstileError"));
+        resetTurnstileToken();
+      },
+      "error-callback"() {
+        setFormStatus(translate("form.turnstileError"));
+        resetTurnstileToken();
+      },
     });
   }
 
@@ -238,6 +253,11 @@
     const onboardingPayload = onboarding.buildPublicDoctorPayload({
       doctorName: values.full_name,
       email: values.email,
+      city: values.city,
+      state: values.state,
+      specialty: values.specialty,
+      whatsapp: values.whatsapp,
+      workspaceName: values.workspace_name,
     }, turnstileToken);
     const client = onboarding.createPublicDoctorOnboardingClient(config);
     setFormStatus();
