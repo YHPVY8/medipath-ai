@@ -9,13 +9,15 @@
       content="Medipath.AI ajuda médicos e clínicas a organizar exames e procedimentos, receber solicitações de pacientes e simplificar a operação com infraestrutura segura."
     />
     <meta name="theme-color" content="#0b7f8c" />
+    <link rel="canonical" href="https://medipath-ai.com/" />
     <link rel="icon" type="image/svg+xml" href="assets/brand/Medipath.AI-Favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/Medipath.AI-Favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="assets/brand/Medipath.AI-Favicon-16.png" />
     <link rel="apple-touch-icon" href="assets/brand/Medipath.AI-Apple-Touch-Icon-180.png" />
     <link rel="stylesheet" href="styles.css?v=20260828-canonical-brand" />
+    <link rel="stylesheet" href="product.css?v=20260901-approved-release" />
   </head>
-  <body>
+  <body class="trial-preview">
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Medipath.AI">
         <img src="assets/brand/Medipath.AI-Primary-Horizontal.svg" alt="Medipath.AI" />
@@ -25,9 +27,10 @@
         <a href="#fluxo" data-i18n="nav.workflow">Fluxo</a>
         <a href="#presenca-online" data-i18n="nav.presence">Presença Online</a>
         <a href="#seguranca" data-i18n="nav.security">Segurança</a>
-        <a href="#waitlist" data-i18n="nav.waitlist">Solicitar acesso</a>
+        <a href="#teste-gratuito" data-i18n="nav.waitlist">Solicitar acesso</a>
       </nav>
       <div class="header-actions">
+        <a class="preview-login" href="https://app.medipath-ai.com/" data-login-link data-preview-i18n="nav.login">Entrar</a>
         <div class="language-toggle" aria-label="Selecionar idioma">
           <button type="button" class="active" data-lang="pt" aria-pressed="true">PT</button>
           <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -135,6 +138,16 @@
               </div>
             </article>
           </div>
+
+          <figure class="presence-proof" id="presenca-exemplo">
+            <div class="presence-proof-frame">
+              <img
+                src="assets/product-screenshots/presenca-online-dra-manuela.png"
+                alt="Exemplo da página Presença Online personalizada da Dra. Manuela Pitanga"
+              />
+            </div>
+            <figcaption data-preview-i18n="presence.proofCaption">Exemplo real de uma Presença Online personalizada</figcaption>
+          </figure>
 
           <div class="presence-feature-grid">
             <article>
@@ -257,55 +270,82 @@
         </div>
       </section>
 
-      <section class="section access" id="waitlist">
+      <section class="section pricing-section" id="plano">
+        <div class="pricing-copy">
+          <p class="eyebrow" data-preview-i18n="pricing.eyebrow">Plano</p>
+          <h2 data-preview-i18n="pricing.title">Um plano simples. Tudo incluído.</h2>
+          <p data-preview-i18n="pricing.body">Organize procedimentos, pacientes e sua rotina de atendimento, com Presença Online incluída.</p>
+        </div>
+
+        <article class="pricing-card" aria-labelledby="pricing-price">
+          <p class="pricing-price" id="pricing-price" data-preview-i18n="pricing.price">R$99 por mês</p>
+          <ul class="pricing-features">
+            <li data-preview-i18n="pricing.feature1">Gestão de pacientes, exames e procedimentos</li>
+            <li data-preview-i18n="pricing.feature2">Presença Online personalizada</li>
+            <li data-preview-i18n="pricing.feature3">Acesso para sua equipe</li>
+            <li data-preview-i18n="pricing.feature4">Backups e recursos de segurança</li>
+          </ul>
+          <div class="pricing-terms">
+            <p data-preview-i18n="pricing.trial">14 dias grátis · Sem cartão de crédito · Cancele quando quiser</p>
+          </div>
+          <a class="button primary pricing-cta" href="#teste-gratuito" data-preview-i18n="pricing.cta">Começar teste gratuito</a>
+        </article>
+      </section>
+
+      <section class="section access" id="teste-gratuito">
         <div class="access-copy">
-          <p class="eyebrow" data-i18n="access.eyebrow">Acesso antecipado</p>
-          <h2 data-i18n="access.title">Medipath está entrando na próxima fase.</h2>
-          <p data-i18n="access.text">
-            Estamos finalizando os últimos ajustes antes de ampliar o acesso à plataforma. Médicos e clínicas que desejam conhecer o Medipath.AI antes do lançamento completo podem solicitar acesso antecipado.
+          <p class="eyebrow" data-preview-i18n="trial.eyebrow">Teste gratuito</p>
+          <h2 data-preview-i18n="trial.title">Experimente o Medipath.AI por 14 dias.</h2>
+          <p data-preview-i18n="trial.body">
+            Crie sua conta e comece a organizar seus procedimentos, pacientes e Presença Online em poucos minutos.
           </p>
         </div>
 
-        <form class="access-form" id="waitlist-form">
+        <form class="access-form trial-signup-form" id="trial-signup-form">
           <label>
-            <span data-i18n="form.name">Nome Completo</span>
-            <input name="full_name" type="text" autocomplete="name" required />
+            <span data-preview-i18n="form.name">Nome Completo</span>
+            <input name="full_name" type="text" autocomplete="name" minlength="2" maxlength="120" required />
           </label>
           <label>
-            <span data-i18n="form.email">Email</span>
-            <input name="email" type="email" autocomplete="email" required />
+            <span data-preview-i18n="form.email">Email</span>
+            <input name="email" type="email" autocomplete="email" maxlength="254" required />
           </label>
           <label>
-            <span data-i18n="form.city">Cidade</span>
-            <input name="city" type="text" autocomplete="address-level2" required />
+            <span data-preview-i18n="form.city">Cidade</span>
+            <input name="city" type="text" autocomplete="address-level2" maxlength="120" required />
           </label>
           <label>
-            <span data-i18n="form.state">Estado</span>
-            <input name="state" type="text" autocomplete="address-level1" required />
+            <span data-preview-i18n="form.state">Estado</span>
+            <input name="state" type="text" autocomplete="address-level1" maxlength="80" required />
           </label>
           <label>
-            <span data-i18n="form.specialty">Especialidade</span>
-            <input name="specialty" type="text" />
+            <span data-preview-i18n="form.specialty">Especialidade</span>
+            <input name="specialty" type="text" maxlength="120" />
           </label>
           <label>
-            <span data-i18n="form.whatsapp">WhatsApp</span>
+            <span data-preview-i18n="form.whatsapp">WhatsApp</span>
             <input name="whatsapp" type="tel" autocomplete="tel-national" inputmode="numeric" maxlength="15" placeholder="(00) 00000-0000" required />
           </label>
-          <label class="consent full">
-            <input name="launch_consent" type="checkbox" required />
-            <span data-i18n="form.consent">Aceito receber comunicações sobre o lançamento do Medipath.AI. Usaremos seus dados apenas para informações sobre o produto e acesso antecipado. Não vendemos seus dados e não enviaremos spam.</span>
-          </label>
-          <button class="button primary full" type="submit" data-i18n="form.submit">Solicitar acesso</button>
-          <p class="form-note full" id="form-note" data-i18n="form.note">
-            Entraremos em contato para apresentar a plataforma e orientar os próximos passos.
+
+          <div class="turnstile-slot full" data-turnstile-slot hidden aria-label="Verificação de segurança"></div>
+          <p class="form-status full" data-form-status hidden role="status" aria-live="polite"></p>
+
+          <p class="legal-note full">
+            <span data-preview-i18n="form.legalBefore">Ao continuar, você concorda com os</span>
+            <a href="termos-de-uso/" data-preview-i18n="legal.terms">Termos de Uso</a>
+            <span data-preview-i18n="form.legalAnd">e a</span>
+            <a href="politica-de-privacidade/" data-preview-i18n="legal.privacy">Política de Privacidade</a>.
           </p>
+
+          <button class="button primary full" type="submit" data-preview-i18n="form.submit">Começar teste gratuito</button>
+          <p class="trial-support full" data-preview-i18n="trial.support">14 dias gratuitos. Sem cartão de crédito. Depois, R$99/mês. Cancele quando quiser.</p>
         </form>
-        <div class="access-confirmation" id="waitlist-confirmation" tabindex="-1" hidden>
-          <p class="eyebrow" data-i18n="confirmation.eyebrow">Cadastro recebido</p>
-          <h2 data-i18n="confirmation.title">Confira seu e-mail em breve.</h2>
-          <p data-i18n="confirmation.message">Enviaremos uma mensagem com os próximos passos para o endereço informado. Verifique também sua caixa de spam ou lixo eletrônico.</p>
-          <p data-i18n="confirmation.support">Caso não receba o e-mail, entre em contato conosco pelo WhatsApp.</p>
-          <a class="button primary" href="#top" data-confirmation-home data-i18n="confirmation.button">Voltar ao início</a>
+
+        <div class="access-confirmation trial-confirmation" id="trial-confirmation" tabindex="-1" hidden>
+          <p class="eyebrow" data-preview-i18n="success.label">Cadastro recebido</p>
+          <h2 data-preview-i18n="success.title">Confira seu e-mail para continuar.</h2>
+          <p data-preview-i18n="success.text">Enviamos um e-mail para você criar sua senha e acessar o Medipath.AI. Verifique também sua caixa de spam ou lixo eletrônico.</p>
+          <a class="button primary" href="#top" data-return-home data-preview-i18n="success.home">Voltar ao início</a>
         </div>
       </section>
     </main>
@@ -315,7 +355,8 @@
         <img src="assets/brand/Medipath.AI-Primary-Horizontal.svg" alt="Medipath.AI" />
         <div class="footer-links">
           <a href="politica-de-privacidade/" data-i18n="footer.privacy">Política de Privacidade</a>
-          <a href="#" aria-label="Termos de Uso em breve" data-i18n="footer.terms">Termos de Uso</a>
+          <a href="termos-de-uso/" data-i18n="footer.terms">Termos de Uso</a>
+          <a href="suporte/" data-i18n="footer.support">Suporte</a>
           <a
             href="#"
             target="_blank"
@@ -329,7 +370,9 @@
       <p class="footer-legal">Medipath Tecnologia Ltda. · CNPJ 68.777.766/0001-10</p>
     </footer>
 
-    <script src="config.js"></script>
-    <script src="script.js?v=20260828-website-analytics"></script>
+    <script src="site-i18n.js?v=20260901-approved-release"></script>
+    <script src="onboarding-config.js?v=20260901-approved-release"></script>
+    <script src="onboarding-client.js?v=20260901-approved-release"></script>
+    <script src="onboarding.js?v=20260901-approved-release"></script>
   </body>
 </html>

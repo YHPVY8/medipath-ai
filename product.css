@@ -1,0 +1,170 @@
+[hidden] { display: none !important; }
+
+.trial-preview .nav { display: none; }
+.trial-preview .header-actions { gap: 12px; }
+
+.preview-login {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  border: 0;
+  padding: 8px 6px;
+  background: transparent;
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 780;
+  text-decoration: none;
+}
+.preview-login:hover { color: var(--teal-dark); }
+.preview-login:focus-visible { outline: 3px solid rgba(10, 156, 163, 0.2); outline-offset: 2px; }
+
+.presence-proof { min-width: 0; margin: 2px 0 0; }
+.presence-proof-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1.88 / 1;
+  border: 1px solid rgba(216, 232, 236, 0.96);
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 22px 60px rgba(8, 49, 73, 0.12);
+}
+.presence-proof-frame::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+  pointer-events: none;
+}
+.presence-proof img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.presence-proof figcaption { margin-top: 13px; color: var(--ink-soft); font-size: 0.82rem; font-weight: 720; text-align: center; }
+
+#teste-gratuito { scroll-margin-top: 88px; }
+
+.pricing-section {
+  display: grid;
+  gap: 42px;
+  align-items: center;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(68, 188, 190, 0.12), transparent 30%),
+    #f8fbfc;
+}
+.pricing-copy { max-width: 590px; }
+.pricing-copy > p:not(.eyebrow) { color: var(--ink-soft); }
+.pricing-card {
+  display: grid;
+  gap: 25px;
+  border: 1px solid rgba(10, 156, 163, 0.17);
+  border-radius: 20px;
+  padding: clamp(26px, 4vw, 42px);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 48px rgba(8, 49, 73, 0.075);
+}
+.pricing-price {
+  margin: 0;
+  color: var(--blue);
+  font-size: clamp(1.55rem, 2.65vw, 2.05rem);
+  font-weight: 790;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+.pricing-features {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pricing-features li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--ink);
+  font-weight: 680;
+}
+.pricing-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--teal-dark);
+  font-weight: 900;
+}
+.pricing-terms {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.pricing-terms p { margin: 0; color: var(--ink-soft); font-size: 0.86rem; font-weight: 720; }
+.pricing-cta { width: 100%; text-align: center; text-decoration: none; }
+
+.trial-preview .access { align-items: start; padding-top: 76px; padding-bottom: 82px; }
+.trial-preview .access-copy { max-width: 610px; }
+.trial-preview .access-copy > p:not(.eyebrow) { margin-bottom: 0; }
+
+.trial-signup-form {
+  border: 1px solid rgba(10, 156, 163, 0.16);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 24px 66px rgba(8, 49, 73, 0.1);
+}
+.trial-signup-form .legal-note {
+  margin: 0;
+  color: #7c909a;
+  font-size: 0.74rem;
+  line-height: 1.65;
+  text-align: left;
+}
+.trial-signup-form .legal-note a {
+  color: var(--teal-dark);
+  font-weight: 720;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.trial-signup-form .form-status {
+  margin: 0;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff4f1;
+  color: #9a3f2d;
+  font-size: 0.78rem;
+  font-weight: 680;
+  line-height: 1.5;
+}
+.trial-signup-form button[type="submit"] { border: 0; cursor: pointer; }
+.trial-support {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  text-align: center;
+}
+.trial-support { font-weight: 760; }
+.turnstile-slot { min-height: 65px; }
+
+.trial-confirmation {
+  min-height: 410px;
+  align-content: center;
+}
+.preview-response-note {
+  margin: -2px 0 8px;
+  border-left: 3px solid var(--teal);
+  padding-left: 12px;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 860px) {
+  .pricing-section { grid-template-columns: minmax(0, 0.9fr) minmax(430px, 1.1fr); }
+}
+
+@media (max-width: 719px) {
+  .trial-preview .site-header { gap: 8px; padding-right: 14px; padding-left: 14px; }
+  .trial-preview .header-actions { gap: 5px; }
+  .preview-login { padding: 7px 5px; font-size: 0.8rem; }
+  .presence-proof-frame { aspect-ratio: 1.52 / 1; border-radius: 15px; }
+  .pricing-section { gap: 28px; }
+  .pricing-card { gap: 22px; border-radius: 16px; padding: 24px 20px; }
+  .pricing-price { font-size: 1.4rem; }
+  .trial-preview .access { padding-top: 62px; padding-bottom: 64px; }
+  .trial-signup-form .legal-note { text-align: left; }
+  .trial-confirmation { min-height: 340px; }
+}
