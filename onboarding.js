@@ -49,6 +49,9 @@
       "success.title": "Confira seu e-mail para continuar.",
       "success.text": "Enviamos um e-mail para você criar sua senha e acessar o Medipath.AI. Verifique também sua caixa de spam ou lixo eletrônico.",
       "success.home": "Voltar ao início",
+      "success.guideTitle": "Enquanto isso, reserve 2 minutos para conhecer o Medipath.AI.",
+      "success.guideText": "Veja nosso guia rápido e entenda como começar a usar a plataforma.",
+      "success.guideLink": "Ver guia de primeiros passos",
     },
     en: {
       "nav.login": "Log in",
@@ -97,6 +100,9 @@
       "success.title": "Check your email to continue.",
       "success.text": "We sent an email so you can create your password and access Medipath.AI. Please also check your spam or junk folder.",
       "success.home": "Back to the top",
+      "success.guideTitle": "In the meantime, take 2 minutes to get to know Medipath.AI.",
+      "success.guideText": "Explore our quick guide and learn how to get started with the platform.",
+      "success.guideLink": "View the getting started guide",
     },
   };
 
