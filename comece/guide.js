@@ -4,6 +4,9 @@
   const previous = document.querySelector('#previous');
   const next = document.querySelector('#next');
   const status = document.querySelector('#page-status');
+  const progress = document.querySelector('.guide-progress');
+  const progressFill = document.querySelector('.guide-progress-fill');
+  const swipeCue = document.querySelector('.swipe-cue');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   let current = 0;
   let scrollTimer;
@@ -11,8 +14,17 @@
   let moved = false;
   let multiTouch = false;
 
+  function updateIndicators(index) {
+    const page = Math.max(1, Math.min(slides.length, index + 1));
+    progressFill.style.transform = `scaleX(${page / slides.length})`;
+    progress.setAttribute('aria-valuenow', String(page));
+    progress.setAttribute('aria-valuetext', `Página ${page} de ${slides.length}`);
+    swipeCue.hidden = page !== 1;
+  }
+
   function update(index) {
     current = Math.max(0, Math.min(slides.length - 1, index));
+    updateIndicators(current);
     previous.disabled = current === 0;
     next.disabled = current === slides.length - 1;
     status.textContent = `Página ${current + 1} de ${slides.length}`;
@@ -40,6 +52,8 @@
     update(Math.round(track.scrollLeft / track.clientWidth));
   }
   track.addEventListener('scroll', () => {
+    // Reflect a swipe as soon as the next slide becomes active, before settling.
+    updateIndicators(Math.round(track.scrollLeft / track.clientWidth));
     clearTimeout(scrollTimer);
     scrollTimer = setTimeout(settled, 150);
   }, { passive: true });

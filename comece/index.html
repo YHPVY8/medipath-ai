@@ -9,15 +9,21 @@
     <link rel="icon" type="image/svg+xml" href="../assets/brand/Medipath.AI-Favicon.svg" />
     <link rel="preload" as="image" href="../assets/comece/1.png" fetchpriority="high" />
     <link rel="preload" as="image" href="../assets/comece/2.png" />
-    <link rel="stylesheet" href="guide.css" />
-    <script src="guide.js" defer></script>
+    <link rel="stylesheet" href="guide.css?v=2" />
+    <script src="guide.js?v=2" defer></script>
   </head>
   <body>
     <main class="guide" aria-label="Guia rápido Medipath.AI">
+      <div class="guide-progress" role="progressbar" aria-label="Progresso do guia" aria-valuemin="0" aria-valuemax="14" aria-valuenow="1" aria-valuetext="Página 1 de 14">
+        <span class="guide-progress-fill"></span>
+      </div>
       <p id="instructions" class="sr-only">Deslize para a esquerda para avançar ou para a direita para voltar. Toque na metade direita ou esquerda da tela, ou use as setas do teclado.</p>
       <div class="slides" role="region" aria-roledescription="carrossel" aria-label="Guia de 14 páginas" aria-describedby="instructions">
         <figure class="slide" role="group" aria-label="Página 1 de 14">
-          <img src="../assets/comece/1.png" width="1080" height="1920" alt="Guia rápido Medipath.AI — página 1 de 14" loading="eager" decoding="async" fetchpriority="high" draggable="false" />
+          <div class="first-slide-art">
+            <img src="../assets/comece/1.png" width="1080" height="1920" alt="Guia rápido Medipath.AI — página 1 de 14" loading="eager" decoding="async" fetchpriority="high" draggable="false" />
+            <p class="swipe-cue" aria-hidden="true">Deslize para continuar <span>→</span></p>
+          </div>
         </figure>
         <figure class="slide" role="group" aria-label="Página 2 de 14">
           <img src="../assets/comece/2.png" width="1080" height="1920" alt="Guia rápido Medipath.AI — página 2 de 14" loading="eager" decoding="async"  draggable="false" />

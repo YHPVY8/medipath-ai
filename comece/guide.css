@@ -2,6 +2,48 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
 .guide { position: relative; width: 100%; height: 100vh; height: 100dvh; }
+.guide-progress {
+  position: absolute;
+  z-index: 1;
+  top: env(safe-area-inset-top, 0px);
+  left: env(safe-area-inset-left, 0px);
+  right: env(safe-area-inset-right, 0px);
+  height: 3px;
+  overflow: hidden;
+  background: rgb(0 141 153 / 12%);
+  pointer-events: none;
+}
+.guide-progress-fill {
+  display: block;
+  height: 100%;
+  background: #008d99;
+  transform: scaleX(calc(1 / 14));
+  transform-origin: left;
+  transition: transform 150ms ease-out;
+}
+.first-slide-art {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  container-type: size;
+}
+.swipe-cue {
+  position: absolute;
+  /* Center in the PNG's blank band, between the Android card and footer.
+     Account for contain-fit letterboxing without changing the image size. */
+  top: calc(50% + min(42cqh, 74.6667cqw));
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: #082747;
+  font: 500 min(13px, 2.8cqh) / 1.4 system-ui, sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.swipe-cue span { color: #008d99; margin-left: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .guide-progress-fill { transition: none; }
+}
 .slides {
   display: flex;
   width: 100%;
