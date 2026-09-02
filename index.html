@@ -278,7 +278,14 @@
         </div>
 
         <article class="pricing-card" aria-labelledby="pricing-price">
-          <p class="pricing-price" id="pricing-price" data-preview-i18n="pricing.price">R$99 por mês</p>
+          <div>
+            <p class="pricing-standard-price" data-pricing-standard hidden></p>
+            <p class="pricing-price" id="pricing-price" data-pricing-price data-preview-i18n="pricing.price">R$99 por mês</p>
+          </div>
+          <div class="pricing-launch-offer" data-pricing-launch-offer hidden>
+            <p class="pricing-launch-headline" data-pricing-founder-headline></p>
+            <p class="pricing-launch-copy" data-pricing-founder-copy></p>
+          </div>
           <ul class="pricing-features">
             <li data-preview-i18n="pricing.feature1">Gestão de pacientes, exames e procedimentos</li>
             <li data-preview-i18n="pricing.feature2">Presença Online personalizada</li>
@@ -286,7 +293,7 @@
             <li data-preview-i18n="pricing.feature4">Backups e recursos de segurança</li>
           </ul>
           <div class="pricing-terms">
-            <p data-preview-i18n="pricing.trial">14 dias grátis · Sem cartão de crédito · Cancele quando quiser</p>
+            <p data-pricing-trial-summary data-preview-i18n="pricing.trial">14 dias grátis · Sem cartão de crédito · Cancele quando quiser</p>
           </div>
           <a class="button primary pricing-cta" href="#teste-gratuito" data-preview-i18n="pricing.cta">Começar teste gratuito</a>
         </article>
@@ -295,7 +302,7 @@
       <section class="section access" id="teste-gratuito">
         <div class="access-copy">
           <p class="eyebrow" data-preview-i18n="trial.eyebrow">Teste gratuito</p>
-          <h2 data-preview-i18n="trial.title">Experimente o Medipath.AI por 14 dias.</h2>
+          <h2 data-trial-title data-preview-i18n="trial.title">Experimente o Medipath.AI por 14 dias.</h2>
           <p data-preview-i18n="trial.body">
             Crie sua conta e comece a organizar seus procedimentos, pacientes e Presença Online em poucos minutos.
           </p>
@@ -342,7 +349,7 @@
           </p>
 
           <button class="button primary full" type="submit" data-preview-i18n="form.submit">Começar teste gratuito</button>
-          <p class="trial-support full" data-preview-i18n="trial.support">14 dias gratuitos. Sem cartão de crédito. Depois, R$99/mês. Cancele quando quiser.</p>
+          <p class="trial-support full" data-trial-support data-preview-i18n="trial.support">14 dias gratuitos. Sem cartão de crédito. Depois, R$99/mês. Cancele quando quiser.</p>
         </form>
 
         <div class="access-confirmation trial-confirmation" id="trial-confirmation" tabindex="-1" hidden>

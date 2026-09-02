@@ -112,6 +112,7 @@
   let turnstileToken = "";
   let turnstileWidgetId = null;
   let submitting = false;
+  let commercialPricing = null;
 
   function translate(key) {
     return copy[currentLanguage]?.[key] || copy.pt[key] || key;
@@ -123,7 +124,86 @@
     document.querySelectorAll("[data-preview-i18n]").forEach((element) => {
       element.textContent = translate(element.dataset.previewI18n);
     });
+    applyCommercialPricing();
     setSubmittingState(submitting);
+  }
+
+  function validCommercialPricing(value) {
+    return Boolean(
+      value &&
+        Number.isFinite(value.standardDisplayedPrice) &&
+        value.standardDisplayedPrice > 0 &&
+        Number.isFinite(value.launchDisplayedPrice) &&
+        value.launchDisplayedPrice > 0 &&
+        Number.isInteger(value.trialDays) &&
+        value.trialDays >= 0 &&
+        typeof value.founderHeadline === "string" &&
+        typeof value.founderCopy === "string",
+    );
+  }
+
+  function formatReais(value) {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      minimumFractionDigits: Number.isInteger(value) ? 0 : 2,
+      maximumFractionDigits: 2,
+    }).format(value);
+  }
+
+  function applyCommercialPricing() {
+    if (!validCommercialPricing(commercialPricing)) return;
+    const pricing = commercialPricing;
+    const offerVisible = pricing.effectiveLaunchOfferActive === true;
+    const displayedPrice = offerVisible ? pricing.launchDisplayedPrice : pricing.standardDisplayedPrice;
+    const month = currentLanguage === "pt" ? "por mês" : "per month";
+    const standardPrefix = currentLanguage === "pt" ? "Preço padrão" : "Standard price";
+    const trialSummary = currentLanguage === "pt"
+      ? `${pricing.trialDays} dias grátis · Sem cartão de crédito · Cancele quando quiser`
+      : `${pricing.trialDays} days free · No credit card required · Cancel anytime`;
+    const trialTitle = currentLanguage === "pt"
+      ? `Experimente o Medipath.AI por ${pricing.trialDays} dias.`
+      : `Try Medipath.AI free for ${pricing.trialDays} days.`;
+    const trialSupport = currentLanguage === "pt"
+      ? `${pricing.trialDays} dias gratuitos. Sem cartão de crédito. Depois, ${formatReais(pricing.standardDisplayedPrice)}/mês. Cancele quando quiser.`
+      : `${pricing.trialDays} days free. No credit card required. Then ${formatReais(pricing.standardDisplayedPrice)}/month. Cancel anytime.`;
+
+    const price = document.querySelector("[data-pricing-price]");
+    if (price) price.textContent = `${formatReais(displayedPrice)} ${month}`;
+    const standard = document.querySelector("[data-pricing-standard]");
+    if (standard) {
+      standard.hidden = !offerVisible;
+      standard.textContent = `${standardPrefix}: ${formatReais(pricing.standardDisplayedPrice)} ${month}`;
+    }
+    const launchOffer = document.querySelector("[data-pricing-launch-offer]");
+    if (launchOffer) launchOffer.hidden = !offerVisible;
+    const headline = document.querySelector("[data-pricing-founder-headline]");
+    if (headline) headline.textContent = pricing.founderHeadline;
+    const founderCopy = document.querySelector("[data-pricing-founder-copy]");
+    if (founderCopy) founderCopy.textContent = pricing.founderCopy;
+    const summary = document.querySelector("[data-pricing-trial-summary]");
+    if (summary) summary.textContent = trialSummary;
+    const title = document.querySelector("[data-trial-title]");
+    if (title) title.textContent = trialTitle;
+    const support = document.querySelector("[data-trial-support]");
+    if (support) support.textContent = trialSupport;
+  }
+
+  async function loadCommercialPricing() {
+    if (!config.apiUrl) return;
+    try {
+      const response = await fetch(`${config.apiUrl}/api/public/commercial/pricing`, {
+        headers: { accept: "application/json" },
+        credentials: "include",
+      });
+      if (!response.ok) return;
+      const value = await response.json();
+      if (!validCommercialPricing(value)) return;
+      commercialPricing = value;
+      applyCommercialPricing();
+    } catch {
+      // The approved HTML copy is the safe R$99 fallback.
+    }
   }
 
   function setFormStatus(message = "") {
@@ -282,5 +362,6 @@
   });
 
   applyLanguage(currentLanguage);
+  void loadCommercialPricing();
   configureTurnstile();
 })();
