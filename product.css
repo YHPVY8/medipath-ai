@@ -181,10 +181,14 @@
   box-shadow: none;
 }
 .conversion-signup .trial-confirmation { min-height: 0; }
+.trial-confirmation h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 1.75rem);
+  line-height: 1.25;
+}
+.trial-confirmation > p { margin: 0; }
 .success-guide {
-  margin: 12px 0 8px;
-  border-top: 1px solid var(--line);
-  padding-top: 24px;
+  margin: 20px 0 0;
 }
 .success-guide h3 { margin: 0 0 8px; font-size: 1rem; line-height: 1.5; }
 .success-guide p { margin: 0 0 16px; font-size: 0.9rem; line-height: 1.6; }
