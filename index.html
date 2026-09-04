@@ -274,11 +274,17 @@
         <div class="pricing-copy conversion-heading">
           <p class="eyebrow" data-preview-i18n="pricing.eyebrow">Plano</p>
           <h2 id="conversion-title" data-preview-i18n="pricing.title">Um plano simples. Tudo incluído.</h2>
+          <p class="profile-choice-label" id="profile-choice-label" data-preview-i18n="pricing.chooseProfile">Escolha seu perfil</p>
+          <div class="pricing-tabs" role="tablist" aria-labelledby="profile-choice-label">
+            <button type="button" role="tab" id="pricing-doctors-tab" aria-controls="pricing-doctors-panel" aria-selected="true" tabindex="0" data-preview-i18n="pricing.doctorsTab">Para médicos</button>
+            <button type="button" role="tab" id="pricing-clinics-tab" aria-controls="pricing-clinics-panel" aria-selected="false" tabindex="-1" data-preview-i18n="pricing.clinicsTab">Para clínicas e grupos médicos</button>
+          </div>
         </div>
 
-        <div class="conversion-layout">
+        <div class="conversion-layout pricing-panel" id="pricing-doctors-panel" role="tabpanel" aria-labelledby="pricing-doctors-tab">
         <article class="pricing-card" aria-labelledby="pricing-price">
           <div>
+            <p class="doctor-plan-label" data-preview-i18n="pricing.doctorPlan">Plano individual para médicos</p>
             <p class="pricing-standard-price" data-pricing-standard hidden></p>
             <p class="pricing-price" id="pricing-price" data-pricing-price data-preview-i18n="pricing.price">R$99 por mês</p>
           </div>
@@ -302,10 +308,6 @@
           <label>
             <span data-preview-i18n="form.name">Nome Completo</span>
             <input name="full_name" type="text" autocomplete="name" minlength="2" maxlength="120" required />
-          </label>
-          <label>
-            <span data-preview-i18n="form.workspaceName">Consultório ou clínica (opcional)</span>
-            <input name="workspace_name" type="text" autocomplete="organization" minlength="2" maxlength="160" />
           </label>
           <label>
             <span data-preview-i18n="form.email">Email</span>
@@ -354,6 +356,11 @@
         </div>
         </div>
         </div>
+        <div class="clinic-panel pricing-panel" id="pricing-clinics-panel" role="tabpanel" aria-labelledby="pricing-clinics-tab" hidden>
+          <h3 data-preview-i18n="pricing.clinicTitle">Medipath para clínicas e grupos médicos</h3>
+          <p data-preview-i18n="pricing.clinicText">Para clínicas, grupos de médicos ou equipes maiores, fale conosco para entendermos sua operação e apresentar a melhor configuração.</p>
+          <a class="button secondary clinic-contact" href="https://wa.me/5581986990144" target="_blank" rel="noopener noreferrer" data-contact-whatsapp data-preview-i18n="pricing.clinicLink">Falar agora</a>
+        </div>
       </section>
     </main>
 
@@ -379,7 +386,9 @@
 
     <script src="site-i18n.js?v=20260901-approved-release"></script>
     <script src="onboarding-config.js?v=20260901-turnstile-ready"></script>
+    <script src="website-analytics.js?v=20260903-production-fix"></script>
     <script src="onboarding-client.js?v=20260901-turnstile-ready"></script>
     <script src="onboarding.js?v=20260901-turnstile-ready"></script>
+    <script src="pricing-tabs.js?v=20260903-preview"></script>
   </body>
 </html>
