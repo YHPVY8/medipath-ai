@@ -13,7 +13,7 @@
   const captions = [
     "Sua biblioteca clínica, organizada e sempre acessível.",
     "Descubra casos compartilhados por outros médicos.",
-    "Escolha se deseja salvar, compartilhar com um grupo ou publicar.",
+    "Escolha se deseja salvar na sua biblioteca ou compartilhar com um grupo.",
     "Compartilhe casos em espaços privados com médicos selecionados.",
   ];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
