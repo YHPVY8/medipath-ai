@@ -7,9 +7,7 @@ img { max-width:100%; }
 a { color:inherit; }
 .cases-header { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; min-height:82px; padding:14px clamp(20px,5vw,72px); border-bottom:1px solid rgba(207,226,229,.85); background:rgba(255,255,255,.92); backdrop-filter:blur(16px); }
 .cases-brand { display:flex; align-items:center; gap:13px; text-decoration:none; }
-.cases-brand img { width:164px; height:auto; }
-.cases-brand span { width:1px; height:28px; background:var(--line); }
-.cases-brand strong { font-size:1.12rem; letter-spacing:-.02em; }
+.cases-brand img { width:180px; height:auto; }
 .header-login { min-height:44px; display:inline-flex; align-items:center; padding:8px 4px; color:var(--teal-dark); font-weight:750; text-decoration:none; }
 .section-shell { width:min(1160px,calc(100% - 40px)); margin:0 auto; padding:96px 0; }
 .eyebrow { margin:0 0 18px; color:var(--teal-dark); font-size:.77rem; font-weight:820; letter-spacing:.15em; }
@@ -85,9 +83,7 @@ h2 { margin:0; font-size:clamp(2rem,3.8vw,3.4rem); line-height:1.08; letter-spac
 @media (max-width:560px) {
   .cases-header { min-height:70px; padding:11px 18px; }
   .cases-brand { gap:9px; }
-  .cases-brand img { width:132px; }
-  .cases-brand span { height:23px; }
-  .cases-brand strong { font-size:.96rem; }
+  .cases-brand img { width:150px; }
   .section-shell { width:min(100% - 36px,1160px); padding:62px 0; }
   .cases-hero { min-height:auto; gap:50px; padding-top:48px; }
   h1 { font-size:clamp(2.35rem,12vw,3.15rem); }
