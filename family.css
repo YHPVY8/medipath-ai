@@ -12,7 +12,7 @@
 .family-site { background:#fff; color:#0b3157; }
 .family-shell { width:min(1200px,calc(100% - 64px)); margin:0 auto; }
 .family-site h1,.family-site h2,.family-site h3 { text-wrap:balance; }
-.family-site h1 { max-width:1000px; font-size:clamp(3.4rem,6.5vw,6.4rem); font-weight:650; line-height:1.04; letter-spacing:-.06em; margin:0; }
+.family-site h1 { max-width:1120px; font-size:clamp(3rem,5vw,5rem); font-weight:650; line-height:1.06; letter-spacing:-.055em; margin:0; }
 .family-site h2 { font-size:clamp(2rem,3.4vw,3.15rem); font-weight:640; line-height:1.13; letter-spacing:-.042em; margin:0; }
 .family-site p { text-wrap:pretty; }
 .family-eyebrow { font-size:.75rem; font-weight:760; letter-spacing:.15em; line-height:1.6; color:#087381; margin:0 0 26px; }
@@ -27,11 +27,8 @@
 .family-product-copy > p:not(.family-product-name) { color:#506674; line-height:1.85; margin:24px 0 28px; font-size:1.02rem; }
 .family-product .button { font-size:.93rem; padding:13px 22px; min-height:48px; box-shadow:none; border-radius:7px; }
 .family-product small { display:block; font-size:.78rem; margin-top:16px; color:#506674; }
-.family-flow-visual { margin:0; border:1px solid #d4e3e8; border-radius:12px; background:#edf4f5; box-shadow:0 24px 54px #0b315710; overflow:hidden; }
+.family-flow-visual { margin:0; border:0; border-radius:0; background:transparent; box-shadow:none; overflow:visible; }
 .family-flow-visual img { width:100%; height:auto; display:block; }
-.family-window { padding:12px 16px; display:flex; justify-content:space-between; font-size:.65rem; color:#78939f; background:#f8fbfc; border-bottom:1px solid #d4e3e8; }
-.family-window > span:first-child { letter-spacing:3px; color:#c5d7dc; }
-.family-flow-visual figcaption { text-align:center; padding:16px; color:#506674; font-size:.78rem; }
 .family-cases-band { background:#f0f6f7; }
 .family-product-reverse { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:96px; border:0; padding-top:86px; padding-bottom:86px; }
 .family-cases-visual { display:flex; align-items:center; justify-content:center; gap:24px; min-width:0; }
@@ -137,8 +134,6 @@
  .family-site h2 { font-size:2.05rem; }
  .family-product-name { margin-bottom:20px; font-size:1rem; }
  .family-product-copy > p:not(.family-product-name) { margin:20px 0 24px; font-size:.98rem; }
- .family-flow-visual { border-radius:9px; }
- .family-flow-visual figcaption { font-size:.74rem; padding:12px; }
  .family-product-reverse .family-product-copy { grid-row:1; }
  .family-cases-visual { gap:16px; padding-bottom:4px; }
  .family-cases-visual figure { border-radius:19px; padding:4px; }
