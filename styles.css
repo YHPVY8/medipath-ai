@@ -856,6 +856,32 @@ button:disabled {
   border-radius: 4px;
 }
 
+.footer-whatsapp {
+  display: inline-flex;
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  color: #25d366;
+}
+
+.footer-whatsapp svg {
+  display: block;
+  width: 26px;
+  height: 26px;
+}
+
+.footer-whatsapp:hover {
+  color: #1ebe5d;
+}
+
+.footer-whatsapp:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 50%;
+}
+
 .footer-legal {
   margin: 0;
   color: #718590;
