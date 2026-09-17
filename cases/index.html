@@ -23,14 +23,14 @@
     <link rel="icon" type="image/svg+xml" href="../assets/brand/Medipath.AI-Favicon.svg" />
     <link rel="apple-touch-icon" href="../assets/brand/Medipath.AI-Apple-Touch-Icon-180.png" />
     <link rel="stylesheet" href="cases.css" />
-  </head>
-  <body>
-    <header class="cases-header">
-      <a class="cases-brand" href="#top" aria-label="Medipath Cases">
-        <img src="../assets/brand/Medipath-Cases-Primary-Horizontal.svg" alt="Medipath Cases" />
-      </a>
-      <a class="header-login" href="https://cases.medipath-ai.com/?utm_source=medipath-ai&amp;utm_medium=website&amp;utm_campaign=cases_launch&amp;utm_content=header_login">Entrar</a>
-    </header>
+  <link rel="stylesheet" href="/family.css" />
+</head>
+  <body class="family-cases-page">
+<header class="master-header master-header-cases">
+  <a class="master-logo" href="/" aria-label="Medipath.AI — início"><img src="/assets/brand/Medipath-Cases-Primary-Horizontal.svg" alt="Medipath Cases" /></a>
+  <nav class="master-nav" aria-label="Produtos Medipath"><a href="/flow/" >Flow</a><a href="/cases/" aria-current="page">Cases</a><a href="/solucoes/"  data-family-en="Solutions">Soluções</a></nav>
+  <a class="header-login" href="https://cases.medipath-ai.com/?utm_source=medipath-ai&amp;utm_medium=website&amp;utm_campaign=cases_launch&amp;utm_content=header_login">Entrar</a>
+</header>
 
     <main id="top">
       <section class="cases-hero section-shell">
@@ -49,26 +49,22 @@
             <div class="carousel-stage">
               <button class="carousel-arrow previous" type="button" aria-label="Ver tela anterior" data-carousel-previous disabled>‹</button>
               <div class="carousel-track" data-carousel-track tabindex="0">
-                <figure class="carousel-slide" role="group" aria-label="1 de 4: Meus Casos" data-carousel-slide>
-                  <div class="phone-frame"><img src="assets/meus-casos.png" alt="Tela Meus Casos mostrando a biblioteca clínica pessoal do médico" /></div>
+                <figure class="carousel-slide" role="group" aria-label="1 de 3: Meus Casos" data-carousel-slide>
+                  <div class="phone-frame"><img src="assets/meus-casos-current.png" alt="Tela atual de Meus Casos com biblioteca pessoal, casos publicados e salvos" /></div>
                 </figure>
-                <figure class="carousel-slide" role="group" aria-label="2 de 4: Explorar" data-carousel-slide>
-                  <div class="phone-frame"><img src="assets/publicados.png" alt="Tela com casos clínicos visuais publicados por médicos no Medipath Cases" /></div>
+                <figure class="carousel-slide" role="group" aria-label="2 de 3: Meus Grupos" data-carousel-slide>
+                  <div class="phone-frame"><img src="assets/grupos-current.png" alt="Tela atual de Meus Grupos com espaços privados para colaboração entre médicos" /></div>
                 </figure>
-                <figure class="carousel-slide" role="group" aria-label="3 de 4: Novo Caso" data-carousel-slide>
-                  <div class="phone-frame"><img src="assets/explorar.png" alt="Fluxo Novo Caso com opções para salvar na biblioteca pessoal ou compartilhar com um grupo" /></div>
-                </figure>
-                <figure class="carousel-slide" role="group" aria-label="4 de 4: Grupos" data-carousel-slide>
-                  <div class="phone-frame"><img src="assets/grupos.png" alt="Tela Meus Grupos mostrando bibliotecas privadas compartilhadas entre médicos" /></div>
+                <figure class="carousel-slide" role="group" aria-label="3 de 3: Explorar" data-carousel-slide>
+                  <div class="phone-frame"><img src="assets/explorar-current.png" alt="Tela atual de Explorar com busca, filtros e casos publicados por outros médicos" /></div>
                 </figure>
               </div>
               <button class="carousel-arrow next" type="button" aria-label="Ver próxima tela" data-carousel-next>›</button>
             </div>
             <div class="carousel-pagination" aria-label="Selecionar tela do produto">
               <button type="button" aria-label="Ver Meus Casos" aria-current="true" data-carousel-dot></button>
+              <button type="button" aria-label="Ver Meus Grupos" aria-current="false" data-carousel-dot></button>
               <button type="button" aria-label="Ver Explorar" aria-current="false" data-carousel-dot></button>
-              <button type="button" aria-label="Ver Novo Caso" aria-current="false" data-carousel-dot></button>
-              <button type="button" aria-label="Ver Grupos" aria-current="false" data-carousel-dot></button>
             </div>
             <p class="carousel-caption" aria-live="polite" data-carousel-caption>Sua biblioteca clínica, organizada e sempre acessível.</p>
           </div>
@@ -113,6 +109,7 @@
         </div>
         <small>Medipath Cases é gratuito para médicos.</small>
       </section>
+<aside class="family-crosslink section-shell"><span>Também da Medipath.AI</span><a href="/flow/">Conheça Flow — menos tarefas, mais medicina <span aria-hidden="true">→</span></a></aside>
     </main>
 
     <footer class="cases-footer">

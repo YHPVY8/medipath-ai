@@ -12,9 +12,8 @@
   const caption = carousel.querySelector("[data-carousel-caption]");
   const captions = [
     "Sua biblioteca clínica, organizada e sempre acessível.",
-    "Descubra casos compartilhados por outros médicos.",
-    "Escolha se deseja salvar na sua biblioteca ou compartilhar com um grupo.",
     "Compartilhe casos em espaços privados com médicos selecionados.",
+    "Descubra casos compartilhados por outros médicos.",
   ];
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let activeIndex = 0;
