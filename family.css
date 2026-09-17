@@ -50,7 +50,9 @@
 .family-trust { padding:0 0 80px; }
 .family-trust h2 { font-size:2rem; }
 .family-principles { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:36px; }
-.family-principles p { border-top:1px solid #d4e3e8; padding-top:20px; margin:0; color:#506674; font-size:.95rem; }
+.family-principles article { border-top:1px solid #d4e3e8; padding-top:20px; }
+.family-principles h3 { margin:0 0 12px; color:#0b3157; font-size:1.03rem; line-height:1.45; letter-spacing:-.02em; }
+.family-principles p { margin:0; color:#506674; font-size:.93rem; line-height:1.75; }
 .family-site .site-footer { background:#f6f9fa; border-top:1px solid #dfe9ec; }
 .family-crosslink { display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px 40px; padding-top:30px; padding-bottom:30px; font-size:.9rem; }
 .family-crosslink > span { color:#68818d; }
@@ -149,7 +151,7 @@
  .family-trust { padding-bottom:44px; }
  .family-trust h2 { font-size:1.7rem; }
  .family-principles { grid-template-columns:1fr; gap:16px; margin-top:28px; }
- .family-principles p { padding-top:16px; }
+ .family-principles article { padding-top:16px; }
  .flow-page .hero { padding-top:44px; padding-bottom:44px; }
  .flow-page .hero h1 { font-size:2.8rem; }
  .flow-page .hero-text { font-size:.99rem; }
