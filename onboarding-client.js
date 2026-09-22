@@ -11,6 +11,12 @@
     "whatsapp",
     "workspaceName",
     "turnstileToken",
+    "sourcePath",
+    "placement",
+    "utmSource",
+    "utmMedium",
+    "utmCampaign",
+    "utmContent",
   ]);
 
   function normalizedText(value) {
@@ -34,6 +40,10 @@
     if (whatsapp) payload.whatsapp = whatsapp;
     if (workspaceName) payload.workspaceName = workspaceName;
     if (token) payload.turnstileToken = token;
+    for (const key of ["sourcePath", "placement", "utmSource", "utmMedium", "utmCampaign", "utmContent"]) {
+      const value = normalizedText(values[key]);
+      if (value) payload[key] = value;
+    }
     return payload;
   }
 

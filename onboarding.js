@@ -129,6 +129,18 @@
   const submitButton = form?.querySelector('button[type="submit"]');
   const formStatus = form?.querySelector("[data-form-status]");
   const whatsappInput = form?.elements.whatsapp;
+  const attributionParams = new URLSearchParams(window.location.search);
+  const resourceSourcePath = attributionParams.get("source_path");
+  const resourceAttribution = resourceSourcePath?.startsWith("/recursos/")
+    ? {
+        sourcePath: resourceSourcePath,
+        placement: "article_final",
+        utmSource: attributionParams.get("utm_source") || "",
+        utmMedium: attributionParams.get("utm_medium") || "",
+        utmCampaign: attributionParams.get("utm_campaign") || "",
+        utmContent: attributionParams.get("utm_content") || "",
+      }
+    : {};
   const turnstileSlot = document.querySelector("[data-turnstile-slot]");
   let currentLanguage = document.documentElement.lang.startsWith("en") ? "en" : "pt";
   let turnstileToken = "";
@@ -360,6 +372,7 @@
       specialty: values.specialty,
       whatsapp: values.whatsapp,
       workspaceName: values.workspace_name,
+      ...resourceAttribution,
     }, turnstileToken);
     const client = onboarding.createPublicDoctorOnboardingClient(config);
     setFormStatus();

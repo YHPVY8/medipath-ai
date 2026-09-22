@@ -6,17 +6,26 @@ const vm = require("node:vm");
 const homepage = readFileSync("index.html", "utf8");
 const source = readFileSync("website-analytics.js", "utf8");
 
-function runTracker({ cookie = "", fetchImpl }) {
+function runTracker({ cookie = "", fetchImpl, hostname = "medipath-ai.com" }) {
+  const listeners = {};
+  const appended = [];
   const context = {
-    document: { cookie },
+    document: {
+      cookie,
+      addEventListener(type, listener) { listeners[type] = listener; },
+      querySelector() { return null; },
+      createElement() { return {}; },
+      head: { appendChild(node) { appended.push(node); } },
+    },
     fetch: fetchImpl,
     window: {
       MEDIPATH_ONBOARDING_CONFIG: { apiUrl: "https://app.medipath-ai.com" },
-      location: { pathname: "/", search: "?source=test" },
+      location: { hostname, pathname: "/", search: "?source=test" },
     },
   };
 
   vm.runInNewContext(source, context);
+  return { listeners, appended };
 }
 
 test("production homepage loads the dedicated analytics tracker", () => {
@@ -25,6 +34,40 @@ test("production homepage loads the dedicated analytics tracker", () => {
     homepage.indexOf("onboarding-config.js") < homepage.indexOf("website-analytics.js"),
     "analytics must load after the current API configuration",
   );
+});
+
+test("resource CTA click sends source, product and placement", () => {
+  const requests = [];
+  const { listeners } = runTracker({
+    fetchImpl: (url, options) => {
+      requests.push({ url, options });
+      return Promise.resolve({ ok: true });
+    },
+  });
+  listeners.click({
+    target: {
+      closest: () => ({
+        dataset: {
+          sourcePath: "/recursos/organizar-pacientes-internados/",
+          product: "flow",
+          placement: "article_final",
+        },
+      }),
+    },
+  });
+  assert.equal(requests[1].url, "https://app.medipath-ai.com/api/public/website/cta");
+  assert.deepEqual(JSON.parse(requests[1].options.body), {
+    sourcePath: "/recursos/organizar-pacientes-internados/",
+    product: "flow",
+    placement: "article_final",
+  });
+});
+
+test("preview hosts receive a runtime noindex directive", () => {
+  const { appended } = runTracker({ hostname: "medipath-preview.example", fetchImpl: () => Promise.resolve({ ok: true }) });
+  assert.equal(appended.length, 1);
+  assert.equal(appended[0].name, "robots");
+  assert.equal(appended[0].content, "noindex, nofollow, noarchive, nosnippet");
 });
 
 test("one normal homepage load makes one website visit POST attempt", () => {
