@@ -35,7 +35,6 @@
     <main id="top">
       <section class="cases-hero section-shell">
         <div class="hero-copy">
-          <p class="eyebrow">PARA MÉDICOS</p>
           <h1>Seus melhores casos não deveriam ficar perdidos no celular.</h1>
           <p class="lead">Guarde o que vale a pena lembrar. Compartilhe o que vale a pena discutir.</p>
           <div class="hero-actions">
@@ -56,7 +55,7 @@
                   <div class="phone-frame"><img src="assets/grupos-current.png" alt="Tela atual de Meus Grupos com espaços privados para colaboração entre médicos" /></div>
                 </figure>
                 <figure class="carousel-slide" role="group" aria-label="3 de 3: Explorar" data-carousel-slide>
-                  <div class="phone-frame"><img src="assets/explorar-current.png" alt="Tela atual de Explorar com busca, filtros e casos publicados por outros médicos" /></div>
+                  <div class="phone-frame"><div class="explorar-screen"><img src="assets/explorar-current.png" alt="Tela atual de Explorar com busca, filtros e casos publicados por outros médicos" /></div></div>
                 </figure>
               </div>
               <button class="carousel-arrow next" type="button" aria-label="Ver próxima tela" data-carousel-next>›</button>
@@ -71,23 +70,19 @@
         </div>
       </section>
 
-      <section class="product-intro product-copy-only section-shell" aria-labelledby="product-title">
-        <div class="section-heading">
-          <p class="eyebrow">UMA BIBLIOTECA CLÍNICA VISUAL</p>
-          <h2 id="product-title">Casos que vale a pena guardar.</h2>
-          <p>Registre imagens e informações clínicas em um espaço pensado para consulta futura, ensino e organização de pesquisa. Organize casos por temas, especialidades e hashtags para facilitar pesquisa, revisão e aprendizado.</p>
-        </div>
-      </section>
-
       <section class="story section-shell" aria-labelledby="story-title">
         <div class="section-heading compact">
-          <p class="eyebrow">DO SEU ARQUIVO À COLABORAÇÃO</p>
           <h2 id="story-title">Um fluxo simples para o conhecimento clínico.</h2>
         </div>
-        <div class="story-grid">
-          <article><span>01</span><h3>Salve</h3><p>Organize casos interessantes, imagens e informações clínicas em uma biblioteca privada.</p></article>
-          <article><span>02</span><h3>Compartilhe</h3><p>Crie diferentes grupos privados para equipes, especialidades, hospitais, interesses de pesquisa ou colegas selecionados. Compartilhe e discuta casos, troque comentários e mantenha a conversa clínica conectada ao caso compartilhado.</p></article>
-          <article><span>03</span><h3>Descubra</h3><p>Explore casos clínicos compartilhados por profissionais de diferentes especialidades.</p></article>
+        <div data-cases-tabs>
+          <div class="cases-tab-list" role="tablist" aria-label="Conheça o Medipath Cases" hidden>
+            <button type="button" role="tab" id="cases-tab-salve" aria-controls="cases-panel-salve" aria-selected="true" tabindex="0">Salve</button>
+            <button type="button" role="tab" id="cases-tab-compartilhe" aria-controls="cases-panel-compartilhe" aria-selected="false" tabindex="-1">Compartilhe</button>
+            <button type="button" role="tab" id="cases-tab-descubra" aria-controls="cases-panel-descubra" aria-selected="false" tabindex="-1">Descubra</button>
+          </div>
+          <div class="cases-tab-panel" id="cases-panel-salve"><ul><li>Organize casos interessantes, imagens e informações clínicas em uma biblioteca privada.</li></ul></div>
+          <div class="cases-tab-panel" id="cases-panel-compartilhe"><ul><li>Crie diferentes grupos privados para equipes, especialidades, hospitais, interesses de pesquisa ou colegas selecionados.</li><li>Compartilhe e discuta casos, troque comentários e mantenha a conversa clínica conectada ao caso compartilhado.</li></ul></div>
+          <div class="cases-tab-panel" id="cases-panel-descubra"><ul><li>Explore casos clínicos compartilhados por profissionais de diferentes especialidades.</li></ul></div>
         </div>
       </section>
 
@@ -99,19 +94,6 @@
         <p>Casos permanecem privados por padrão. O compartilhamento com grupos e a publicação seguem fluxos separados, com revisão de informações identificáveis e práticas alinhadas aos princípios da LGPD.</p>
       </section>
 
-      <section class="product-intro product-copy-only section-shell" aria-labelledby="cases-resources-title">
-        <div class="section-heading"><p class="eyebrow">GUIAS PRÁTICOS</p><h2 id="cases-resources-title">Construa sua biblioteca clínica.</h2><p><a href="/recursos/organizar-casos-clinicos/">Como organizar casos clínicos</a> · <a href="/recursos/aplicativo-casos-clinicos/">O que avaliar em um aplicativo para casos clínicos</a></p></div>
-      </section>
-
-      <section class="final-cta section-shell" aria-labelledby="cta-title">
-        <p class="eyebrow">100% GRATUITO PARA MÉDICOS</p>
-        <h2 id="cta-title">Comece a organizar seus casos.</h2>
-        <p>Salve, compartilhe e explore casos clínicos com outros médicos.</p>
-        <div class="hero-actions centered">
-          <a class="button primary" href="https://cases.medipath-ai.com/?signup=1&amp;utm_source=medipath-ai&amp;utm_medium=website&amp;utm_campaign=cases_launch&amp;utm_content=final_signup">Criar conta grátis</a>
-          <a class="button secondary light" href="https://cases.medipath-ai.com/?utm_source=medipath-ai&amp;utm_medium=website&amp;utm_campaign=cases_launch&amp;utm_content=final_login">Entrar</a>
-        </div>
-      </section>
     </main>
 
     <footer class="cases-footer">
@@ -153,5 +135,6 @@
     <script src="../onboarding-config.js?v=20260901-turnstile-ready"></script>
     <script src="../website-analytics.js?v=20260903-production-fix"></script>
     <script src="cases-carousel.js"></script>
+    <script src="cases-tabs.js"></script>
   </body>
 </html>

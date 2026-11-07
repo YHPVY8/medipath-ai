@@ -108,3 +108,11 @@ h2 { margin:0; font-size:clamp(2rem,3.8vw,3.4rem); line-height:1.08; letter-spac
   .cases-footer nav { justify-content:flex-start; flex-direction:column; align-items:flex-start; }
 }
 @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto}.button,.carousel-pagination button{transition:none} }
+
+/* Keep the authentic Explorar interface clear of the decorative phone notch. */
+.carousel-slide:nth-child(3) .phone-frame::before { content:none; }
+
+.explorar-screen { overflow:hidden; border-radius:26px; }
+.explorar-screen img { margin-top:-10%; border-radius:0; }
+.story [data-cases-tabs] { max-width:760px; margin-inline:auto; }
+@media (max-width:760px) { .explorar-screen { border-radius:22px; } }

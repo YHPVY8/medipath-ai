@@ -175,3 +175,102 @@
  .solutions-proof h2 { font-size:1.8rem; }
  .solutions-contact { text-align:left; padding-top:50px; padding-bottom:54px; }
 }
+
+/* Compact, light Solutions panel on the homepage. */
+.family-solutions.family-solutions-light {
+  gap: clamp(18px, 4vw, 60px);
+  margin-block: clamp(32px, 4vw, 56px);
+  padding: clamp(24px, 3.5vw, 46px);
+  background: #f0f6f7;
+  border: 1px solid #dfe9ec;
+  border-radius: 12px;
+  color: #0b3157;
+}
+.family-solutions-light .family-eyebrow { color: #087381; margin-bottom: 12px; }
+.family-solutions-light h2 { color: #0b3157; }
+.family-solutions-light > div:last-child { align-self: center; }
+.family-solutions-light p:not(.family-eyebrow) { color: #506674; margin-bottom: 4px; }
+.family-solutions-light a { color: #087381; }
+
+/* Phone treatments shared by Cases devices and Flow V6 dashboard. */
+.family-cases-visual figure,
+.family-flow-dashboard {
+  box-sizing: border-box;
+  padding: 8px;
+  border: 1px solid #343a40;
+  background: #1c1c1e;
+}
+.family-cases-visual figure { border-radius: 24px; }
+.family-cases-visual img { border-radius: 16px; object-fit: contain; }
+.family-flow-dashboard {
+  width: min(100%, 340px);
+  margin: 0 auto;
+  border-radius: 30px;
+  box-shadow: 0 14px 36px #0b315713;
+}
+.family-flow-dashboard img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 603 / 1304;
+  object-fit: contain;
+  border-radius: 22px;
+}
+/* Slim charcoal bezels for homepage devices. */
+.family-cases-visual figure {
+  padding: 6px;
+  border: 0;
+  background: #1c1c1e;
+  border-radius: 24px;
+  box-shadow: none;
+}
+.family-cases-visual img { border-radius: 18px; }
+.family-flow-dashboard {
+  padding: 4px;
+  border: 0;
+  background: #1c1c1e;
+  box-shadow: none;
+}
+.family-flow-dashboard img { border-radius: 26px; }
+@media (max-width: 640px) {
+  .family-flow-dashboard { width: min(76vw, 276px); }
+}
+
+/* Flow V6 supplies the hero type scale for the four marketing pages. */
+:root {
+  --medipath-hero-size: 1.92rem;
+  --medipath-hero-weight: 680;
+  --medipath-hero-leading: 1.12;
+  --medipath-hero-tracking: -.05em;
+}
+@media (min-width: 761px) {
+  :root { --medipath-hero-size: clamp(2.35rem, 3.15vw, 2.9rem); }
+}
+.family-site .family-hero h1,
+.family-site .solutions-hero h1,
+.family-cases-page .cases-hero h1 {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--medipath-hero-size);
+  font-weight: var(--medipath-hero-weight);
+  line-height: var(--medipath-hero-leading);
+  letter-spacing: var(--medipath-hero-tracking);
+  text-wrap: wrap;
+}
+
+/* Flow and Cases share the same product tabs and bullet typography. */
+:is(.flow-question-tabs,.cases-tab-list):not([hidden]){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:0 0 18px}
+:is(.flow-question-tabs,.cases-tab-list):not([hidden]) [role="tab"]{display:flex;min-width:0;min-height:52px;align-items:center;justify-content:center;padding:8px 6px;border:1px solid #098b98;border-radius:8px;background:#fff;color:#0b3157;font-family:inherit;font-size:.78rem;font-weight:600;line-height:1.25;cursor:pointer;text-align:center;transition:background-color .15s ease,color .15s ease,border-color .15s ease}
+:is(.flow-question-tabs,.cases-tab-list):not([hidden]) [role="tab"][aria-selected="true"]{background:#098b98;color:#fff;border-color:#098b98}
+:is(.flow-question-tabs,.cases-tab-list):not([hidden]) [role="tab"]:hover:not([aria-selected="true"]){background:#edf8f8}
+:is(.flow-question-tabs,.cases-tab-list):not([hidden]) [role="tab"]:active{transform:translateY(1px)}
+:is(.flow-question-panel,.cases-tab-panel){min-height:0;padding:2px 0 4px;color:#243c4d}
+:is(.flow-question-panel,.cases-tab-panel) ul{margin:0;padding-left:21px}
+:is(.flow-question-panel,.cases-tab-panel) li{padding-left:2px;color:#435c69;font-size:.96rem;line-height:1.55}
+:is(.flow-question-panel,.cases-tab-panel) li+li{margin-top:10px}
+@media(prefers-reduced-motion:reduce){:is(.flow-question-tabs,.cases-tab-list):not([hidden]) [role="tab"]{transition:none}}
+:is(.flow-question-tabs,.cases-tab-list) [role="tab"]:focus-visible,:is(.flow-question-panel,.cases-tab-panel):focus-visible{outline:3px solid #0b3157;outline-offset:3px}
+@media(min-width:761px){
+ :is(.flow-question-tabs,.cases-tab-list):not([hidden]){gap:10px;margin-bottom:22px}
+ :is(.flow-question-tabs,.cases-tab-list):not([hidden]) [role="tab"]{min-height:48px;font-size:.9rem}
+ :is(.flow-question-panel,.cases-tab-panel) li{font-size:1rem}
+}

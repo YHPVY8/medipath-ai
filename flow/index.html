@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="/styles.css?v=20260828-canonical-brand" />
     <link rel="stylesheet" href="/product.css?v=20260901-approved-release" />
   <link rel="stylesheet" href="/family.css" />
+<link rel="stylesheet" href="/flow-preview.css" />
 </head>
   <body class="trial-preview flow-page">
 <header class="master-header">
@@ -32,234 +33,63 @@
 </header>
 
     <main id="top">
-      <section class="hero section" id="produto">
-        <div class="hero-copy">
-          <p class="eyebrow">MEDIPATH FLOW</p>
-          <h1  data-family-en="Less admin.<br>More medicine.">Menos tarefas.<br>Mais medicina.</h1>
-          <p class="hero-text" data-family-en="Organize patients, procedures, and documents in one workflow. Fewer spreadsheets and scattered messages. More clarity for you and your team.">Organize pacientes, procedimentos e documentos em um só fluxo. Menos planilhas e mensagens dispersas. Mais clareza para você e sua equipe.</p><div class="flow-hero-actions"><a href="#teste-gratuito" class="button primary" data-family-en="Start free trial">Começar teste gratuito</a><a href="https://app.medipath-ai.com/" class="family-text-link" data-login-link data-family-en="Log in to Flow">Entrar no Flow</a></div><p class="flow-trial-note" data-family-en="14 days free. No credit card required.">14 dias gratuitos. Sem cartão de crédito.</p>
+      <section class="section flow-intro" id="produto" aria-labelledby="flow-title">
+        <div class="flow-hero-copy">
+          <h1 id="flow-title" data-family-en="What if your procedures practically organized themselves?">E se seus procedimentos praticamente se organizassem sozinhos?</h1>
+          <p class="flow-hero-lead" data-family-en="Organize and follow your medical procedures in one app.">Organize e acompanhe seus procedimentos médicos em um único aplicativo.</p>
+          <div class="flow-hero-actions">
+            <a href="#teste-gratuito" class="button primary" data-family-en="Start free trial">Começar teste gratuito</a>
+            <a href="https://app.medipath-ai.com/" class="family-text-link" data-login-link data-family-en="Log in to Flow">Entrar no Flow</a>
+          </div>
+          <p class="flow-trial-note" data-family-en="14 days free. No credit card required.">14 dias gratuitos. Sem cartão de crédito.</p>
+        </div>
+        <figure class="flow-dashboard-frame">
+          <img src="/assets/flow-v2/dashboard.png" width="603" height="1304" alt="Painel completo do Medipath Flow, com Dashboard, Pendentes, Agendados e Concluídos na navegação inferior" fetchpriority="high" />
+        </figure>
+      </section>
+
+      <section class="section flow-questions" aria-label="Conheça o Medipath Flow" data-flow-tabs>
+        <div class="flow-question-tabs" role="tablist" aria-label="Conheça o Medipath Flow">
+          <button id="flow-tab-does" type="button" role="tab" aria-controls="flow-panel-does" aria-selected="true" tabindex="0" data-family-en="What does it do?">O que faz?</button>
+          <button id="flow-tab-time" type="button" role="tab" aria-controls="flow-panel-time" aria-selected="false" tabindex="-1" data-family-en="How does it save time?">Como economiza tempo?</button>
+          <button id="flow-tab-video" type="button" role="tab" aria-controls="flow-panel-video" aria-selected="false" tabindex="-1" data-family-en="See it in action">Veja na prática</button>
         </div>
 
-        <div class="product-hero-visual" aria-label="Prévia do dashboard Medipath.AI">
-          <figure class="browser-frame">
-            <img src="/assets/product-screenshots/desktop-dashboard.png" alt="Dashboard desktop do Medipath.AI" />
-          </figure>
-          <figure class="phone-frame hero-phone">
-            <img src="/assets/product-screenshots/mobile-dashboard.jpg" alt="Dashboard mobile do Medipath.AI" />
-          </figure>
+        <div class="flow-question-panel" id="flow-panel-does" role="tabpanel" aria-labelledby="flow-tab-does" tabindex="0">
+          <h2 data-family-en="What can you do with Flow?">O que você pode fazer com o Flow?</h2>
+          <ul>
+            <li data-family-en="See your pending, scheduled and completed procedures.">Veja seus procedimentos pendentes, agendados e concluídos.</li>
+            <li data-family-en="Keep clinical data, images, videos and documents together in each procedure.">Reúna dados clínicos, imagens, vídeos e documentos em cada procedimento.</li>
+            <li data-family-en="Organize schedules with your secretary and follow each stage.">Organize agendamentos com sua secretária e acompanhe cada etapa.</li>
+            <li data-family-en="Track amounts received and outstanding professional fees.">Controle valores recebidos e honorários pendentes.</li>
+          </ul>
         </div>
-        <div class="hero-after">
-          <div class="device-compatibility" aria-label="Compatível com iPhone, Android e computador">
-            <span>
-              <span class="device-icon apple" aria-hidden="true"></span>
-              <span data-i18n="hero.deviceApple">iPhone</span>
-            </span>
-            <span>
-              <span class="device-icon android" aria-hidden="true"></span>
-              <span data-i18n="hero.deviceAndroid">Android</span>
-            </span>
-            <span>
-              <span class="device-icon desktop" aria-hidden="true"></span>
-              <span data-i18n="hero.deviceWeb">Computador</span>
-            </span>
+
+        <div class="flow-question-panel" id="flow-panel-time" role="tabpanel" aria-labelledby="flow-tab-time" tabindex="0" hidden>
+          <h2 data-family-en="How can Flow save time?">Como economizar tempo com o Flow?</h2>
+          <ul>
+            <li data-family-en="Create your personalized page and choose which questions patients should answer.">Crie sua página personalizada e escolha quais perguntas os pacientes devem responder.</li>
+            <li data-family-en="Patients send information and documents directly to Flow.">Os pacientes enviam informações e documentos diretamente ao Flow.</li>
+            <li data-family-en="Your secretary can review requests and schedule procedures.">Sua secretária pode revisar as solicitações e agendar os procedimentos.</li>
+            <li data-family-en="Follow what is pending, review the information received, and add clinical details and attachments through completion.">Você acompanha o que está pendente, consulta os dados recebidos e adiciona informações clínicas e anexos até a conclusão.</li>
+          </ul>
+        </div>
+
+        <div class="flow-question-panel flow-video-panel" id="flow-panel-video" role="tabpanel" aria-labelledby="flow-tab-video" tabindex="0" hidden>
+          <h2 data-family-en="See Flow in action">Veja o Flow na prática</h2>
+          <button class="flow-video-launch" type="button" aria-controls="flow-walkthrough-player" aria-expanded="false">
+            <img src="/assets/flow-v2/flow-walkthrough-poster.jpg" width="512" height="910" alt="" loading="lazy" />
+            <span data-family-en="Play the Flow walkthrough">Reproduzir demonstração do Flow</span>
+          </button>
+          <div class="flow-video-player" id="flow-walkthrough-player" hidden>
+            <video controls playsinline preload="none" width="512" height="910" poster="/assets/flow-v2/flow-walkthrough-poster.jpg" aria-label="Demonstração do Medipath Flow">
+              <source src="/assets/flow-v2/flow-walkthrough.mp4" type="video/mp4" />
+              <p>Seu navegador não consegue reproduzir este vídeo. <a href="/assets/flow-v2/flow-walkthrough.mp4">Abrir o vídeo</a>.</p>
+            </video>
           </div>
         </div>
       </section>
 
-      <section class="section" id="fluxo"><div class="flow-context"><p class="family-eyebrow" data-family-en="ONE WORKFLOW, FROM START TO FINISH">UM PROCESSO, DO INÍCIO AO FIM</p><p class="flow-context-copy" data-family-en="The next step should not depend on memory.">O próximo passo não precisa depender da memória.</p></div>
-        <div class="section-heading centered">
-          <h2  data-family-en="Every request in the right place.">Cada pedido no lugar certo.</h2>
-          <div class="workflow-path" data-i18n="how.path">Pendente → Agendado → Concluído</div>
-        </div>
-        <div class="workflow-showcase">
-          <article class="workflow-card">
-            <figure class="phone-frame">
-              <img src="/assets/product-screenshots/mobile-pending.jpg" alt="Tela mobile de procedimentos pendentes" />
-            </figure>
-            <h3 data-i18n="how.step1Title">Pendente</h3>
-          </article>
-          <article class="workflow-card">
-            <figure class="phone-frame">
-              <img src="/assets/product-screenshots/mobile-scheduled.jpg" alt="Tela mobile de procedimentos agendados" />
-            </figure>
-            <h3 data-i18n="how.step2Title">Agendamento</h3>
-          </article>
-          <article class="workflow-card">
-            <figure class="phone-frame">
-              <img src="/assets/product-screenshots/mobile-completed.jpg" alt="Tela mobile de procedimentos concluídos" />
-            </figure>
-            <h3 data-i18n="how.step3Title">Resultado concluído</h3>
-          </article>
-        </div>
-      </section>
-
-      <section class="section presence-section" id="presenca-online">
-        <div class="presence-layout">
-          <div class="section-heading presence-copy">
-            <p class="eyebrow" data-i18n="presence.eyebrow">Presença Online</p>
-            <h2 data-i18n="presence.title">Receba informações dos pacientes antes do atendimento.</h2>
-            <p data-i18n="presence.text">Crie uma página personalizada para seu consultório ou clínica. Nela, pacientes podem enviar informações e documentos e responder a questionários personalizados criados por você. Tudo chega organizado no Medipath.AI para facilitar a revisão pela equipe e o agendamento dos procedimentos.</p>
-          </div>
-
-          <div class="presence-flow-simple" aria-label="Como as informações chegam do paciente à equipe médica" data-i18n-aria="presence.flowLabel">
-            <article class="presence-flow-step">
-              <div>
-                <h3 data-i18n="presence.flow1Title">Paciente</h3>
-                <ul>
-                  <li data-i18n="presence.flow1Item1">Acessa a página online</li>
-                  <li data-i18n="presence.flow1Item2">Envia informações pessoais, documentos e responde aos questionários</li>
-                </ul>
-              </div>
-            </article>
-            <span class="presence-flow-arrow" aria-hidden="true">→</span>
-            <article class="presence-flow-step presence-flow-step-highlight">
-              <div>
-                <h3 data-i18n="presence.flow2Title">Medipath.AI</h3>
-                <ul>
-                  <li data-i18n="presence.flow2Item1">Recebe a solicitação organizada em Pendentes</li>
-                </ul>
-              </div>
-            </article>
-            <span class="presence-flow-arrow" aria-hidden="true">→</span>
-            <article class="presence-flow-step">
-              <div>
-                <h3 data-i18n="presence.flow3Title">Médico e equipe</h3>
-                <ul>
-                  <li data-i18n="presence.flow3Item1">Revisam as informações e agendam o procedimento</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-
-          <figure class="presence-proof" id="presenca-exemplo">
-            <div class="presence-proof-frame">
-              <img
-                src="/assets/product-screenshots/presenca-online-dra-manuela.png"
-                alt="Exemplo da página Presença Online personalizada da Dra. Manuela Pitanga"
-              />
-            </div>
-            <figcaption data-preview-i18n="presence.proofCaption">Exemplo real de uma Presença Online personalizada</figcaption>
-          </figure>
-
-          <div class="presence-feature-grid">
-            <article>
-              <h3 data-i18n="presence.card1Title">Sua Página Online Personalizada</h3>
-              <ul>
-                <li data-i18n="presence.card1Item1">Uma página própria para seu consultório ou clínica</li>
-                <li data-i18n="presence.card1Item2">Personalize fotos, informações e identidade visual</li>
-                <li data-i18n="presence.card1Item3">Receba dados, documentos e respostas dos pacientes diretamente no Medipath.AI</li>
-              </ul>
-            </article>
-            <article>
-              <h3 data-i18n="presence.card2Title">Questionários personalizados</h3>
-              <ul>
-                <li data-i18n="presence.card2Item1">Crie perguntas específicas para seus pacientes</li>
-                <li data-i18n="presence.card2Item2">Colete informações antes do procedimento</li>
-              </ul>
-            </article>
-            <article>
-              <h3 data-i18n="presence.card3Title">Documentos organizados</h3>
-              <ul>
-                <li data-i18n="presence.card3Item1">Pacientes podem enviar arquivos e informações</li>
-                <li data-i18n="presence.card3Item2">Tudo chega conectado ao fluxo Medipath</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section procedure-section" id="cadastro">
-        <div class="section-heading">
-          <h2 data-i18n="procedure.title">Todas as informações importantes em um só registro.</h2>
-          <p data-i18n="procedure.text">Médicos podem gerenciar sua própria rotina ou contar com secretárias para inserir dados administrativos e reduzir a carga operacional.</p>
-        </div>
-        <div class="procedure-showcase">
-          <figure class="phone-frame procedure-phone">
-            <img src="/assets/product-screenshots/mobile-form-top.jpg" alt="Parte superior do formulário de novo procedimento" />
-          </figure>
-          <div class="procedure-copy">
-            <h3 data-i18n="procedure.cardTitle">Menos tarefas administrativas.</h3>
-            <ul>
-              <li data-i18n="procedure.item1">Paciente, telefone e contato secundário</li>
-              <li data-i18n="procedure.item2">Convênio, hospital e médico assistente</li>
-              <li data-i18n="procedure.item3">Dados clínicos, notas internas e tags</li>
-              <li data-i18n="procedure.item4">Atualização rápida conforme a informação muda</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section muted" id="recursos">
-        <div class="section-heading centered">
-          <h2 data-i18n="features.title">Tudo o que você precisa para acompanhar seus procedimentos.</h2>
-        </div>
-        <div class="feature-grid compact">
-          <article>
-            <h3 data-i18n="features.card1Title">Laudos personalizados</h3>
-            <p data-i18n="features.card1Text">Crie laudos personalizados e envie documentos em PDF diretamente pelo sistema.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card2Title">Hashtags</h3>
-            <p data-i18n="features.card2Text">Marque procedimentos com hashtags para encontrar e consultar informações rapidamente pela busca.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card3Title">Documentos e imagens</h3>
-            <p data-i18n="features.card3Text">Anexe documentos, fotos e arquivos diretamente ao procedimento.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card4Title">Scanner de documentos</h3>
-            <p data-i18n="features.card4Text">Capture documentos pela câmera e transforme em PDFs organizados.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card5Title">Links de vídeos</h3>
-            <p data-i18n="features.card5Text">Adicione links de vídeos importantes para manter todo o contexto do procedimento.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card6Title">Equipe médica</h3>
-            <p data-i18n="features.card6Text">Médicos podem trabalhar individualmente ou contar com secretárias para cadastrar pacientes e procedimentos administrativos.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card7Title">Contato simplificado</h3>
-            <p data-i18n="features.card7Text">Telefone e WhatsApp do paciente disponíveis diretamente pelo procedimento.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card8Title">GPS para hospitais</h3>
-            <p data-i18n="features.card8Text">Consulte localização e rota até o hospital com integração GPS.</p>
-          </article>
-          <article>
-            <h3 data-i18n="features.card9Title">Compartilhamento</h3>
-            <p data-i18n="features.card9Text">Compartilhe procedimentos, laudos e arquivos com outros médicos quando necessário.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section security-section" id="seguranca">
-        <div class="security-panel">
-          <div class="section-heading security-copy">
-            <p class="eyebrow" data-i18n="security.eyebrow">Segurança e continuidade</p>
-            <h2 data-i18n="security.title">Proteção para informações sensíveis de saúde.</h2>
-            <p data-i18n="security.text">A Medipath.AI utiliza medidas técnicas e organizacionais para proteger dados pessoais, controlar acessos e apoiar a continuidade da operação, seguindo princípios da LGPD.</p>
-            <a class="text-link" href="/politica-de-privacidade/" data-i18n="security.link">Conheça nossa Política de Privacidade</a>
-          </div>
-          <div class="security-grid">
-            <article>
-              <h3 data-i18n="security.card1Title">Controle de acesso</h3>
-              <p data-i18n="security.card1Text">Cada usuário acessa apenas os recursos permitidos no seu ambiente de trabalho.</p>
-            </article>
-            <article>
-              <h3 data-i18n="security.card2Title">Backups automatizados</h3>
-              <p data-i18n="security.card2Text">Cópias de segurança do banco de dados e arquivos da plataforma.</p>
-            </article>
-            <article>
-              <h3 data-i18n="security.card3Title">Continuidade operacional</h3>
-              <p data-i18n="security.card3Text">Processos preparados para apoiar recuperação e continuidade do serviço.</p>
-            </article>
-            <article>
-              <h3 data-i18n="security.card4Title">Proteção de dados</h3>
-              <p data-i18n="security.card4Text">Medidas técnicas para reduzir riscos de acesso não autorizado.</p>
-            </article>
-          </div>
-        </div>
-      </section>
 
       <section class="section pricing-section conversion-section" id="plano" aria-labelledby="conversion-title">
         <div class="pricing-copy conversion-heading">
@@ -283,12 +113,6 @@
             <p class="pricing-launch-headline" data-pricing-founder-headline></p>
             <p class="pricing-launch-copy" data-pricing-founder-copy></p>
           </div>
-          <ul class="pricing-features">
-            <li data-preview-i18n="pricing.feature1">Gestão de pacientes, exames e procedimentos</li>
-            <li data-preview-i18n="pricing.feature2">Presença Online personalizada</li>
-            <li data-preview-i18n="pricing.feature3">Acesso para sua equipe</li>
-            <li data-preview-i18n="pricing.feature4">Backups e recursos de segurança</li>
-          </ul>
           <div class="pricing-terms">
             <p data-pricing-trial-summary data-preview-i18n="pricing.trial">14 dias grátis · Sem cartão de crédito · Cancele quando quiser</p>
           </div>
@@ -353,8 +177,8 @@
           <a class="button secondary clinic-contact" href="https://wa.me/5581986990144" target="_blank" rel="noopener noreferrer" data-contact-whatsapp data-preview-i18n="pricing.clinicLink">Falar agora</a>
         </div>
       </section>
-    <aside class="family-crosslink section" aria-labelledby="flow-resource-title"><span>Guias práticos</span><div><h2 id="flow-resource-title">Organize melhor seu fluxo médico</h2><a href="/recursos/organizar-pacientes-internados/">Pacientes internados</a> · <a href="/recursos/organizar-procedimentos-medicos/">Procedimentos</a> · <a href="/recursos/organizar-documentos-pacientes/">Documentos</a> · <a href="/recursos/questionario-pre-consulta/">Questionários</a></div></aside>
-    <aside class="family-crosslink section"><span data-family-en="Also from Medipath.AI">Também da Medipath.AI</span><a href="/cases/" data-family-en="Explore Medipath Cases — free for doctors <span aria-hidden=&quot;true&quot;>→</span>">Conheça Medipath Cases — gratuito para médicos <span aria-hidden="true">→</span></a></aside></main>
+
+    <aside class="family-crosslink section"><a href="/cases/" data-family-en="Explore Medipath Cases — free for doctors <span aria-hidden=&quot;true&quot;>→</span>">Conheça Medipath Cases — gratuito para médicos <span aria-hidden="true">→</span></a></aside></main>
 
     <footer class="site-footer">
       <div class="footer-primary">
@@ -415,8 +239,6 @@
             data-contact-whatsapp
             aria-label="WhatsApp Medipath"
           ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="12" fill="#25D366"></circle><path fill="#fff" d="M17.64 6.33A7.87 7.87 0 0 0 4.98 15.57L4 20l4.53-1.18a7.86 7.86 0 0 0 3.46.8h.01a7.88 7.88 0 0 0 5.64-13.29Zm-5.64 12a6.48 6.48 0 0 1-3.3-.9l-.24-.14-2.69.7.72-2.62-.16-.27A6.48 6.48 0 1 1 12 18.33Zm3.55-4.84c-.19-.1-1.1-.55-1.28-.61-.17-.06-.3-.1-.43.1-.13.19-.49.61-.6.73-.11.13-.22.15-.41.05-.19-.1-.8-.3-1.52-.97-.57-.5-.95-1.12-1.06-1.31-.11-.19-.01-.29.08-.38.08-.08.19-.22.28-.33.1-.11.13-.19.19-.32.06-.13.03-.24-.01-.34-.05-.1-.43-1.04-.59-1.43-.16-.38-.32-.33-.43-.33h-.37c-.13 0-.34.05-.52.24-.18.19-.69.67-.69 1.64s.71 1.9.81 2.03c.1.13 1.4 2.13 3.38 2.99.47.2.84.32 1.13.41.48.15.92.13 1.27.08.39-.06 1.1-.45 1.26-.88.16-.43.16-.8.11-.88-.05-.08-.17-.13-.36-.23Z"></path></svg></a>
-          <a href="/politica-de-privacidade/" data-i18n="footer.privacy">Política de Privacidade</a>
-          <a href="/termos-de-uso/" data-i18n="footer.terms">Termos de Uso</a>
         </div>
       </div>
     </footer>
@@ -428,5 +250,6 @@
     <script src="/onboarding.js?v=20260901-turnstile-ready"></script>
     <script src="/pricing-tabs.js?v=20260903-preview"></script>
   <script src="/family.js"></script>
+<script src="/flow-tabs.js"></script>
 </body>
 </html>
