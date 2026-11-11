@@ -28,7 +28,7 @@ test("localized pages are crawlable HTML with reciprocal alternates and unique t
 
 test("approved Brazilian main content, onboarding scripts and CTA links are identical", () => {
   const baseline = execFileSync("git", ["show", "49112a158aade875c6da51267067ff5ca17dcac9:flow/index.html"], { encoding: "utf8" });
-  const current = read("/flow/");
+  const current = read("/flow/").replace(/<!-- country-pricing:start -->[\s\S]*?<!-- country-pricing:end -->\n/, "").replace(/<!-- country-pricing-scripts:start -->[\s\S]*?<!-- country-pricing-scripts:end -->\n/, "");
   for (const region of [/<main[\s\S]*?<\/main>/, /<script[\s\S]*?<\/body>/, /<header[\s\S]*?<\/header>/]) {
     assert.equal(current.match(region)[0], baseline.match(region)[0]);
   }

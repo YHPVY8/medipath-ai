@@ -23,7 +23,8 @@
 <link rel="alternate" hreflang="pt-BR" href="https://medipath-ai.com/flow/">
     <link rel="alternate" hreflang="en" href="https://medipath-ai.com/en/flow/">
     <link rel="alternate" hreflang="es" href="https://medipath-ai.com/es/flow/">
-    <link rel="alternate" hreflang="x-default" href="https://medipath-ai.com/flow/"><link rel="stylesheet" href="/flow-international.css"></head>
+    <link rel="alternate" hreflang="x-default" href="https://medipath-ai.com/flow/"><link rel="stylesheet" href="/flow-international.css"><link rel="stylesheet" href="/flow-country-pricing.css">
+</head>
   <body class="trial-preview flow-page flow-international-page">
 <header class="master-header">
   <a class="master-logo master-logo-flow" href="/" aria-label="Medipath.AI"><img src="/assets/brand/Medipath-Flow-Primary-Horizontal.svg" alt="Medipath Flow"></a>
@@ -90,6 +91,14 @@
       </section>
 
 
+<!-- country-pricing:start -->
+<section class="section country-pricing" data-country-pricing aria-label="Practice country">
+<label for="pricing-country">Practice country</label>
+<select id="pricing-country" data-pricing-country><option value="">Select country</option></select>
+<p>Select your practice country to check the plan. Approximate location is only a suggestion.</p><p data-country-quote role="status" aria-live="polite">Select country</p>
+<a data-country-cta hidden></a>
+</section>
+<!-- country-pricing:end -->
       <section class="section pricing-section conversion-section international-signup" id="international-signup" aria-labelledby="international-title">
  <div class="pricing-copy conversion-heading"><h2 id="international-title">Check availability in your practice country</h2><p>Choose the country where you practise. You can use Flow in a different interface language.</p></div>
  <div class="international-card">
@@ -170,4 +179,5 @@
 <script src="/flow-international-config.js" defer=""></script>
 <script type="module" src="/flow-international.js"></script>
 <script src="/flow-tabs.js" defer=""></script>
+<!-- country-pricing-scripts:start --><script type="module" src="/flow-country-pricing.js"></script><!-- country-pricing-scripts:end -->
 </body></html>

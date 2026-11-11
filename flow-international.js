@@ -139,6 +139,14 @@ for (const link of document.querySelectorAll('.flow-languages a, a[href="/flow/i
   link.href = url.href;
 }
 
+// Remembered country is a suggestion only; confirmation remains unchecked.
+let suggestedCountry = params.get("country");
+try { suggestedCountry ||= sessionStorage.getItem("medipath-practice-country"); } catch {}
+if (Object.hasOwn(countries, suggestedCountry)) {
+  practice.value = suggestedCountry;
+  queueMicrotask(() => practice.dispatchEvent(new Event("change")));
+}
+
 function clearChallenge() {
   token = "";
   if (widget !== undefined) window.turnstile.remove(widget);

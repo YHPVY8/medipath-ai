@@ -20,7 +20,8 @@
     <link rel="stylesheet" href="/product.css?v=20260901-approved-release">
   <link rel="stylesheet" href="/family.css">
 <link rel="stylesheet" href="/flow-preview.css">
-<meta name="robots" content="noindex, follow"><link rel="stylesheet" href="/flow-international.css"></head>
+<meta name="robots" content="noindex, follow"><link rel="stylesheet" href="/flow-international.css"><link rel="stylesheet" href="/flow-country-pricing.css">
+</head>
   <body class="trial-preview flow-page flow-international-page">
 <header class="master-header">
   <a class="master-logo master-logo-flow" href="/" aria-label="Medipath.AI — início"><img src="/assets/brand/Medipath-Flow-Primary-Horizontal.svg" alt="Medipath Flow"></a>
@@ -28,7 +29,15 @@
   <nav class="language-toggle flow-languages" aria-label="Idioma da página do Flow"><a href="/flow/international/" lang="pt-BR" hreflang="pt-BR" aria-current="page">PT</a><a href="/en/flow/" lang="en" hreflang="en">EN</a><a href="/es/flow/" lang="es" hreflang="es">ES</a></nav>
 </header>
 
-    <main id="top"><section class="section pricing-section conversion-section international-signup" id="international-signup" aria-labelledby="international-title">
+    <main id="top"><!-- country-pricing:start -->
+<section class="section country-pricing" data-country-pricing aria-label="País de atuação">
+<label for="pricing-country">País de atuação</label>
+<select id="pricing-country" data-pricing-country><option value="">Selecionar país</option></select>
+<p>Selecione seu país de atuação para consultar o plano. A localização aproximada é apenas uma sugestão.</p><p data-country-quote role="status" aria-live="polite">Selecionar país</p>
+<a data-country-cta hidden></a>
+</section>
+<!-- country-pricing:end -->
+<section class="section pricing-section conversion-section international-signup" id="international-signup" aria-labelledby="international-title">
  <div class="pricing-copy conversion-heading"><h1 id="international-title">Consulte a disponibilidade no seu país de atuação</h1><p>Escolha o país onde você exerce a medicina. O idioma do Flow pode ser diferente.</p></div>
  <div class="international-card">
    <label>País de atuação<select name="practiceCountry" required=""><option value="">Selecione um país</option></select></label>
@@ -108,4 +117,5 @@
 <script src="/flow-international-config.js" defer=""></script>
 <script type="module" src="/flow-international.js"></script>
 
+<!-- country-pricing-scripts:start --><script type="module" src="/flow-country-pricing.js"></script><!-- country-pricing-scripts:end -->
 </body></html>

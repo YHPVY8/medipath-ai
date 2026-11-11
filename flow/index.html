@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="/product.css?v=20260901-approved-release" />
   <link rel="stylesheet" href="/family.css" />
 <link rel="stylesheet" href="/flow-preview.css" />
+<link rel="stylesheet" href="/flow-country-pricing.css">
 </head>
   <body class="trial-preview flow-page">
 <header class="master-header">
@@ -95,6 +96,14 @@
       </section>
 
 
+<!-- country-pricing:start -->
+<section class="section country-pricing" data-country-pricing aria-label="País de atuação">
+<label for="pricing-country">País de atuação</label>
+<select id="pricing-country" data-pricing-country><option value="">Selecionar país</option></select>
+<p>Selecione seu país de atuação para consultar o plano. A localização aproximada é apenas uma sugestão.</p><p data-country-quote role="status" aria-live="polite">Selecionar país</p>
+<a data-country-cta hidden></a>
+</section>
+<!-- country-pricing:end -->
       <section class="section pricing-section conversion-section" id="plano" aria-labelledby="conversion-title">
         <div class="pricing-copy conversion-heading">
           <p class="eyebrow" data-preview-i18n="pricing.eyebrow">Plano</p>
@@ -257,5 +266,6 @@
     <script src="/pricing-tabs.js?v=20260903-preview"></script>
   <script src="/family.js"></script>
 <script src="/flow-tabs.js"></script>
+<!-- country-pricing-scripts:start --><script src="/flow-international-config.js" defer></script><script type="module" src="/flow-country-pricing.js"></script><!-- country-pricing-scripts:end -->
 </body>
 </html>
