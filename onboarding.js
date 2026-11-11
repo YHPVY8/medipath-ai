@@ -144,7 +144,7 @@
   const turnstileSlot = document.querySelector("[data-turnstile-slot]");
   const embeddedGlobal = Boolean(form?.closest('[data-brazil-inline]'));
   copy.es = {"form.submitting":"Enviando registro…", "form.submit":"Comenzar prueba gratuita", "form.whatsappError":"Introduce un teléfono brasileño válido con código de área.", "form.error":"No pudimos completar el registro. Inténtalo de nuevo en unos minutos.", "form.turnstileRequired":"Completa la verificación de seguridad para continuar.", "form.turnstileError":"La verificación de seguridad ha caducado. Inténtalo de nuevo."};
-  let currentLanguage = document.documentElement.lang.startsWith("en") ? "en" : embeddedGlobal && document.documentElement.lang === "es" ? "es" : "pt";
+  let currentLanguage = document.documentElement.lang.startsWith("en") ? "en" : document.documentElement.lang === "es" ? "es" : "pt";
   let turnstileToken = "";
   let turnstileWidgetId = null;
   let submitting = false;
@@ -156,7 +156,7 @@
 
   function applyLanguage(language) {
     currentLanguage = copy[language] ? language : "pt";
-    if (!embeddedGlobal) document.documentElement.lang = currentLanguage === "pt" ? "pt-BR" : "en";
+    if (!embeddedGlobal) document.documentElement.lang = currentLanguage === "pt" ? "pt-BR" : currentLanguage;
     document.querySelectorAll("[data-preview-i18n]").forEach((element) => {
       element.textContent = translate(element.dataset.previewI18n);
     });
@@ -192,16 +192,19 @@
     const pricing = commercialPricing;
     const offerVisible = pricing.effectiveLaunchOfferActive === true;
     const displayedPrice = offerVisible ? pricing.launchDisplayedPrice : pricing.standardDisplayedPrice;
-    const month = currentLanguage === "pt" ? "por mês" : "per month";
-    const standardPrefix = currentLanguage === "pt" ? "Preço padrão" : "Standard price";
+    const month = currentLanguage === "pt" ? "por mês" : currentLanguage === "es" ? "al mes" : "per month";
+    const standardPrefix = currentLanguage === "pt" ? "Preço padrão" : currentLanguage === "es" ? "Precio estándar" : "Standard price";
     const trialSummary = currentLanguage === "pt"
       ? `${pricing.trialDays} dias grátis · Sem cartão de crédito · Cancele quando quiser`
+      : currentLanguage === "es" ? `${pricing.trialDays} días gratis · Sin tarjeta de crédito · Cancela cuando quieras`
       : `${pricing.trialDays} days free · No credit card required · Cancel anytime`;
     const trialTitle = currentLanguage === "pt"
       ? `Experimente o Medipath.AI por ${pricing.trialDays} dias.`
+      : currentLanguage === "es" ? `Prueba Medipath.AI gratis durante ${pricing.trialDays} días.`
       : `Try Medipath.AI free for ${pricing.trialDays} days.`;
     const trialSupport = currentLanguage === "pt"
       ? `${pricing.trialDays} dias gratuitos. Sem cartão de crédito. Depois, ${formatReais(pricing.standardDisplayedPrice)}/mês. Cancele quando quiser.`
+      : currentLanguage === "es" ? `${pricing.trialDays} días gratis. Sin tarjeta de crédito. Después, ${formatReais(pricing.standardDisplayedPrice)}/mes. Cancela cuando quieras.`
       : `${pricing.trialDays} days free. No credit card required. Then ${formatReais(pricing.standardDisplayedPrice)}/month. Cancel anytime.`;
 
     const price = document.querySelector("[data-pricing-price]");
@@ -214,9 +217,13 @@
     const launchOffer = document.querySelector("[data-pricing-launch-offer]");
     if (launchOffer) launchOffer.hidden = !offerVisible;
     const headline = document.querySelector("[data-pricing-founder-headline]");
-    if (headline) headline.textContent = pricing.founderHeadline;
+    if (headline) headline.textContent = currentLanguage === "pt" ? pricing.founderHeadline
+      : currentLanguage === "es" ? "Condición especial de lanzamiento para los primeros médicos Medipath."
+      : "Special launch offer for the first Medipath doctors.";
     const founderCopy = document.querySelector("[data-pricing-founder-copy]");
-    if (founderCopy) founderCopy.textContent = pricing.founderCopy;
+    if (founderCopy) founderCopy.textContent = currentLanguage === "pt" ? pricing.founderCopy
+      : currentLanguage === "es" ? `Activa tu suscripción durante los primeros ${pricing.trialDays} días y conserva ${formatReais(pricing.launchDisplayedPrice)}/mes mientras permanezca activa.`
+      : `Activate your subscription within the first ${pricing.trialDays} days and keep ${formatReais(pricing.launchDisplayedPrice)}/month while it remains active.`;
     const summary = document.querySelector("[data-pricing-trial-summary]");
     if (summary) summary.textContent = trialSummary;
     const title = document.querySelector("[data-trial-title]");

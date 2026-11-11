@@ -106,7 +106,7 @@ test("Flow language selectors stay compact, accessible, and on the existing rout
   ];
   for (const [route, label, selected, selectedName] of expected) {
     const html = read(route);
-    assert.ok(html.includes('<link rel="stylesheet" href="/flow-international.css">'));
+    assert.ok(html.includes('<link rel="stylesheet" href="/flow-international.css?v=20261111-flow-locale">'));
     assert.equal((html.match(/data-flow-language/g) || []).length, 1);
     assert.match(html, new RegExp(`<select aria-label="${label}" data-flow-language>`));
     assert.match(html, /<span class="sr-only">/);
@@ -120,6 +120,6 @@ test("Flow language selectors stay compact, accessible, and on the existing rout
   assert.match(css, /\.flow-language-control \.sr-only\s*\{/);
   assert.match(css, /appearance:none; -webkit-appearance:none; -moz-appearance:none/);
   assert.match(css, /font-family:Inter,sans-serif; font-size:\.85rem; font-weight:500; line-height:1\.5/);
-  assert.match(css, /@media\(max-width:760px\)[\s\S]*\.flow-language-control select \{ font-size:\.76rem; \}/);
+  assert.match(css, /@media\(max-width:760px\)[\s\S]*\.flow-language-control select \{ min-height:44px; font-size:\.76rem; \}/);
   assert.doesNotMatch(css, /\.flow-language-control select[^}]*min-height:36px|\.flow-language-control select:hover[^}]*outline:1px solid/);
 });

@@ -29,8 +29,11 @@
 .flow-language-control:hover { color:#087381; }
 .flow-language-control select:focus-visible { outline:2px solid #087381; outline-offset:3px; }
 @media(max-width:760px){
- .flow-page .master-header { flex-wrap:wrap; }
- .flow-page .master-nav { order:3; width:auto; flex:1 1 auto; min-width:0; }
- .flow-page .flow-language-control { order:3; flex:0 0 auto; margin-left:auto; }
- .flow-page .flow-language-control select { font-size:.76rem; }
+ .flow-page .master-header { display:grid; grid-template-columns:minmax(0,1fr) auto; }
+ .flow-page .master-logo { grid-column:1/-1; grid-row:1; }
+ .flow-page .master-header [data-login-link] { display:none; }
+ .flow-page .master-nav { grid-column:1; grid-row:2; order:initial; width:auto; min-width:0; margin:0; gap:24px; flex-wrap:nowrap; }
+ .flow-page .master-nav a { display:inline-flex; align-items:center; min-height:44px; white-space:nowrap; }
+ .flow-page .flow-language-control { grid-column:2; grid-row:2; order:initial; margin-left:auto; }
+ .flow-page .flow-language-control select { min-height:44px; font-size:.76rem; }
 }

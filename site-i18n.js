@@ -373,7 +373,9 @@ const translations = {
 
 const previewContactUrl = "https://wa.me/5581986990144";
 const languageButtons = document.querySelectorAll("[data-lang]");
-let currentLanguage = localStorage.getItem("medipath-language") || "pt";
+// Brazilian Flow uses its explicit route locale, never a saved marketing preference.
+let currentLanguage = document.querySelector(".flow-page [data-flow-language]")
+  ? "pt" : localStorage.getItem("medipath-language") || "pt";
 
 function t(key) {
   return translations[currentLanguage]?.[key] || translations.pt[key] || key;
