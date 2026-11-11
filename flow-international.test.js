@@ -28,21 +28,26 @@ test("localized pages are crawlable HTML with reciprocal alternates and unique t
 
 test("approved Brazilian main content, onboarding scripts and CTA links are identical", () => {
   const baseline = execFileSync("git", ["show", "49112a158aade875c6da51267067ff5ca17dcac9:flow/index.html"], { encoding: "utf8" });
-  const current = read("/flow/").replace(/<!-- country-pricing:start -->[\s\S]*?<!-- country-pricing:end -->\n/, "").replace(/<!-- country-pricing-scripts:start -->[\s\S]*?<!-- country-pricing-scripts:end -->\n/, "");
+  const current = read("/flow/").replace(/<!-- signup-handoff:start -->[\s\S]*?<!-- signup-handoff:end -->\n/, "").replace(/<!-- country-pricing:start -->[\s\S]*?<!-- country-pricing:end -->\n/, "").replace(/<!-- country-pricing-scripts:start -->[\s\S]*?<!-- country-pricing-scripts:end -->\n/, "");
   for (const region of [/<main[\s\S]*?<\/main>/, /<script[\s\S]*?<\/body>/, /<header[\s\S]*?<\/header>/]) {
     assert.equal(current.match(region)[0], baseline.match(region)[0]);
   }
 });
 
 test("localized navigation and approved media resolve to existing website files", () => {
-  for (const route of ["/en/flow/", "/es/flow/", "/flow/international/"]) {
+  for (const route of ["/en/flow/", "/es/flow/", "/en/flow/signup/", "/es/flow/signup/", "/flow/international/"]) {
     const html = read(route);
     for (const [, href] of html.matchAll(/(?:href|src|poster)="(\/[^"]+)"/g)) {
       const target = href.split(/[?#]/)[0];
       assert.ok(existsSync(`.${target}${target.endsWith("/") ? "index.html" : ""}`), `${route}: ${href}`);
     }
-    assert.match(html, /href="\/flow\/#teste-gratuito"/);
-    assert.match(html, /data-international-form="" hidden=""/);
+    if (route.endsWith("/signup/") || route === "/flow/international/") {
+      assert.match(html, /href="\/flow\/#teste-gratuito"/);
+      assert.match(html, /data-international-form="" hidden=""/);
+    } else {
+      assert.doesNotMatch(html, /name="practiceCountry"|id="international-signup"/);
+      assert.ok(html.includes(`href="${route}signup/"`));
+    }
   }
   assert.match(readFileSync("flow-international-config.js", "utf8"), /enabled: false/);
   assert.match(read("/flow/international/"), /name="robots" content="noindex, follow"/);

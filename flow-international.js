@@ -142,6 +142,7 @@ for (const link of document.querySelectorAll('.flow-languages a, a[href="/flow/i
 // Remembered country is a suggestion only; confirmation remains unchecked.
 let suggestedCountry = params.get("country");
 try { suggestedCountry ||= sessionStorage.getItem("medipath-practice-country"); } catch {}
+suggestedCountry ||= config?.suggestedCountry;
 if (Object.hasOwn(countries, suggestedCountry)) {
   practice.value = suggestedCountry;
   queueMicrotask(() => practice.dispatchEvent(new Event("change")));
@@ -174,6 +175,7 @@ function loadChallenge() {
 practice.addEventListener("change", async () => {
   const request = ++selection;
   const country = practice.value;
+  try { sessionStorage.setItem("medipath-practice-country", country); } catch {}
   clearChallenge();
   eligible = "";
   form.hidden = true;
@@ -314,3 +316,12 @@ form.addEventListener("submit", async event => {
 });
 
 record("flow_landing_visit");
+
+// Transfer only compatible fields, never licensing, currency, eligibility or consent.
+for (const link of document.querySelectorAll('a')) {
+  if (new URL(link.href).pathname === '/flow/' && new URL(link.href).hash === '#teste-gratuito') {
+    link.addEventListener('click', () => {
+      try { sessionStorage.setItem('medipath-signup-handoff', JSON.stringify({created:Date.now(), full_name:fields.doctorName.value, email:fields.email.value})); } catch {}
+    });
+  }
+}

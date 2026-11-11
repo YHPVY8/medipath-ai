@@ -12,25 +12,36 @@ async function poll(fn){for(let i=0;i<100;i++){try{const r=await fn();if(r)retur
  try {
   for(const width of [390,1280]){
    await send('Emulation.setDeviceMetricsOverride',{width,height:900,deviceScaleFactor:1,mobile:width===390});
-   for(const route of ['/en/flow/','/es/flow/','/en/terms/','/en/privacy/','/es/terms/','/es/privacy/']){
+   for(const route of ['/en/flow/','/es/flow/','/en/terms/','/en/privacy/','/es/terms/','/es/privacy/','/en/flow/signup/','/es/flow/signup/']){
     await send('Page.navigate',{url:base+route});
     await poll(()=>ev(`location.pathname===${JSON.stringify(route)} && document.readyState==='complete'`));
     assert.equal(await ev('document.documentElement.scrollWidth<=innerWidth'),true,`overflow ${route} ${width}`);
     if(route.endsWith('/flow/')){
-     await poll(()=>ev('document.querySelector("[name=practiceCountry]").options.length===250'));
-     assert.equal(await ev('document.querySelectorAll("[data-country-pricing]").length'),0);
-     assert.equal(await ev('document.querySelector(".flow-hero-actions .primary").getAttribute("href")'),'#international-signup');
-     assert.equal(await ev('document.querySelector("[data-international-form]").hidden'),true);
+     assert.equal(await ev('document.querySelectorAll("[name=practiceCountry],#international-signup").length'),0);
+     assert.equal(await ev('document.querySelector(".flow-hero-actions .primary").getAttribute("href")'),route+'signup/');
      for(const tab of ['does','time','video']){
       await ev(`document.querySelector('#flow-tab-${tab}').click()`);
       assert.equal(await ev(`document.querySelector('#flow-panel-${tab}').hidden`),false);
      }
+    }else if(route.endsWith('/signup/')){
+     await poll(()=>ev('document.querySelector("[name=practiceCountry]").options.length===250'));
+     assert.equal(await ev('document.querySelector("[data-international-form]").hidden'),true);
+     await ev('const c=document.querySelector("[name=practiceCountry]");c.value="BR";c.dispatchEvent(new Event("change"));');
+     assert.equal(await ev('document.querySelector("[data-international-form]").hidden'),true);
+     assert.equal(await ev(`[...document.querySelectorAll('a')].some(a=>new URL(a.href).pathname==='/flow/' && new URL(a.href).hash==='#teste-gratuito')`),true);
     }else{
      assert.equal(await ev('document.querySelector("meta[name=robots]").content'),'noindex, nofollow');
      assert.equal(await ev('document.querySelectorAll("article section").length'),route.includes('/terms/')?24:12);
     }
    }
   }
-  console.log('PASS 12 mobile/desktop page checks, three tabs, single signup-country control, closed signup and legal draft sections');
+  await ev('sessionStorage.removeItem("medipath-practice-country")');
+  await send('Page.navigate',{url:base+'/en/flow/signup/?fixture=1'});
+  await poll(()=>ev('document.querySelector("[name=practiceCountry]")?.value==="CA" && !document.querySelector("[data-international-form]").hidden'));
+  await ev('document.querySelector("[name=doctorName]").value="Synthetic Example";const c=document.querySelector("[name=practiceCountry]");c.value="MX";c.dispatchEvent(new Event("change"));');
+  await poll(()=>ev('!document.querySelector("[data-international-form]").hidden'));
+  assert.equal(await ev('document.querySelector("[name=doctorName]").value'),'Synthetic Example');
+  assert.equal(await ev('document.querySelector("[name=countryConfirmed]").checked'),false);
+  console.log('PASS 16 mobile/desktop page checks, three tabs, single signup-country control, closed signup and legal draft sections');
  } finally { ws.close(); }
 })().catch(e=>{console.error(e);process.exitCode=1});
