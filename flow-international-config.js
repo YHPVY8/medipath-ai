@@ -1,2 +1,2 @@
-// Preview may replace this public configuration. The proxy holds the origin secret.
-window.MEDIPATH_INTERNATIONAL_PREVIEW = { enabled: false };
+// The same-origin proxy holds the origin secret. Release configuration is separate.
+window.MEDIPATH_INTERNATIONAL = { enabled: false, environment: "sandbox" };
