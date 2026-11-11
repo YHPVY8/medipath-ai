@@ -50,7 +50,7 @@ const copy = {
 
 const routes = { en: "/en/flow/", es: "/es/flow/", "pt-BR": "/flow/" };
 const queryFields = { utm_source: "utmSource", utm_medium: "utmMedium", utm_campaign: "utmCampaign", utm_content: "utmContent" };
-const language = document.documentElement.lang;
+const language = document.documentElement.lang.startsWith("en") ? "en" : document.documentElement.lang;
 const messages = copy[language];
 const root = document.querySelector(".international-card");
 const form = root.querySelector("form");
@@ -73,6 +73,7 @@ let selection = 0;
 let eligible = "";
 let widget;
 let token = "";
+button.disabled = true;
 let busy = false;
 let submitted = false;
 let challengeScript;
@@ -178,7 +179,8 @@ practice.addEventListener("change", async () => {
   try { sessionStorage.setItem("medipath-practice-country", country); } catch {}
   clearChallenge();
   eligible = "";
-  form.hidden = true;
+  form.hidden = false;
+  button.disabled = true;
   offerText.hidden = true;
   fields.countryConfirmed.checked = false;
   fields.agreements.checked = false;
@@ -206,6 +208,7 @@ practice.addEventListener("change", async () => {
     root.querySelector("[data-terms]").href = legalUrl(approved.termsUrl);
     root.querySelector("[data-privacy]").href = legalUrl(approved.privacyUrl);
     form.hidden = false;
+    button.disabled = false;
     offerText.hidden = false;
     status.textContent = environment === "live" ? messages.live : messages.preview;
     widget = window.turnstile.render(form.querySelector("[data-turnstile]"), {
@@ -219,7 +222,8 @@ practice.addEventListener("change", async () => {
     eligible = country;
   } catch {
     if (request !== selection) return;
-    form.hidden = true;
+    form.hidden = false;
+    button.disabled = true;
     offerText.hidden = true;
     status.textContent = messages.unavailable;
   }
@@ -256,7 +260,7 @@ form.addEventListener("submit", async event => {
     doctorName: value("doctorName"),
     email: value("email"),
     practiceCountry: eligible,
-    practiceCountryConfirmed: fields.countryConfirmed.checked,
+    practiceCountryConfirmed: Boolean(eligible && eligible === practice.value),
     turnstileToken: token,
     ...attribution(),
     international: {
@@ -308,7 +312,7 @@ form.addEventListener("submit", async event => {
     feedback.textContent = messages.failed;
   } finally {
     busy = false;
-    button.disabled = false;
+    button.disabled = !eligible;
     practice.disabled = submitted;
     token = "";
     if (widget !== undefined) window.turnstile.reset(widget);

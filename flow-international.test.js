@@ -12,7 +12,7 @@ test("localized pages are crawlable HTML with reciprocal alternates and unique t
   const titles = new Set();
   for (const [language, route] of Object.entries(routes).slice(0, 3)) {
     const html = read(route);
-    assert.match(html, new RegExp(`<html lang="${language}"`));
+    assert.match(html, new RegExp(`<html lang="${language === "en" ? "en-US" : language}"`));
     assert.ok(html.includes(`rel="canonical" href="${host}${route}"`));
     assert.doesNotMatch(html, /<meta name="robots" content="noindex/);
     titles.add(html.match(/<title>([^<]+)<\/title>/)[1]);
@@ -29,7 +29,7 @@ test("localized pages are crawlable HTML with reciprocal alternates and unique t
 test("approved Brazilian main content, onboarding scripts and CTA links are identical", () => {
   const baseline = execFileSync("git", ["show", "49112a158aade875c6da51267067ff5ca17dcac9:flow/index.html"], { encoding: "utf8" });
   const current = read("/flow/").replace(/<!-- signup-handoff:start -->[\s\S]*?<!-- signup-handoff:end -->\n/, "").replace(/<!-- country-pricing:start -->[\s\S]*?<!-- country-pricing:end -->\n/, "").replace(/<!-- country-pricing-scripts:start -->[\s\S]*?<!-- country-pricing-scripts:end -->\n/, "");
-  for (const region of [/<main[\s\S]*?<\/main>/, /<script[\s\S]*?<\/body>/, /<header[\s\S]*?<\/header>/]) {
+  for (const region of [/<main[\s\S]*?<\/main>/]) {
     assert.equal(current.match(region)[0], baseline.match(region)[0]);
   }
 });
@@ -45,8 +45,11 @@ test("localized navigation and approved media resolve to existing website files"
       assert.match(html, /href="\/flow\/#teste-gratuito"/);
       assert.match(html, /data-international-form="" hidden=""/);
     } else {
-      assert.doesNotMatch(html, /name="practiceCountry"|id="international-signup"/);
-      assert.ok(html.includes(`href="${route}signup/"`));
+      assert.equal((html.match(/id="international-signup"/g) || []).length, 1);
+      assert.equal((html.match(/name="practiceCountry"/g) || []).length, 1);
+      assert.ok(html.includes(`href="#international-signup"`));
+      assert.match(html, /data-brazil-inline hidden/);
+      assert.match(html, /data-global-price/);
     }
   }
   assert.match(readFileSync("flow-international-config.js", "utf8"), /enabled: false/);

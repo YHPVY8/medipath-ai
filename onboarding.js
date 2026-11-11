@@ -142,7 +142,9 @@
       }
     : {};
   const turnstileSlot = document.querySelector("[data-turnstile-slot]");
-  let currentLanguage = document.documentElement.lang.startsWith("en") ? "en" : "pt";
+  const embeddedGlobal = Boolean(form?.closest('[data-brazil-inline]'));
+  copy.es = {"form.submitting":"Enviando registro…", "form.submit":"Comenzar prueba gratuita", "form.whatsappError":"Introduce un teléfono brasileño válido con código de área.", "form.error":"No pudimos completar el registro. Inténtalo de nuevo en unos minutos.", "form.turnstileRequired":"Completa la verificación de seguridad para continuar.", "form.turnstileError":"La verificación de seguridad ha caducado. Inténtalo de nuevo."};
+  let currentLanguage = document.documentElement.lang.startsWith("en") ? "en" : embeddedGlobal && document.documentElement.lang === "es" ? "es" : "pt";
   let turnstileToken = "";
   let turnstileWidgetId = null;
   let submitting = false;
@@ -154,7 +156,7 @@
 
   function applyLanguage(language) {
     currentLanguage = copy[language] ? language : "pt";
-    document.documentElement.lang = currentLanguage === "pt" ? "pt-BR" : "en";
+    if (!embeddedGlobal) document.documentElement.lang = currentLanguage === "pt" ? "pt-BR" : "en";
     document.querySelectorAll("[data-preview-i18n]").forEach((element) => {
       element.textContent = translate(element.dataset.previewI18n);
     });
