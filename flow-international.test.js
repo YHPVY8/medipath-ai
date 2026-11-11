@@ -26,12 +26,45 @@ test("localized pages are crawlable HTML with reciprocal alternates and unique t
   assert.doesNotMatch(sitemap, /\/flow\/international\//);
 });
 
-test("approved Brazilian main content and original signup form are unchanged", () => {
+test("Brazilian Flow presents App Store and Web App access while preserving signup and login routes", () => {
   const baseline = execFileSync("git", ["show", "49112a158aade875c6da51267067ff5ca17dcac9:flow/index.html"], { encoding: "utf8" });
-  const current = read("/flow/").replace(/<!-- signup-handoff:start -->[\s\S]*?<!-- signup-handoff:end -->\n/, "").replace(/<!-- country-pricing:start -->[\s\S]*?<!-- country-pricing:end -->\n/, "").replace(/<!-- country-pricing-scripts:start -->[\s\S]*?<!-- country-pricing-scripts:end -->\n/, "");
-  for (const region of [/<main[\s\S]*?<\/main>/]) {
-    assert.equal(current.match(region)[0], baseline.match(region)[0]);
+  const current = read("/flow/");
+  const form = html => html.match(/<form class="access-form trial-signup-form"[\s\S]*?<\/form>/)?.[0];
+  const hero = html => html.match(/<section class="section flow-intro"[\s\S]*?<\/section>/)?.[0];
+  const footer = current.match(/<footer[\s\S]*?<\/footer>/)?.[0];
+  assert.ok(footer, "Brazilian Flow footer remains present");
+  assert.doesNotMatch(footer, /Idiomas da página do Flow|Cadastro internacional|>PT<|>EN<|>ES</);
+  for (const expected of ["Medipath Tecnologia Ltda. · CNPJ 68.777.766/0001-10", "Instagram Medipath", ">Recursos<", ">Suporte<", "aria-label=\"WhatsApp Medipath\""]) {
+    assert.ok(footer.includes(expected), `Brazilian Flow footer retains ${expected}`);
   }
+  assert.equal((current.match(/data-flow-language/g) || []).length, 1, "header language selector remains available");
+  assert.equal(form(current), form(baseline), "signup fields, validation, and submit markup stay unchanged");
+  assert.doesNotMatch(current, /data-country-pricing|flow-country-pricing|País de atuação|Selecionar país|Selecione seu país de atuação/, "the Brazilian landing page has no country-selection section or integration");
+  assert.equal((current.match(/class="flow-app-store-badge/g) || []).length, 1, "exactly one App Store badge is rendered");
+  assert.doesNotMatch(form(current), /flow-app-store-badge/, "badge is outside the signup form");
+  const currentHero = hero(current);
+  assert.match(currentHero, /14 dias de teste grátis nas duas opções/);
+  assert.ok(currentHero.indexOf("flow-app-store-badge") < currentHero.indexOf("flow-access-button"), "App Store option comes before Web App option");
+  assert.match(currentHero, /href="https:\/\/apps\.apple\.com\/br\/app\/medipath-flow\/id6824710389"[^>]*target="_blank" rel="noopener noreferrer" aria-label="Baixar o Medipath Flow na App Store"/);
+  assert.match(currentHero, /href="#teste-gratuito" class="button primary flow-access-button"[^>]*aria-label="Web App \/ Android \/ Computador"><span aria-hidden="true">Web App<\/span><span aria-hidden="true">Android \/ Computador<\/span><\/a>[\s\S]*?App para Android em breve/);
+  assert.doesNotMatch(currentHero, /Para iPhone|Pelo navegador|14 dias gratuitos nas duas opções|iPhone, Android ou computador|Começar teste gratuito/);
+  assert.equal((currentHero.match(/14 dias de teste grátis nas duas opções/g) || []).length, 1, "the shared trial reassurance appears once in the hero");
+  assert.doesNotMatch(currentHero, /Entrar no Flow/);
+  assert.match(current, /<a class="flow-header-login" href="https:\/\/app\.medipath-ai\.com\/" data-login-link/);
+  assert.match(baseline, /<a href="https:\/\/app\.medipath-ai\.com\/" class="family-text-link" data-login-link/);
+  assert.match(currentHero, /<img src="\/assets\/brand\/App-Store-Badge-Baixar-na-App-Store-pt-BR\.svg" alt="Baixar na App Store" \/>/);
+  for (const [selector, region] of [[/\<h1 id="flow-title"[\s\S]*?<\/h1>/, currentHero], [/\<p class="flow-hero-lead"[\s\S]*?<\/p>/, currentHero], [/\<figure class="flow-dashboard-frame"[\s\S]*?<\/figure>/, currentHero]]) {
+    assert.equal(region.match(selector)?.[0], hero(baseline).match(selector)?.[0], "headline, supporting copy, and dashboard remain unchanged");
+  }
+  const css = readFileSync("flow-preview.css", "utf8");
+  assert.match(css, /\.flow-brazil-access-page \.flow-trial-note\{[^}]*color:#0b3157[^}]*font-weight:700[^}]*text-align:center/);
+  assert.match(css, /\.flow-brazil-access-page \.flow-access-button\{[^}]*flex-direction:column[^}]*white-space:nowrap/);
+  assert.match(css, /\.flow-brazil-access-page \.flow-app-store-badge\{min-height:60px\}/);
+  assert.match(css, /\.flow-brazil-access-page \.flow-app-store-badge img\{height:60px\}/);
+  assert.match(css, /\.flow-brazil-access-page \.flow-access-button\{[^}]*height:60px/);
+  assert.match(css, /\.flow-brazil-access-page \.flow-intro\{grid-template-areas:"title" "lead" "visual" "note" "actions"\}/);
+  assert.match(css, /\.flow-brazil-access-page \.flow-access-options\{[^}]*grid-template-columns:minmax\(0,1fr\)/);
+  assert.match(css, /@media\(min-width:761px\)[\s\S]*\.flow-brazil-access-page \.flow-access-options\{grid-template-columns:repeat\(2,minmax\(0,1fr\)/);
 });
 
 test("localized navigation and approved media resolve to existing website files", () => {
@@ -53,6 +86,12 @@ test("localized navigation and approved media resolve to existing website files"
     }
   }
   assert.match(readFileSync("flow-international-config.js", "utf8"), /enabled: false/);
+  for (const route of ["/en/flow/", "/es/flow/"]) {
+    const html = read(route);
+    assert.match(html, /flow-international-config\.js/);
+    assert.match(html, /flow-international\.js/);
+    assert.match(html, /name="practiceCountry"/);
+  }
   assert.match(read("/flow/international/"), /name="robots" content="noindex, follow"/);
 });
 

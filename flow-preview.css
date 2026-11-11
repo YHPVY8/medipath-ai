@@ -10,7 +10,7 @@
 .flow-page .flow-intro{
   display:grid;
   grid-template-columns:minmax(0,1fr);
-  grid-template-areas:"title" "lead" "visual" "actions" "note";
+  grid-template-areas:"title" "lead" "visual" "actions" "note" "app-store";
   justify-items:center;
   gap:0;
   padding-top:26px;
@@ -25,6 +25,15 @@
 .flow-page .flow-hero-actions .button{display:inline-flex;justify-content:center;align-items:center;min-height:50px;padding:13px 18px;background:#098b98;border-radius:9px;box-shadow:none;font-size:.94rem;font-weight:650;text-align:center}
 .flow-page .flow-hero-actions .family-text-link{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:8px 10px;color:#087c88;font-size:.9rem;font-weight:600}
 .flow-page .flow-trial-note{grid-area:note;width:100%;max-width:420px;margin:4px 0 0;color:#506674;font-size:.82rem;line-height:1.45;text-align:center}
+
+.flow-brazil-access-page .flow-header-login{display:inline-flex;align-items:center;justify-content:center;min-height:38px;color:#087c88;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap}
+.flow-brazil-access-page .flow-intro{grid-template-areas:"title" "lead" "visual" "note" "actions"}
+.flow-brazil-access-page .flow-access-options{grid-area:actions;display:grid;grid-template-columns:minmax(0,1fr);gap:16px;width:100%;max-width:560px;margin:0}
+.flow-brazil-access-page .flow-access-option{display:flex;min-width:0;flex-direction:column;align-items:flex-start}
+.flow-brazil-access-page .flow-access-description{margin:7px 0 0;color:#506674;font-size:.8rem;line-height:1.4}
+.flow-brazil-access-page .flow-access-button{display:flex;width:100%;height:60px;min-height:60px;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:10px 16px;background:#098b98;border-radius:9px;box-shadow:none;color:#fff;font-size:.94rem;font-weight:650;line-height:1.18;text-align:center;text-decoration:none;white-space:nowrap}
+.flow-brazil-access-page .flow-app-store-badge{min-height:50px;margin:0}
+.flow-brazil-access-page .flow-trial-note{grid-area:note;width:100%;max-width:620px;margin:0 0 12px;color:#0b3157;font-size:.84rem;font-weight:700;line-height:1.45;text-align:center}
 
 .flow-page .flow-questions{width:min(760px,calc(100% - 36px));padding-top:4px;padding-bottom:30px}
 .flow-page .flow-video-launch:focus-visible{outline:3px solid #0b3157;outline-offset:3px}
@@ -52,6 +61,11 @@
 .flow-page .footer-links{display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center}
 .flow-page .footer-links a{display:inline-flex;align-items:center;min-height:36px;font-size:.78rem}
 .flow-page .footer-whatsapp svg{display:block;width:22px;height:22px;flex:none}
+.flow-page .flow-app-store-badge{display:inline-flex;width:max-content;max-width:100%;min-height:44px;align-items:center;line-height:0}
+.flow-page .flow-app-store-badge img{display:block;width:auto;height:40px;max-width:100%;padding:0;object-fit:contain;object-position:center}
+.flow-page .flow-app-store-badge:focus-visible{outline:2px solid #0b3157;outline-offset:4px;border-radius:4px}
+.flow-brazil-access-page .flow-app-store-badge{min-height:60px}
+.flow-brazil-access-page .flow-app-store-badge img{height:60px}
 
 @media(min-width:761px){
  .flow-page .section{width:min(1160px,calc(100% - 64px))}
@@ -68,9 +82,17 @@
  .flow-page .flow-hero-actions .button{min-width:205px}
  .flow-page .flow-hero-actions .family-text-link{padding:8px 5px}
  .flow-page .flow-trial-note{text-align:left}
+ .flow-brazil-access-page .flow-access-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,26px);max-width:620px}
+ .flow-brazil-access-page .flow-access-option{min-height:96px}
+ .flow-brazil-access-page .flow-trial-note{max-width:620px;text-align:center}
  .flow-page .flow-questions{padding-top:4px;padding-bottom:42px}
  .flow-question-panel h2{font-size:1.5rem}
  .flow-video-launch{width:min(100%,260px)}
  .flow-video-player video{width:min(100%,270px)}
  .flow-page .footer-primary{grid-template-columns:1fr auto 1.2fr;gap:26px}
+}
+
+@media(max-width:760px){
+ .flow-brazil-access-page .flow-header-login{order:3;min-height:36px;margin-left:0;font-size:.76rem}
+ .flow-brazil-access-page .flow-access-options{gap:14px}
 }

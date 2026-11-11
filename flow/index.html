@@ -28,12 +28,13 @@
     <link rel="stylesheet" href="/product.css?v=20260901-approved-release" />
   <link rel="stylesheet" href="/family.css" />
 <link rel="stylesheet" href="/flow-preview.css" />
-<link rel="stylesheet" href="/flow-country-pricing.css"><link rel="stylesheet" href="/flow-international.css">
+<link rel="stylesheet" href="/flow-international.css">
 </head>
-  <body class="trial-preview flow-page">
+  <body class="trial-preview flow-page flow-brazil-access-page">
 <header class="master-header">
   <a class="master-logo master-logo-flow" href="/" aria-label="Medipath.AI — início"><img src="/assets/brand/Medipath-Flow-Primary-Horizontal.svg" alt="Medipath Flow" /></a>
   <nav class="master-nav" aria-label="Produtos Medipath"><a href="/cases/" >Cases</a><a href="/flow/" aria-current="page">Flow</a><a href="/solucoes/"  data-family-en="Solutions">Soluções</a></nav>
+  <a class="flow-header-login" href="https://app.medipath-ai.com/" data-login-link data-family-en="Log in" aria-label="Entrar no Medipath Flow">Entrar</a>
   <label class="flow-language-control"><span class="sr-only">Selecionar idioma</span><select aria-label="Selecionar idioma" data-flow-language><option value="/flow/" aria-label="Português (Brasil)" selected>PT</option><option value="/en/flow/" aria-label="English">EN</option><option value="/es/flow/" aria-label="Español">ES</option></select></label>
 </header>
 
@@ -42,11 +43,16 @@
         <div class="flow-hero-copy">
           <h1 id="flow-title" data-family-en="What if your procedures practically organized themselves?">E se seus procedimentos praticamente se organizassem sozinhos?</h1>
           <p class="flow-hero-lead" data-family-en="Organize and follow your medical procedures in one app.">Organize e acompanhe seus procedimentos médicos em um único aplicativo.</p>
-          <div class="flow-hero-actions">
-            <a href="#teste-gratuito" class="button primary" data-family-en="Start free trial">Começar teste gratuito</a>
-            <a href="https://app.medipath-ai.com/" class="family-text-link" data-login-link data-family-en="Log in to Flow">Entrar no Flow</a>
+          <p class="flow-trial-note" data-family-en="14 days free in both options.">14 dias de teste grátis nas duas opções</p>
+          <div class="flow-access-options" aria-label="Opções para acessar o Medipath Flow">
+            <div class="flow-access-option">
+              <a class="flow-app-store-badge" href="https://apps.apple.com/br/app/medipath-flow/id6824710389" target="_blank" rel="noopener noreferrer" aria-label="Baixar o Medipath Flow na App Store"><img src="/assets/brand/App-Store-Badge-Baixar-na-App-Store-pt-BR.svg" alt="Baixar na App Store" /></a>
+            </div>
+            <div class="flow-access-option">
+              <a href="#teste-gratuito" class="button primary flow-access-button" data-family-en="Web App / Android / Computer" aria-label="Web App / Android / Computador"><span aria-hidden="true">Web App</span><span aria-hidden="true">Android / Computador</span></a>
+              <p class="flow-access-description" data-family-en="Android app coming soon">App para Android em breve</p>
+            </div>
           </div>
-          <p class="flow-trial-note" data-family-en="14 days free. No credit card required.">14 dias gratuitos. Sem cartão de crédito.</p>
         </div>
         <figure class="flow-dashboard-frame">
           <img src="/assets/flow-v2/dashboard.png" width="603" height="1304" alt="Painel completo do Medipath Flow, com Dashboard, Pendentes, Agendados e Concluídos na navegação inferior" fetchpriority="high" />
@@ -96,14 +102,6 @@
       </section>
 
 
-<!-- country-pricing:start -->
-<section class="section country-pricing" data-country-pricing aria-label="País de atuação">
-<label for="pricing-country">País de atuação</label>
-<select id="pricing-country" data-pricing-country><option value="">Selecionar país</option></select>
-<p>Selecione seu país de atuação para consultar o plano. A localização aproximada é apenas uma sugestão.</p><p data-country-quote role="status" aria-live="polite">Selecionar país</p>
-<a data-country-cta hidden></a>
-</section>
-<!-- country-pricing:end -->
       <section class="section pricing-section conversion-section" id="plano" aria-labelledby="conversion-title">
         <div class="pricing-copy conversion-heading">
           <p class="eyebrow" data-preview-i18n="pricing.eyebrow">Plano</p>
@@ -242,8 +240,6 @@
           </a>
         </div>
         <div class="footer-links">
-          <nav aria-label="Idiomas da página do Flow"><a href="/flow/" lang="pt-BR" hreflang="pt-BR" aria-current="page">PT</a><a href="/en/flow/" lang="en" hreflang="en">EN</a><a href="/es/flow/" lang="es" hreflang="es">ES</a></nav>
-          <a href="/flow/international/">Cadastro internacional</a>
           <a href="/recursos/">Recursos</a>
           <a href="/suporte/" data-i18n="footer.support">Suporte</a>
           <a
@@ -266,7 +262,6 @@
     <script src="/pricing-tabs.js?v=20260903-preview"></script>
   <script src="/family.js"></script>
 <script src="/flow-tabs.js"></script>
-<!-- country-pricing-scripts:start --><script src="/flow-international-config.js" defer></script><script type="module" src="/flow-country-pricing.js"></script><!-- country-pricing-scripts:end -->
 <!-- signup-handoff:start --><script src="/signup-handoff.js" defer></script><!-- signup-handoff:end -->
 <script src="/signup-language-handoff.js" defer></script></body>
 </html>
