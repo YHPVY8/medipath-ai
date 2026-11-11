@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://medipath-ai.com/</loc></url>
-  <url><loc>https://medipath-ai.com/flow/</loc></url>
+  <url><loc>https://medipath-ai.com/flow/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://medipath-ai.com/flow/"/><xhtml:link rel="alternate" hreflang="en" href="https://medipath-ai.com/en/flow/"/><xhtml:link rel="alternate" hreflang="es" href="https://medipath-ai.com/es/flow/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://medipath-ai.com/flow/"/></url>
+  <url><loc>https://medipath-ai.com/en/flow/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://medipath-ai.com/flow/"/><xhtml:link rel="alternate" hreflang="en" href="https://medipath-ai.com/en/flow/"/><xhtml:link rel="alternate" hreflang="es" href="https://medipath-ai.com/es/flow/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://medipath-ai.com/flow/"/></url>
+  <url><loc>https://medipath-ai.com/es/flow/</loc><xhtml:link rel="alternate" hreflang="pt-BR" href="https://medipath-ai.com/flow/"/><xhtml:link rel="alternate" hreflang="en" href="https://medipath-ai.com/en/flow/"/><xhtml:link rel="alternate" hreflang="es" href="https://medipath-ai.com/es/flow/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://medipath-ai.com/flow/"/></url>
   <url><loc>https://medipath-ai.com/cases/</loc></url>
   <url><loc>https://medipath-ai.com/solucoes/</loc></url>
   <url><loc>https://medipath-ai.com/suporte/</loc></url>
