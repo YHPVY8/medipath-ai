@@ -22,3 +22,6 @@
 /* Match the existing six-field signup grid, with country as a full-width row. */
 .international-signup form[data-international-form] > label { grid-column:1/-1; }
 .international-card .international-check input[type="checkbox"] { width:auto; min-width:0; flex:0 0 auto; margin-top:.25rem; }
+.flow-language-control select { font:inherit; font-size:inherit; font-weight:inherit; color:inherit; background:transparent; border:0; border-radius:6px; padding:.4rem .55rem; min-height:36px; cursor:pointer; }
+.flow-language-control select:hover,.flow-language-control select:focus-visible { color:#087381; outline:1px solid #087381; }
+@media(max-width:600px){.master-header{flex-wrap:wrap}.flow-language-control{margin-left:auto}}
