@@ -22,6 +22,15 @@
 /* Match the existing six-field signup grid, with country as a full-width row. */
 .international-signup form[data-international-form] > label { grid-column:1/-1; }
 .international-card .international-check input[type="checkbox"] { width:auto; min-width:0; flex:0 0 auto; margin-top:.25rem; }
-.flow-language-control select { font:inherit; font-size:inherit; font-weight:inherit; color:inherit; background:transparent; border:0; border-radius:6px; padding:.4rem .55rem; min-height:36px; cursor:pointer; }
-.flow-language-control select:hover,.flow-language-control select:focus-visible { color:#087381; outline:1px solid #087381; }
-@media(max-width:600px){.master-header{flex-wrap:wrap}.flow-language-control{margin-left:auto}}
+.flow-language-control { position:relative; display:inline-flex; flex:0 0 auto; align-items:center; margin:0; color:#506674; }
+.flow-language-control .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); clip-path:inset(50%); white-space:nowrap; border:0; }
+.flow-language-control select { display:block; width:auto; min-width:0; min-height:0; margin:0; padding:0 11px 0 0; appearance:none; -webkit-appearance:none; -moz-appearance:none; border:0; border-radius:0; background:transparent; color:inherit; font-family:Inter,sans-serif; font-size:.85rem; font-weight:500; line-height:1.5; cursor:pointer; }
+.flow-language-control::after { content:""; position:absolute; top:50%; right:1px; width:0; height:0; border-top:3px solid currentColor; border-right:3px solid transparent; border-left:3px solid transparent; transform:translateY(-35%); pointer-events:none; }
+.flow-language-control:hover { color:#087381; }
+.flow-language-control select:focus-visible { outline:2px solid #087381; outline-offset:3px; }
+@media(max-width:760px){
+ .flow-page .master-header { flex-wrap:wrap; }
+ .flow-page .master-nav { order:3; width:auto; flex:1 1 auto; min-width:0; }
+ .flow-page .flow-language-control { order:3; flex:0 0 auto; margin-left:auto; }
+ .flow-page .flow-language-control select { font-size:.76rem; }
+}
