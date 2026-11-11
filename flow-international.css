@@ -18,3 +18,7 @@
 .international-signup [data-global-price] { font-size:2rem; font-weight:700; }
 
 .international-signup [data-offer] { display:none; }
+
+/* Match the existing six-field signup grid, with country as a full-width row. */
+.international-signup form[data-international-form] > label { grid-column:1/-1; }
+.international-card .international-check input[type="checkbox"] { width:auto; min-width:0; flex:0 0 auto; margin-top:.25rem; }

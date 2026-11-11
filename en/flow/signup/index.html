@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="/family.css">
 <link rel="stylesheet" href="/flow-preview.css">
 
-    
-    
+
+
     <link rel="stylesheet" href="/flow-international.css">
 <meta name="robots" content="noindex, follow"></head><body class="trial-preview flow-page flow-international-page"><header class="master-header">
   <a class="master-logo master-logo-flow" href="/" aria-label="Medipath.AI"><img src="/assets/brand/Medipath-Flow-Primary-Horizontal.svg" alt="Medipath Flow"></a>
@@ -31,23 +31,23 @@
 </header><main><section class="section pricing-section conversion-section international-signup" id="international-signup" aria-labelledby="international-title">
  <div class="pricing-copy conversion-heading"><h1>Start Free Trial</h1></div>
  <div class="international-card">
-   <label>Country<select name="practiceCountry" required=""><option value="">Choose a country</option></select></label>
+
    <p data-signup-status="" role="status">International registration is currently closed.</p>
    <p data-offer="" hidden=""></p>
    <p><a href="/flow/#teste-gratuito">Practise in Brazil? Open the Brazilian signup form.</a></p>
-   <form method="post" data-international-form="" hidden="">
+   <form method="post" data-international-form="" hidden=""><label>Country<select name="practiceCountry" required=""><option value="">Choose a country</option></select></label>
     <div class="international-fields">
-    <label>Physician name<input name="doctorName" autocomplete="name" minlength="2" maxlength="120" required=""></label>
+    <label>Full Name<input name="doctorName" autocomplete="name" minlength="2" maxlength="120" required=""></label>
     <label>Email<input name="email" type="email" autocomplete="email" maxlength="254" required=""></label>
-    <label>Phone country<select name="phoneCountry" required=""><option value="">Choose a country</option></select></label>
-    <label>Phone or WhatsApp<input name="phone" type="tel" autocomplete="tel" maxlength="100" required=""></label>
-    <label>Professional registration number<input name="registration" maxlength="64" required=""></label>
-    <label>Issuing country<select name="issuingCountry" required=""><option value="">Choose a country</option></select></label>
-    <label>Licensing jurisdiction (if applicable)<input name="jurisdiction" maxlength="100"></label>
-    <label>Date format region<select name="dateRegion" required=""><option>BR</option><option>US</option><option>GB</option><option>ES</option><option>MX</option><option>PT</option></select></label>
+
+    <label>City<input name="city" maxlength="100" required></label><label>State / Region<input name="state" maxlength="100"></label><label>Specialty<input name="specialty" maxlength="120"></label><label>WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" maxlength="100" required=""></label>
+
+
+
+
     </div>
     <p data-agreement-links=""><a data-terms="" href="/termos-de-uso/">Terms of Use</a> · <a data-privacy="" href="/politica-de-privacidade/">Privacy Policy</a></p>
-    <label class="international-check"><input name="countryConfirmed" type="checkbox" required=""> I confirm that this is my practice country.</label>
+    <input name="countryConfirmed" type="hidden" value="true">
     <label class="international-check"><input name="agreements" type="checkbox" required=""> I accept the Terms of Use and Privacy Policy.</label>
     <div data-turnstile=""></div>
     <button class="button primary" type="submit">Request trial access</button>

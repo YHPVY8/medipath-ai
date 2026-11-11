@@ -32,24 +32,24 @@
     <main id="top"><section class="section pricing-section conversion-section international-signup" id="international-signup" aria-labelledby="international-title">
  <div class="pricing-copy conversion-heading"><h1 id="international-title">Consulte a disponibilidade no seu país de atuação</h1><p>Escolha o país onde você exerce a medicina. O idioma do Flow pode ser diferente.</p></div>
  <div class="international-card">
-   <label>País<select name="practiceCountry" required=""><option value="">Selecione um país</option></select></label>
+
    <p data-signup-status="" role="status">O cadastro internacional está fechado no momento.</p>
    <p data-offer="" hidden=""></p>
    <p><a href="/flow/#teste-gratuito">Atua no Brasil? Abra o formulário brasileiro.</a></p>
 
-   <form method="post" data-international-form="" hidden="">
+   <form method="post" data-international-form="" hidden=""><label>País<select name="practiceCountry" required=""><option value="">Selecione um país</option></select></label>
     <div class="international-fields">
     <label>Nome do médico<input name="doctorName" autocomplete="name" minlength="2" maxlength="120" required=""></label>
     <label>E-mail<input name="email" type="email" autocomplete="email" maxlength="254" required=""></label>
-    <label>País do telefone<select name="phoneCountry" required=""><option value="">Selecione um país</option></select></label>
-    <label>Telefone ou WhatsApp<input name="phone" type="tel" autocomplete="tel" maxlength="100" required=""></label>
-    <label>Número do registro profissional<input name="registration" maxlength="64" required=""></label>
-    <label>País emissor<select name="issuingCountry" required=""><option value="">Selecione um país</option></select></label>
-    <label>Jurisdição do registro (se aplicável)<input name="jurisdiction" maxlength="100"></label>
-    <label>Região do formato de data<select name="dateRegion" required=""><option>BR</option><option>US</option><option>GB</option><option>ES</option><option>MX</option><option>PT</option></select></label>
+
+    <label>Cidade<input name="city" maxlength="100" required></label><label>Estado / Região<input name="state" maxlength="100"></label><label>Especialidade<input name="specialty" maxlength="120"></label><label>WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" maxlength="100" required=""></label>
+
+
+
+
     </div>
     <p data-agreement-links=""><a data-terms="" href="/termos-de-uso/">Termos de Uso</a> · <a data-privacy="" href="/politica-de-privacidade/">Política de Privacidade</a></p>
-    <label class="international-check"><input name="countryConfirmed" type="checkbox" required=""> Confirmo que este é meu país de atuação.</label>
+    <input name="countryConfirmed" type="hidden" value="true">
     <label class="international-check"><input name="agreements" type="checkbox" required=""> Aceito os Termos de Uso e a Política de Privacidade.</label>
     <div data-turnstile=""></div>
     <button class="button primary" type="submit">Solicitar acesso de teste</button>

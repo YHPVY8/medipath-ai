@@ -5,14 +5,14 @@ const copy = {
     closed: "International registration is currently closed.",
     checking: "Checking availability…",
     unavailable: "Registration is unavailable for this practice country.",
-    live: "Eligible doctors receive a 14-day Flow trial after verifying their email and signing in. A subscription starts billing immediately if purchased and renews monthly until canceled.",
-    preview: "Internal preview only. Eligible doctors receive a 14-day Flow trial after verifying their email and signing in. A subscription, if chosen, starts billing immediately and renews monthly until canceled.",
+    live: "Eligible doctors receive a 14-day Flow trial when their workspace is created. A subscription starts billing immediately if purchased and renews monthly until canceled.",
+    preview: "Internal preview only. Eligible doctors receive a 14-day Flow trial when their workspace is created. A subscription, if chosen, starts billing immediately and renews monthly until canceled.",
     price: "{price} USD per month",
     sent: "If registration can proceed, check your email for instructions. If you already have an account, sign in or use account recovery.",
     invalid: "Check the highlighted field.",
     denied: "Registration is unavailable or the agreement versions have changed. Reload this page before trying again.",
-    invalidPhone: "Enter a valid phone or WhatsApp number for the selected phone country.",
-    invalidDetails: "Check the registration and contact fields before trying again.",
+    invalidPhone: "Enter a valid phone or WhatsApp number for the selected country.",
+    invalidDetails: "Check the contact fields before trying again.",
     failed: "We could not submit your request. Check the form and try again.",
     challenge: "Complete the security check before submitting.",
   },
@@ -20,14 +20,14 @@ const copy = {
     closed: "El registro internacional está cerrado por ahora.",
     checking: "Consultando disponibilidad…",
     unavailable: "El registro no está disponible para este país.",
-    live: "Los médicos elegibles reciben 14 días de prueba tras verificar su correo e iniciar sesión. Si contratas la suscripción, el cobro comienza de inmediato y se renueva cada mes hasta que la canceles.",
-    preview: "Vista previa interna. Los médicos elegibles reciben 14 días de prueba después de verificar su correo e iniciar sesión. Si contratas la suscripción, el cobro comienza de inmediato y se renueva cada mes hasta que la canceles.",
+    live: "Los médicos elegibles reciben 14 días de prueba al crear su espacio de trabajo. Si contratas la suscripción, el cobro comienza de inmediato y se renueva cada mes hasta que la canceles.",
+    preview: "Vista previa interna. Los médicos elegibles reciben 14 días de prueba al crear su espacio de trabajo. Si contratas la suscripción, el cobro comienza de inmediato y se renueva cada mes hasta que la canceles.",
     price: "{price} USD al mes",
     sent: "Si el registro puede continuar, recibirás instrucciones por correo. Si ya tienes una cuenta, inicia sesión o recupera el acceso.",
     invalid: "Revisa el campo indicado.",
     denied: "El registro no está disponible o los textos legales han cambiado. Actualiza la página antes de volver a intentarlo.",
     invalidPhone: "Introduce un teléfono o WhatsApp válido para el país del número.",
-    invalidDetails: "Revisa los datos de contacto y del registro profesional antes de volver a intentarlo.",
+    invalidDetails: "Revisa los datos de contacto  antes de volver a intentarlo.",
     failed: "No pudimos enviar tu solicitud. Revisa el formulario e inténtalo de nuevo.",
     challenge: "Completa la verificación de seguridad antes de enviar.",
   },
@@ -35,14 +35,14 @@ const copy = {
     closed: "O cadastro internacional está fechado no momento.",
     checking: "Consultando disponibilidade…",
     unavailable: "O cadastro não está disponível para este país.",
-    live: "Médicos elegíveis recebem 14 dias de teste após confirmar o e-mail e entrar no Flow. Se contratar a assinatura, a cobrança começa na hora e se renova mensalmente até o cancelamento.",
-    preview: "Prévia interna. Médicos elegíveis recebem 14 dias de teste após confirmar o e-mail e entrar no Flow. Se contratar a assinatura, a cobrança começa na hora e se renova mensalmente até o cancelamento.",
+    live: "Médicos elegíveis recebem 14 dias de teste na criação do espaço de trabalho. Se contratar a assinatura, a cobrança começa na hora e se renova mensalmente até o cancelamento.",
+    preview: "Prévia interna. Médicos elegíveis recebem 14 dias de teste na criação do espaço de trabalho. Se contratar a assinatura, a cobrança começa na hora e se renova mensalmente até o cancelamento.",
     price: "{price} USD por mês",
     sent: "Se o cadastro puder prosseguir, você receberá instruções por e-mail. Se já tiver uma conta, entre ou recupere o acesso.",
     invalid: "Confira o campo destacado.",
     denied: "O cadastro está indisponível ou os termos mudaram. Atualize a página antes de tentar novamente.",
     invalidPhone: "Informe um telefone ou WhatsApp válido para o país do número.",
-    invalidDetails: "Revise os dados de contato e do registro profissional antes de tentar de novo.",
+    invalidDetails: "Revise os dados de contato  antes de tentar de novo.",
     failed: "Não foi possível enviar sua solicitação. Confira o formulário e tente de novo.",
     challenge: "Conclua a verificação de segurança antes de enviar.",
   },
@@ -119,18 +119,13 @@ function record(event, country) {
 const names = new Intl.DisplayNames([language], { type: "region" });
 const countryOptions = Object.keys(countries).map(code => [code, names.of(code)]);
 countryOptions.sort((a, b) => a[1].localeCompare(b[1], language));
-for (const select of [practice, fields.phoneCountry, fields.issuingCountry]) {
+for (const select of [practice]) {
   for (const [code, name] of countryOptions) {
-    const suffix = select === fields.phoneCountry && countries[code] ? ` (${countries[code]})` : "";
+    const suffix = "";
     select.add(new Option(name + suffix, code));
   }
 }
-for (const option of fields.dateRegion.options) {
-  const code = option.value;
-  option.value = code;
-  option.textContent = names.of(code);
-}
-fields.dateRegion.value = "";
+
 for (const link of document.querySelectorAll('.flow-languages a, a[href="/flow/international/"], a[href="/flow/#teste-gratuito"]')) {
   const url = new URL(link.href);
   for (const key of [...Object.keys(queryFields), "ref"]) {
@@ -202,10 +197,7 @@ practice.addEventListener("change", async () => {
     offerText.textContent = messages.price.replace("{price}", price);
     await loadChallenge();
     if (request !== selection) return;
-    if (!fields.dateRegion.value) fields.dateRegion.value = [...fields.dateRegion.options].some(option => option.value === country) ? country : "US";
-    if (!fields.phoneCountry.value) fields.phoneCountry.value = country;
-    if (!fields.issuingCountry.value) fields.issuingCountry.value = country;
-    fields.phone.placeholder = countries[fields.phoneCountry.value] || "";
+    fields.whatsapp.placeholder = countries[country] || "";
     root.querySelector("[data-terms]").href = legalUrl(approved.termsUrl);
     root.querySelector("[data-privacy]").href = legalUrl(approved.privacyUrl);
     form.hidden = false;
@@ -230,7 +222,6 @@ practice.addEventListener("change", async () => {
   }
 });
 
-fields.phoneCountry.addEventListener("change", () => { fields.phone.placeholder = countries[fields.phoneCountry.value] || ""; });
 form.addEventListener("focusin", () => { if (eligible) record("signup_initiated", eligible); });
 form.addEventListener("invalid", event => {
   event.target.setCustomValidity(messages.invalid);
@@ -265,18 +256,11 @@ form.addEventListener("submit", async event => {
     ...(value("specialty") ? {specialty: value("specialty")} : {}),
     practiceCountry: eligible,
     practiceCountryConfirmed: Boolean(eligible && eligible === practice.value),
+    whatsapp: value("whatsapp"),
     turnstileToken: token,
     ...attribution(),
     international: {
       language,
-      dateRegion: value("dateRegion"),
-      phoneCountry: value("phoneCountry"),
-      phone: value("phone"),
-      registration: {
-        number: value("registration"),
-        issuingCountry: value("issuingCountry"),
-        ...(value("jurisdiction") ? { jurisdiction: value("jurisdiction") } : {}),
-      },
       agreements: {
         accepted: fields.agreements.checked,
         termsVersion: approved.termsVersion,
@@ -299,7 +283,7 @@ form.addEventListener("submit", async event => {
       const error = await response.json().catch(() => null);
       if (["invalid_phone", "phone_extension_not_supported", "unsupported_phone_country"].includes(error?.error)) {
         feedback.textContent = messages.invalidPhone;
-        fields.phone.focus();
+        fields.whatsapp.focus();
       } else if (response.status === 400 && error?.error !== "signup_agreements_outdated") {
         feedback.textContent = messages.invalidDetails;
       } else {

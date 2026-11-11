@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="/family.css">
 <link rel="stylesheet" href="/flow-preview.css">
 
-    
-    
+
+
     <link rel="stylesheet" href="/flow-international.css">
 <meta name="robots" content="noindex, follow"></head><body class="trial-preview flow-page flow-international-page"><header class="master-header">
   <a class="master-logo master-logo-flow" href="/" aria-label="Medipath.AI"><img src="/assets/brand/Medipath-Flow-Primary-Horizontal.svg" alt="Medipath Flow"></a>
@@ -31,23 +31,23 @@
 </header><main><section class="section pricing-section conversion-section international-signup" id="international-signup" aria-labelledby="international-title">
  <div class="pricing-copy conversion-heading"><h1>Comenzar prueba gratuita</h1></div>
  <div class="international-card">
-   <label>País donde ejerces<select name="practiceCountry" required=""><option value="">Selecciona un país</option></select></label>
+
    <p data-signup-status="" role="status">El registro internacional está cerrado por ahora.</p>
    <p data-offer="" hidden=""></p>
    <p><a href="/flow/#teste-gratuito">¿Ejerces en Brasil? Abre el formulario brasileño.</a></p>
-   <form method="post" data-international-form="" hidden="">
+   <form method="post" data-international-form="" hidden=""><label>País donde ejerces<select name="practiceCountry" required=""><option value="">Selecciona un país</option></select></label>
     <div class="international-fields">
-    <label>Nombre del médico<input name="doctorName" autocomplete="name" minlength="2" maxlength="120" required=""></label>
+    <label>Nombre completo<input name="doctorName" autocomplete="name" minlength="2" maxlength="120" required=""></label>
     <label>Correo electrónico<input name="email" type="email" autocomplete="email" maxlength="254" required=""></label>
-    <label>País del número de teléfono<select name="phoneCountry" required=""><option value="">Selecciona un país</option></select></label>
-    <label>Teléfono o WhatsApp<input name="phone" type="tel" autocomplete="tel" maxlength="100" required=""></label>
-    <label>Número de registro profesional<input name="registration" maxlength="64" required=""></label>
-    <label>País emisor<select name="issuingCountry" required=""><option value="">Selecciona un país</option></select></label>
-    <label>Jurisdicción del registro (si corresponde)<input name="jurisdiction" maxlength="100"></label>
-    <label>Región del formato de fecha<select name="dateRegion" required=""><option>BR</option><option>US</option><option>GB</option><option>ES</option><option>MX</option><option>PT</option></select></label>
+
+    <label>Ciudad<input name="city" maxlength="100" required></label><label>Estado / Región<input name="state" maxlength="100"></label><label>Especialidad<input name="specialty" maxlength="120"></label><label>WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" maxlength="100" required=""></label>
+
+
+
+
     </div>
     <p data-agreement-links=""><a data-terms="" href="/termos-de-uso/">Términos de uso</a> · <a data-privacy="" href="/politica-de-privacidade/">Política de privacidad</a></p>
-    <label class="international-check"><input name="countryConfirmed" type="checkbox" required=""> Confirmo que este es el país donde ejerzo.</label>
+    <input name="countryConfirmed" type="hidden" value="true">
     <label class="international-check"><input name="agreements" type="checkbox" required=""> Acepto los Términos de uso y la Política de privacidad.</label>
     <div data-turnstile=""></div>
     <button class="button primary" type="submit">Solicitar acceso de prueba</button>
