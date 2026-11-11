@@ -202,6 +202,7 @@ practice.addEventListener("change", async () => {
     offerText.textContent = messages.price.replace("{price}", price);
     await loadChallenge();
     if (request !== selection) return;
+    if (!fields.dateRegion.value) fields.dateRegion.value = [...fields.dateRegion.options].some(option => option.value === country) ? country : "US";
     if (!fields.phoneCountry.value) fields.phoneCountry.value = country;
     if (!fields.issuingCountry.value) fields.issuingCountry.value = country;
     fields.phone.placeholder = countries[fields.phoneCountry.value] || "";
@@ -259,6 +260,9 @@ form.addEventListener("submit", async event => {
   const payload = {
     doctorName: value("doctorName"),
     email: value("email"),
+    ...(value("city") ? {city: value("city")} : {}),
+    ...(value("state") ? {state: value("state")} : {}),
+    ...(value("specialty") ? {specialty: value("specialty")} : {}),
     practiceCountry: eligible,
     practiceCountryConfirmed: Boolean(eligible && eligible === practice.value),
     turnstileToken: token,

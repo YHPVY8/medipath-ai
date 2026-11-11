@@ -26,7 +26,7 @@ test("localized pages are crawlable HTML with reciprocal alternates and unique t
   assert.doesNotMatch(sitemap, /\/flow\/international\//);
 });
 
-test("approved Brazilian main content, onboarding scripts and CTA links are identical", () => {
+test("approved Brazilian main content and original signup form are unchanged", () => {
   const baseline = execFileSync("git", ["show", "49112a158aade875c6da51267067ff5ca17dcac9:flow/index.html"], { encoding: "utf8" });
   const current = read("/flow/").replace(/<!-- signup-handoff:start -->[\s\S]*?<!-- signup-handoff:end -->\n/, "").replace(/<!-- country-pricing:start -->[\s\S]*?<!-- country-pricing:end -->\n/, "").replace(/<!-- country-pricing-scripts:start -->[\s\S]*?<!-- country-pricing-scripts:end -->\n/, "");
   for (const region of [/<main[\s\S]*?<\/main>/]) {

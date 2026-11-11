@@ -9,14 +9,19 @@ http.createServer(async(req,res)=>{
   res.setHeader('Content-Type','text/javascript');
   if(req.headers.referer?.includes('fixture=1')){
    const agreement={termsVersion:'fixture-terms',privacyVersion:'fixture-privacy',termsUrl:'/termos-de-uso/',privacyUrl:'/politica-de-privacidade/'};
-   return res.end('window.MEDIPATH_INTERNATIONAL_PREVIEW='+JSON.stringify({enabled:true,hostname:'127.0.0.1',turnstileSiteKey:'fixture',eventsEnabled:true,suggestedCountry:'CA',agreements:{en:agreement,es:agreement,'pt-BR':agreement}})+';window.turnstile={render(el,o){o.callback("synthetic-token");return "widget"},remove(){},reset(){}};');
+   return res.end('window.MEDIPATH_INTERNATIONAL_PREVIEW='+JSON.stringify({enabled:true,hostname:'127.0.0.1',turnstileSiteKey:'fixture',eventsEnabled:true,agreements:{en:agreement,es:agreement,'pt-BR':agreement}})+';window.turnstile={render(el,o){o.callback("synthetic-token");return "widget"},remove(){},reset(){}};');
   }
+ }
+ if(url.pathname==='/api/public/visitor-country'){
+  const ref=new URL(req.headers.referer||'http://127.0.0.1:4175');
+  await new Promise(resolve=>setTimeout(resolve,ref.searchParams.get('late')==='1'?5000:0));
+  res.setHeader('Content-Type','application/json');return res.end(JSON.stringify({country:ref.searchParams.get('signal')||null}));
  }
  if(url.pathname==='/api/public/commercial/pricing'){res.setHeader('Content-Type','application/json');return res.end(JSON.stringify({standardDisplayedPrice:99,websiteVisible:true,emergencyPaused:false}));}
  if(url.pathname==='/api/public/commercial/international-offer'){
   const country=url.searchParams.get('country');
   res.setHeader('Content-Type','application/json');
-  if(!['US','MX','ES','PT','CA'].includes(country)){res.statusCode=404;return res.end('{"available":false}');}
+  if(!['AR','US','MX','ES','PT','CA'].includes(country)){res.statusCode=404;return res.end('{"available":false}');}
   return res.end(JSON.stringify({available:true,signupAvailable:true,environment:'sandbox',currency:'USD',monthlyAmountMinor:2400,trialDays:14}));
  }
  if(url.pathname==='/api/public/doctors/onboard'||url.pathname==='/api/public/website/international-event'){

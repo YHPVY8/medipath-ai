@@ -8,25 +8,19 @@ const language = document.documentElement.lang.startsWith('en') ? 'en-US' : 'es'
 const neutral = language === 'es' ? 'Selecciona tu país para consultar el plan.' : 'Choose your country to view the plan.';
 price.textContent = neutral;
 let manual = false, revision = 0;
-const safeFields = ['doctorName','email','phone','jurisdiction','city','state','specialty'];
-try {
- const draft = JSON.parse(sessionStorage.getItem('medipath-global-draft') || 'null');
- if(draft && Date.now()-draft.created >= 0 && Date.now()-draft.created < 300000) {
-  for(const name of safeFields) {
-   const input = document.querySelector(`[data-international-form] [name="${name}"]`);
-   if(input && typeof draft[name] === 'string' && draft[name].length <= 254) input.value=draft[name];
-  }
- }
-} catch {}
-for(const link of document.querySelectorAll('.flow-languages a')) link.addEventListener('click',()=>{
- const draft = {created:Date.now()};
- for(const name of safeFields) {const field=document.querySelector(`[data-international-form] [name="${name}"]`);if(field)draft[name]=field.value;}
- try {sessionStorage.setItem('medipath-global-draft',JSON.stringify(draft));}catch{}
- const url = new URL(link.href);url.hash='international-signup';link.href=url.href;
-});
 async function update() {
  const current = ++revision, selected=country.value;
+ // Switching country changes presentation only; preserve both modes' drafts.
+ const pairs=[['doctorName','full_name'],['email','email'],['city','city'],['state','state'],['specialty','specialty']];
+ const from=selected==='BR'?document.querySelector('[data-international-form]'):legacy;
+ const to=selected==='BR'?legacy:document.querySelector('[data-international-form]');
+ for(const [internationalName,brazilName]of pairs){
+  const source=from.querySelector(`[name="${selected==='BR'?internationalName:brazilName}"]`);
+  const target=to.querySelector(`[name="${selected==='BR'?brazilName:internationalName}"]`);
+  if(source?.value && target && !target.value && (internationalName!=='state' || selected!=='BR' || /^[a-z]{2}$/i.test(source.value)))target.value=source.value;
+ }
  legacy.hidden=selected!=='BR';body.hidden=selected==='BR';
+ document.querySelector('[data-signup-status]').hidden=selected==='BR';
  price.textContent=neutral;
  if(!selected)return;
  try {
@@ -45,7 +39,7 @@ async function update() {
 country.addEventListener('change',()=>{manual=true;void update();});
 void update();
 // A configured same-origin Cloudflare endpoint supplies country only, never precise location.
-const endpoint=window.MEDIPATH_INTERNATIONAL?.visitorCountryPath;
+const endpoint=(window.MEDIPATH_INTERNATIONAL ?? window.MEDIPATH_INTERNATIONAL_PREVIEW)?.visitorCountryPath ?? '/api/public/visitor-country';
 if(typeof endpoint==='string' && endpoint.startsWith('/') && !endpoint.startsWith('//')) {
  const initial=country.value;
  void fetch(endpoint,{cache:'no-store'}).then(r=>r.ok?r.json():null).then(signal=>{

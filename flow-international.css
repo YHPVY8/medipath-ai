@@ -16,3 +16,5 @@
 .international-signup [data-global-fields] { grid-column:1/-1; }
 .international-signup [data-brazil-inline] { margin-top:16px; }
 .international-signup [data-global-price] { font-size:2rem; font-weight:700; }
+
+.international-signup [data-offer] { display:none; }
