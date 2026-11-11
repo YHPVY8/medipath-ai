@@ -43,10 +43,13 @@ test("Brazilian Flow presents App Store and Web App access while preserving sign
   assert.equal((current.match(/class="flow-app-store-badge/g) || []).length, 1, "exactly one App Store badge is rendered");
   assert.doesNotMatch(form(current), /flow-app-store-badge/, "badge is outside the signup form");
   const currentHero = hero(current);
+  assert.match(current, /href="\/flow-preview\.css\?v=20261111-cta-layout-fix"/, "Brazilian page requests the corrected responsive stylesheet");
   assert.match(currentHero, /14 dias de teste grátis nas duas opções/);
+  assert.doesNotMatch(currentHero, /data-family-en="14 days free in both options\./, "the Brazilian trial message remains Portuguese regardless of saved language preference");
   assert.ok(currentHero.indexOf("flow-app-store-badge") < currentHero.indexOf("flow-access-button"), "App Store option comes before Web App option");
   assert.match(currentHero, /href="https:\/\/apps\.apple\.com\/br\/app\/medipath-flow\/id6824710389"[^>]*target="_blank" rel="noopener noreferrer" aria-label="Baixar o Medipath Flow na App Store"/);
-  assert.match(currentHero, /href="#teste-gratuito" class="button primary flow-access-button"[^>]*aria-label="Web App \/ Android \/ Computador"><span aria-hidden="true">Web App<\/span><span aria-hidden="true">Android \/ Computador<\/span><\/a>[\s\S]*?App para Android em breve/);
+  assert.match(currentHero, /href="#teste-gratuito" class="button primary flow-access-button"[^>]*aria-label="Web App \/ Android \/ Computador"><span aria-hidden="true">Web App<\/span><span class="flow-access-desktop-label" aria-hidden="true">Android \/ Computador<\/span><\/a>[\s\S]*?<p class="flow-access-devices">Android \/ Computador<\/p>\s*<p class="flow-access-description">App para Android em breve<\/p>/);
+  assert.doesNotMatch(currentHero, /Android app coming soon|data-family-en="Android app coming soon"/, "Brazilian Android availability text always remains in Portuguese");
   assert.doesNotMatch(currentHero, /Para iPhone|Pelo navegador|14 dias gratuitos nas duas opções|iPhone, Android ou computador|Começar teste gratuito/);
   assert.equal((currentHero.match(/14 dias de teste grátis nas duas opções/g) || []).length, 1, "the shared trial reassurance appears once in the hero");
   assert.doesNotMatch(currentHero, /Entrar no Flow/);
@@ -58,13 +61,13 @@ test("Brazilian Flow presents App Store and Web App access while preserving sign
   }
   const css = readFileSync("flow-preview.css", "utf8");
   assert.match(css, /\.flow-brazil-access-page \.flow-trial-note\{[^}]*color:#0b3157[^}]*font-weight:700[^}]*text-align:center/);
-  assert.match(css, /\.flow-brazil-access-page \.flow-access-button\{[^}]*flex-direction:column[^}]*white-space:nowrap/);
+  assert.match(css, /\.flow-brazil-access-page \.flow-access-button\{[^}]*height:60px[^}]*white-space:nowrap/);
   assert.match(css, /\.flow-brazil-access-page \.flow-app-store-badge\{min-height:60px\}/);
   assert.match(css, /\.flow-brazil-access-page \.flow-app-store-badge img\{height:60px\}/);
-  assert.match(css, /\.flow-brazil-access-page \.flow-access-button\{[^}]*height:60px/);
   assert.match(css, /\.flow-brazil-access-page \.flow-intro\{grid-template-areas:"title" "lead" "visual" "note" "actions"\}/);
-  assert.match(css, /\.flow-brazil-access-page \.flow-access-options\{[^}]*grid-template-columns:minmax\(0,1fr\)/);
-  assert.match(css, /@media\(min-width:761px\)[\s\S]*\.flow-brazil-access-page \.flow-access-options\{grid-template-columns:repeat\(2,minmax\(0,1fr\)/);
+  assert.match(css, /\.flow-brazil-access-page \.flow-access-options\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/, "mobile access controls use a two-column row");
+  assert.match(css, /@media\(min-width:761px\)[\s\S]*\.flow-brazil-access-page \.flow-access-options\{grid-template-columns:180px 190px;gap:10px/);
+  assert.match(css, /@media\(max-width:760px\)[\s\S]*\.flow-brazil-access-page \.flow-access-button \.flow-access-desktop-label\{display:none\}[\s\S]*\.flow-brazil-access-page \.flow-access-devices\{display:block\}/);
 });
 
 test("localized navigation and approved media resolve to existing website files", () => {

@@ -28,11 +28,13 @@
 
 .flow-brazil-access-page .flow-header-login{display:inline-flex;align-items:center;justify-content:center;min-height:38px;color:#087c88;font-size:.82rem;font-weight:600;text-decoration:none;white-space:nowrap}
 .flow-brazil-access-page .flow-intro{grid-template-areas:"title" "lead" "visual" "note" "actions"}
-.flow-brazil-access-page .flow-access-options{grid-area:actions;display:grid;grid-template-columns:minmax(0,1fr);gap:16px;width:100%;max-width:560px;margin:0}
-.flow-brazil-access-page .flow-access-option{display:flex;min-width:0;flex-direction:column;align-items:flex-start}
-.flow-brazil-access-page .flow-access-description{margin:7px 0 0;color:#506674;font-size:.8rem;line-height:1.4}
+.flow-brazil-access-page .flow-access-options{grid-area:actions;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;width:100%;max-width:420px;margin:0;align-items:start}
+.flow-brazil-access-page .flow-access-option{display:flex;min-width:0;flex-direction:column;align-items:stretch;text-align:center}
+.flow-brazil-access-page .flow-access-devices{display:none;margin:4px 0 0;color:#506674;font-size:.78rem;line-height:1.3;white-space:nowrap}
+.flow-brazil-access-page .flow-access-description{margin:3px 0 0;color:#506674;font-size:.72rem;line-height:1.3}
 .flow-brazil-access-page .flow-access-button{display:flex;width:100%;height:60px;min-height:60px;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:10px 16px;background:#098b98;border-radius:9px;box-shadow:none;color:#fff;font-size:.94rem;font-weight:650;line-height:1.18;text-align:center;text-decoration:none;white-space:nowrap}
-.flow-brazil-access-page .flow-app-store-badge{min-height:50px;margin:0}
+.flow-brazil-access-page .flow-access-button .flow-access-desktop-label{display:block}
+.flow-brazil-access-page .flow-app-store-badge{min-height:60px;margin:0;justify-content:center}
 .flow-brazil-access-page .flow-trial-note{grid-area:note;width:100%;max-width:620px;margin:0 0 12px;color:#0b3157;font-size:.84rem;font-weight:700;line-height:1.45;text-align:center}
 
 .flow-page .flow-questions{width:min(760px,calc(100% - 36px));padding-top:4px;padding-bottom:30px}
@@ -82,9 +84,9 @@
  .flow-page .flow-hero-actions .button{min-width:205px}
  .flow-page .flow-hero-actions .family-text-link{padding:8px 5px}
  .flow-page .flow-trial-note{text-align:left}
- .flow-brazil-access-page .flow-access-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,26px);max-width:620px}
- .flow-brazil-access-page .flow-access-option{min-height:96px}
- .flow-brazil-access-page .flow-trial-note{max-width:620px;text-align:center}
+ .flow-brazil-access-page .flow-access-options{grid-template-columns:180px 190px;gap:10px;width:max-content;max-width:100%;justify-content:start}
+ .flow-brazil-access-page .flow-access-devices{display:none}
+ .flow-brazil-access-page .flow-trial-note{max-width:380px;text-align:center}
  .flow-page .flow-questions{padding-top:4px;padding-bottom:42px}
  .flow-question-panel h2{font-size:1.5rem}
  .flow-video-launch{width:min(100%,260px)}
@@ -94,5 +96,11 @@
 
 @media(max-width:760px){
  .flow-brazil-access-page .flow-header-login{order:3;min-height:36px;margin-left:0;font-size:.76rem}
- .flow-brazil-access-page .flow-access-options{gap:14px}
+ .flow-brazil-access-page .flow-access-options{gap:8px;max-width:370px}
+ .flow-brazil-access-page .flow-access-option:nth-child(2){align-items:center}
+ .flow-brazil-access-page .flow-access-button{height:60px;min-height:60px;padding:8px 6px}
+ .flow-brazil-access-page .flow-access-button .flow-access-desktop-label{display:none}
+ .flow-brazil-access-page .flow-access-devices{display:block}
+ .flow-brazil-access-page .flow-app-store-badge{width:100%;justify-content:center}
+ .flow-brazil-access-page .flow-app-store-badge img{max-width:100%;height:60px}
 }
