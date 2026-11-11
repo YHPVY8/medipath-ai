@@ -42,6 +42,11 @@ async function poll(fn){for(let i=0;i<100;i++){try{const r=await fn();if(r)retur
   await poll(()=>ev('!document.querySelector("[data-international-form]").hidden'));
   assert.equal(await ev('document.querySelector("[name=doctorName]").value'),'Synthetic Example');
   assert.equal(await ev('document.querySelector("[name=countryConfirmed]").checked'),false);
+  await ev('document.querySelector("[name=email]").value="synthetic@example.test"');
+  await ev(`[...document.querySelectorAll('a')].find(a=>new URL(a.href).hash==='#teste-gratuito').click()`);
+  await poll(()=>ev('location.pathname==="/flow/" && document.querySelector("[name=full_name]")?.value==="Synthetic Example"'));
+  assert.equal(await ev('document.querySelector("[name=email]").value'),'synthetic@example.test');
+  assert.equal(await ev('sessionStorage.getItem("medipath-signup-handoff")'),null);
   console.log('PASS 16 mobile/desktop page checks, three tabs, single signup-country control, closed signup and legal draft sections');
  } finally { ws.close(); }
 })().catch(e=>{console.error(e);process.exitCode=1});
